@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#define DEMO_MODE 0
+#define AUTHORIZED 0
 
 @interface ViewController : UIViewController
 

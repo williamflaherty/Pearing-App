@@ -21,6 +21,19 @@
 		19D318E71867DD9200C34A5C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D318C91867DD9200C34A5C /* UIKit.framework */; };
 		19D318EF1867DD9200C34A5C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19D318ED1867DD9200C34A5C /* InfoPlist.strings */; };
 		19D318F11867DD9200C34A5C /* Pearing_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D318F01867DD9200C34A5C /* Pearing_AppTests.m */; };
+		19D318FC1867EF4700C34A5C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D318FB1867EF4700C34A5C /* LoginViewController.m */; };
+		19D318FF1867F28A00C34A5C /* login_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 19D318FE1867F28A00C34A5C /* login_bg.png */; };
+		19D319011867F3DE00C34A5C /* sign_up_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 19D319001867F3DE00C34A5C /* sign_up_button.png */; };
+		19DC5BC7186828AA0035EE30 /* InstagramLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DC5BC6186828AA0035EE30 /* InstagramLoginViewController.m */; };
+		19DC5BCA18682F130035EE30 /* GetStartedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DC5BC918682F130035EE30 /* GetStartedViewController.m */; };
+		19DC5BCC18682F7E0035EE30 /* insta_login_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 19DC5BCB18682F7E0035EE30 /* insta_login_bg.png */; };
+		19DC5BCE186831A60035EE30 /* get_started.png in Resources */ = {isa = PBXBuildFile; fileRef = 19DC5BCD186831A60035EE30 /* get_started.png */; };
+		19DC5BD11868CF380035EE30 /* ChooseImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DC5BD01868CF380035EE30 /* ChooseImagesViewController.m */; };
+		19DC5BD41868D15B0035EE30 /* ChooseImagesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DC5BD31868D15B0035EE30 /* ChooseImagesCell.m */; };
+		19DC5BD61868E0420035EE30 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 19DC5BD51868E0420035EE30 /* Splash.png */; };
+		19DC5BD81868EC910035EE30 /* pears_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 19DC5BD71868EC8D0035EE30 /* pears_login.png */; };
+		19DC5BDB186976970035EE30 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DC5BDA186976970035EE30 /* ImageCache.m */; };
+		19DC5BDD186A37030035EE30 /* screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 19DC5BDC186A37030035EE30 /* screen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +66,25 @@
 		19D318EC1867DD9200C34A5C /* Pearing AppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pearing AppTests-Info.plist"; sourceTree = "<group>"; };
 		19D318EE1867DD9200C34A5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		19D318F01867DD9200C34A5C /* Pearing_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pearing_AppTests.m; sourceTree = "<group>"; };
+		19D318FA1867EF4700C34A5C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		19D318FB1867EF4700C34A5C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		19D318FE1867F28A00C34A5C /* login_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = login_bg.png; path = ../../../pearing_pics/login_bg.png; sourceTree = "<group>"; };
+		19D319001867F3DE00C34A5C /* sign_up_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sign_up_button.png; path = ../../../pearing_pics/sign_up_button.png; sourceTree = "<group>"; };
+		19DC5BC5186828AA0035EE30 /* InstagramLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramLoginViewController.h; sourceTree = "<group>"; };
+		19DC5BC6186828AA0035EE30 /* InstagramLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramLoginViewController.m; sourceTree = "<group>"; };
+		19DC5BC818682F130035EE30 /* GetStartedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetStartedViewController.h; sourceTree = "<group>"; };
+		19DC5BC918682F130035EE30 /* GetStartedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetStartedViewController.m; sourceTree = "<group>"; };
+		19DC5BCB18682F7E0035EE30 /* insta_login_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = insta_login_bg.png; path = ../../../pearing_pics/insta_login_bg.png; sourceTree = "<group>"; };
+		19DC5BCD186831A60035EE30 /* get_started.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = get_started.png; path = ../../../pearing_pics/get_started.png; sourceTree = "<group>"; };
+		19DC5BCF1868CF380035EE30 /* ChooseImagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseImagesViewController.h; sourceTree = "<group>"; };
+		19DC5BD01868CF380035EE30 /* ChooseImagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseImagesViewController.m; sourceTree = "<group>"; };
+		19DC5BD21868D15B0035EE30 /* ChooseImagesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseImagesCell.h; sourceTree = "<group>"; };
+		19DC5BD31868D15B0035EE30 /* ChooseImagesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseImagesCell.m; sourceTree = "<group>"; };
+		19DC5BD51868E0420035EE30 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Splash.png; path = ../../../../Dropbox/Exposure/Splash.png; sourceTree = "<group>"; };
+		19DC5BD71868EC8D0035EE30 /* pears_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pears_login.png; path = ../../../pearing_pics/pears_login.png; sourceTree = "<group>"; };
+		19DC5BD9186976960035EE30 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
+		19DC5BDA186976970035EE30 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
+		19DC5BDC186A37030035EE30 /* screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = screen.png; path = ../../../pearing_pics/screen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,9 +146,21 @@
 			children = (
 				19D318D41867DD9200C34A5C /* AppDelegate.h */,
 				19D318D51867DD9200C34A5C /* AppDelegate.m */,
-				19D318D71867DD9200C34A5C /* Main.storyboard */,
+				19DC5BD9186976960035EE30 /* ImageCache.h */,
+				19DC5BDA186976970035EE30 /* ImageCache.m */,
+				19D318FA1867EF4700C34A5C /* LoginViewController.h */,
+				19D318FB1867EF4700C34A5C /* LoginViewController.m */,
 				19D318DA1867DD9200C34A5C /* ViewController.h */,
 				19D318DB1867DD9200C34A5C /* ViewController.m */,
+				19DC5BC5186828AA0035EE30 /* InstagramLoginViewController.h */,
+				19DC5BC6186828AA0035EE30 /* InstagramLoginViewController.m */,
+				19DC5BC818682F130035EE30 /* GetStartedViewController.h */,
+				19DC5BC918682F130035EE30 /* GetStartedViewController.m */,
+				19DC5BCF1868CF380035EE30 /* ChooseImagesViewController.h */,
+				19DC5BD01868CF380035EE30 /* ChooseImagesViewController.m */,
+				19DC5BD21868D15B0035EE30 /* ChooseImagesCell.h */,
+				19DC5BD31868D15B0035EE30 /* ChooseImagesCell.m */,
+				19D318D71867DD9200C34A5C /* Main.storyboard */,
 				19D318DD1867DD9200C34A5C /* Images.xcassets */,
 				19D318CC1867DD9200C34A5C /* Supporting Files */,
 			);
@@ -126,6 +170,7 @@
 		19D318CC1867DD9200C34A5C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				19D318FD1867F1BD00C34A5C /* Images */,
 				19D318CD1867DD9200C34A5C /* Pearing App-Info.plist */,
 				19D318CE1867DD9200C34A5C /* InfoPlist.strings */,
 				19D318D11867DD9200C34A5C /* main.m */,
@@ -150,6 +195,20 @@
 				19D318ED1867DD9200C34A5C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		19D318FD1867F1BD00C34A5C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				19DC5BDC186A37030035EE30 /* screen.png */,
+				19DC5BD71868EC8D0035EE30 /* pears_login.png */,
+				19DC5BD51868E0420035EE30 /* Splash.png */,
+				19DC5BCD186831A60035EE30 /* get_started.png */,
+				19DC5BCB18682F7E0035EE30 /* insta_login_bg.png */,
+				19D319001867F3DE00C34A5C /* sign_up_button.png */,
+				19D318FE1867F28A00C34A5C /* login_bg.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,8 +287,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19DC5BD61868E0420035EE30 /* Splash.png in Resources */,
+				19DC5BDD186A37030035EE30 /* screen.png in Resources */,
+				19D318FF1867F28A00C34A5C /* login_bg.png in Resources */,
 				19D318DE1867DD9200C34A5C /* Images.xcassets in Resources */,
+				19DC5BCE186831A60035EE30 /* get_started.png in Resources */,
 				19D318D01867DD9200C34A5C /* InfoPlist.strings in Resources */,
+				19D319011867F3DE00C34A5C /* sign_up_button.png in Resources */,
+				19DC5BD81868EC910035EE30 /* pears_login.png in Resources */,
+				19DC5BCC18682F7E0035EE30 /* insta_login_bg.png in Resources */,
 				19D318D91867DD9200C34A5C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,8 +315,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19D318FC1867EF4700C34A5C /* LoginViewController.m in Sources */,
+				19DC5BD11868CF380035EE30 /* ChooseImagesViewController.m in Sources */,
+				19DC5BCA18682F130035EE30 /* GetStartedViewController.m in Sources */,
+				19DC5BC7186828AA0035EE30 /* InstagramLoginViewController.m in Sources */,
+				19DC5BD41868D15B0035EE30 /* ChooseImagesCell.m in Sources */,
 				19D318DC1867DD9200C34A5C /* ViewController.m in Sources */,
 				19D318D61867DD9200C34A5C /* AppDelegate.m in Sources */,
+				19DC5BDB186976970035EE30 /* ImageCache.m in Sources */,
 				19D318D21867DD9200C34A5C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,6 +532,7 @@
 				19D318F61867DD9200C34A5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		19D318F71867DD9200C34A5C /* Build configuration list for PBXNativeTarget "Pearing AppTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +541,7 @@
 				19D318F91867DD9200C34A5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

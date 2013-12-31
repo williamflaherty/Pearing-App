@@ -17,7 +17,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+//#ifndef DEMO_MODE
+    //if user isn't authenticated take them to the login screen, otherwise this is the first responder
+    /*  if (![[PTLocalPatient localPatient] isAuthenticated]) {
+     UIViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Login"];
+     [self presentViewController:loginVC animated:NO completion:nil];
+     }*/
+    
+    UIViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Login"];
+    [self presentViewController:loginVC animated:NO completion:nil];
+
+//#endif
+   // [self becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
