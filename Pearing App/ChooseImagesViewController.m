@@ -9,6 +9,7 @@
 #import "ChooseImagesViewController.h"
 #import "ChooseImagesCell.h"
 #import "ImageCache.h"
+#import "NZImageCache.h"
 
 int s_SelectedCount;
 
@@ -16,7 +17,11 @@ int s_SelectedCount;
 
 @end
 
-@implementation ChooseImagesViewController
+@implementation ChooseImagesViewController {
+    NSMutableArray *_selectedImages;
+    id<IImageCache> _imageCache;
+    BOOL _isLoadingImages;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,9 +32,19 @@ int s_SelectedCount;
     return self;
 }
 
+- (NSOperationQueue *) operationQueue {
+    static NSOperationQueue *queue = nil;
+    if (!queue) {
+        queue = [NSOperationQueue new];
+    }
+    return queue;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _selectedImages = @[].mutableCopy;
+    _imageCache = [NZImageCache instance];
     self.collectionView.delegate = self;
     self.collectionView.allowsMultipleSelection = YES;
     self.selectedPictures = [[NSMutableArray alloc] init];
@@ -54,8 +69,8 @@ int s_SelectedCount;
     
     //get pictures from instagram
     NSString *url = [NSString stringWithFormat:@"%@%@/media/recent?access_token=%@", APIURl, [[NSUserDefaults standardUserDefaults] valueForKey:USER_ID], [[NSUserDefaults standardUserDefaults] valueForKey:ACCESS_TOKEN]];
-    self.userImages = [self getUserMedia:url];
-    self.instagramPictures = [[self.userImages objectForKey:@"data"] mutableCopy];
+    self.instagramPictures = @[].mutableCopy;
+    [self loadImages:url];
 
 }
 
@@ -67,120 +82,51 @@ int s_SelectedCount;
     return self.instagramPictures.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
-                  cellForItemAtIndexPath:(NSIndexPath *)indexPath
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    return [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"Loading" forIndexPath:indexPath];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSDictionary *imageData = [self.instagramPictures objectAtIndex:indexPath.row];
+    NSString *thumbnailUrl = imageData[@"images"][@"thumbnail"][@"url"];
+
     ChooseImagesCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"picCell" forIndexPath:indexPath];
-    if (cell == nil) {
-
-    }
+    [cell.instagramPicture setImageUrl:thumbnailUrl cache:_imageCache];
     
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    cell.layer.shouldRasterize = YES;
-    cell.layer.rasterizationScale = [UIScreen mainScreen].scale;
-    
-    NSDictionary *data = [self.instagramPictures objectAtIndex:indexPath.row];
-    NSDictionary *images = [data objectForKey:@"images"];
-    NSDictionary *thumbnail = [images objectForKey:@"thumbnail"];
-    NSString *strPicUrl = [thumbnail objectForKey:@"url"];
-    
-    
-    if([[ImageCache sharedImageCache] DoesExist:strPicUrl] == YES)
-    {
-        cell.instagramPicture.image = [[ImageCache sharedImageCache] GetImage:strPicUrl];
-    }
-    else
-    {
-        NSURL *picUrl = [NSURL URLWithString:strPicUrl];
-        NSURLRequest *reqObj = [NSURLRequest requestWithURL:picUrl];
-        //create operation queue to handle an async request so we don't block the main thread
-        //while loading the image
-        [NSURLConnection sendAsynchronousRequest:reqObj queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
-         {
-             if ([data length] > 0 && error == nil)
-             {
-                 UIImage *pp = [UIImage imageWithData:[NSData dataWithContentsOfURL: picUrl]];
-                 cell.instagramPicture.image = pp;
-                 [[ImageCache sharedImageCache] AddImage:strPicUrl:pp];
-
-             }
-             else if (error != nil) NSLog(@"Error: %@", error); //should probably actually handle this
-         }];
-        
-    }
-    
-    if ([self isSelected:cell.instagramPicture.image])
-    {
-        //[collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionNone];
-        cell.selected = YES;
-    } else
-    {
-        //[collectionView deselectItemAtIndexPath:indexPath animated:YES];
-        cell.selected = NO;
-    }
-    
-    //if the cell is selected mark it as so.
-    //for ( self.selectedPictures )
-    //NSLog(@"cell.isSelected: %d", cell.isSelected );
-    NSLog(@"cell:%@ indexpath:%@\n\n", cell, indexPath);
     return cell;
-    
 }
 
 //trying to get the selected cell stuff to work when you choose photos
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    ChooseImagesCell *cell = (ChooseImagesCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    NSDictionary *imageData = self.instagramPictures[indexPath.row];
     
-    if( cell.isSelected == YES && s_SelectedCount < 5 && ![self isSelected:cell.instagramPicture.image] )
-    {
-        s_SelectedCount++;
-        UIImageView *screenImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 106, 106)];
-        screenImage.image = [UIImage imageNamed:@"screen.png"];
-        [cell.instagramPicture addSubview:screenImage];
-        [self.selectedPictures addObject:cell.instagramPicture.image];
-        //[collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionNone];
-        NSString *title = [NSString stringWithFormat:@"%d of 5", s_SelectedCount];
-        self.title = title;
-        NSLog(@"Index Path when Selected: %@", indexPath);
-        //don't forget to increment/decrement the selected photos number and if 5 are selected pop up a next button.
-        //maybe the next button should pop up after 1?
-
+    if (![_selectedImages containsObject:imageData]) {
+        [_selectedImages addObject:imageData];
     }
-    if( s_SelectedCount == 5 ){
-        // self.navBar.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(Add:)];
-        //self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(Add:)];
+    
+    [self updateTitleCount];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+     NSDictionary *imageData = self.instagramPictures[indexPath.row];
+    
+    [_selectedImages removeObject:imageData];
+    [self updateTitleCount];
+}
+
+- (void) updateTitleCount {
+    self.title = [NSString stringWithFormat:@"%d of 5", _selectedImages.count];
+    
+    if (_selectedImages.count == 5){
         self.navigationController.navigationBar.topItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain target:self action:@selector(Add:)];
-        
+    } else {
+        self.navigationController.navigationBar.topItem.rightBarButtonItem = nil;
     }
-
 }
 
--(void)collectionView:(UICollectionView*)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    ChooseImagesCell *cell = (ChooseImagesCell*)[collectionView cellForItemAtIndexPath:indexPath];
 
-    if( cell.isSelected == NO && s_SelectedCount > 0 && s_SelectedCount <= 5 && [self isSelected:cell.instagramPicture.image] )
-    {
-        for(UIView *subview in [cell.instagramPicture subviews]) {
-            [subview removeFromSuperview];
-        }
-        s_SelectedCount--;
-        [self.selectedPictures removeObject:cell.instagramPicture.image];
-        NSString *title = [NSString stringWithFormat:@"%d of 5", s_SelectedCount];
-        self.title = title;
-        if(s_SelectedCount < 5){
-            //self.navBar.rightBarButtonItem = nil;
-            self.navigationItem.rightBarButtonItem = nil;
-            
-        }
-    }
-    else if ( cell.isSelected == YES )
-    {
-        NSLog(@"Something's weird");
-    }
-    
-}
 
 -(BOOL)isSelected:(UIImage *)image
 {
@@ -213,11 +159,27 @@ int s_SelectedCount;
     NSString *nextUrl = [[self.userImages objectForKey:@"pagination"] objectForKey:@"next_url"];
     if (nextUrl)
     {
-        self.userImages = [[self getUserMedia:nextUrl] mutableCopy];
-        NSMutableArray *newImages = [self.userImages objectForKey:@"data"];
-        [self.instagramPictures addObjectsFromArray:newImages];
-        [self.collectionView reloadData];
+        [self loadImages:nextUrl];
     }
+}
+
+
+- (void) loadImages:(NSString *)url {
+    if (_isLoadingImages) return;
+    
+    _isLoadingImages = YES;
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [NSURLConnection sendAsynchronousRequest:request queue:[self operationQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+         NSMutableDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
+            self.userImages = jsonDict;
+            [self.instagramPictures addObjectsFromArray:jsonDict[@"data"]];
+            [self.collectionView reloadData];
+            _isLoadingImages = NO;
+        }];
+    }];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LoadingImageView.h"
 
 @interface ChooseImagesCell : UICollectionViewCell
-@property (strong, nonatomic) IBOutlet UIImageView *instagramPicture;
+@property (strong, nonatomic) IBOutlet LoadingImageView *instagramPicture;
+@property (nonatomic) IBOutlet UIImageView *screenView;
 
 @end
