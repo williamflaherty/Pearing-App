@@ -76,6 +76,7 @@
 		C03FA8AB18728FC7001E7597 /* pears_login.png in Resources */ = {isa = PBXBuildFile; fileRef = C03FA87C18728FC7001E7597 /* pears_login.png */; };
 		C03FA8AC18728FC7001E7597 /* screen.png in Resources */ = {isa = PBXBuildFile; fileRef = C03FA87D18728FC7001E7597 /* screen.png */; };
 		C03FA8AD18728FC7001E7597 /* sign_up_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C03FA87E18728FC7001E7597 /* sign_up_button.png */; };
+		C03FA8B01873ECEF001E7597 /* SetupProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FA8AF1873ECEF001E7597 /* SetupProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +173,8 @@
 		C03FA87C18728FC7001E7597 /* pears_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pears_login.png; sourceTree = "<group>"; };
 		C03FA87D18728FC7001E7597 /* screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen.png; sourceTree = "<group>"; };
 		C03FA87E18728FC7001E7597 /* sign_up_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sign_up_button.png; sourceTree = "<group>"; };
+		C03FA8AE1873ECEF001E7597 /* SetupProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupProfileViewController.h; sourceTree = "<group>"; };
+		C03FA8AF1873ECEF001E7597 /* SetupProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +258,8 @@
 				C03FA84A18728A82001E7597 /* LoadingImageView.m */,
 				C03FA84C18728DA7001E7597 /* NZImageCache.h */,
 				C03FA84D18728DA7001E7597 /* NZImageCache.m */,
+				C03FA8AE1873ECEF001E7597 /* SetupProfileViewController.h */,
+				C03FA8AF1873ECEF001E7597 /* SetupProfileViewController.m */,
 			);
 			path = "Pearing App";
 			sourceTree = "<group>";
@@ -503,6 +508,7 @@
 				19DC5BC7186828AA0035EE30 /* InstagramLoginViewController.m in Sources */,
 				19DC5BD41868D15B0035EE30 /* ChooseImagesCell.m in Sources */,
 				19D318DC1867DD9200C34A5C /* ViewController.m in Sources */,
+				C03FA8B01873ECEF001E7597 /* SetupProfileViewController.m in Sources */,
 				19D318D61867DD9200C34A5C /* AppDelegate.m in Sources */,
 				19DC5BDB186976970035EE30 /* ImageCache.m in Sources */,
 				19D318D21867DD9200C34A5C /* main.m in Sources */,

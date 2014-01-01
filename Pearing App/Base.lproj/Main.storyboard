@@ -130,7 +130,6 @@
                                 </state>
                                 <connections>
                                     <action selector="getStartedPressed:" destination="mVM-3o-IZS" eventType="touchUpInside" id="4jJ-Nt-OS8"/>
-                                    <segue destination="zsl-y3-Owg" kind="push" identifier="ChooseImages" id="fTe-je-YOb"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dt6-1n-h6U">
@@ -152,7 +151,7 @@
             </objects>
             <point key="canvasLocation" x="1744" y="630"/>
         </scene>
-        <!--Choose Images View Controller-->
+        <!--Choose Images View Controller - blah-->
         <scene sceneID="6PG-gi-iLc">
             <objects>
                 <collectionViewController storyboardIdentifier="ChooseImages" autoresizesArchivedViewToFullSize="NO" id="zsl-y3-Owg" customClass="ChooseImagesViewController" sceneMemberID="viewController">
@@ -215,41 +214,46 @@
                             <outlet property="delegate" destination="zsl-y3-Owg" id="Nfs-MO-3TZ"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="8Hn-Rs-HFd"/>
+                    <navigationItem key="navigationItem" title="blah" id="8Hn-Rs-HFd"/>
                     <connections>
                         <outlet property="navBar" destination="8Hn-Rs-HFd" id="0au-3D-Hf1"/>
-                        <segue destination="pnm-S5-XbH" kind="push" identifier="SetupProfile" id="56C-VA-1Os"/>
+                        <segue destination="03r-u2-tFg" kind="push" identifier="SetupProfile" id="2Gk-EC-aDs"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UO6-oe-r15" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2314" y="660"/>
+            <point key="canvasLocation" x="2174" y="650"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="HUo-dm-2u5">
+        <!--Setup Profile View Controller-->
+        <scene sceneID="vnW-fk-sdp">
             <objects>
-                <viewController storyboardIdentifier="SetupProfile" id="pnm-S5-XbH" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SetupProfile" autoresizesArchivedViewToFullSize="NO" id="03r-u2-tFg" customClass="SetupProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RkY-SM-sLs"/>
-                        <viewControllerLayoutGuide type="bottom" id="PBt-mi-pr1"/>
+                        <viewControllerLayoutGuide type="top" id="HXs-Dc-Swc"/>
+                        <viewControllerLayoutGuide type="bottom" id="gMj-Tv-PBC"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="jYY-FQ-u0P">
+                    <view key="view" contentMode="scaleToFill" id="B5c-yC-MCp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="insta_login_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="PlU-E7-KjB">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8SL-Fg-CwJ"/>
+                    <navigationItem key="navigationItem" id="xwx-Xo-zQa"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rsd-oX-XyO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wup-1k-1UB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2822" y="660"/>
+            <point key="canvasLocation" x="2707" y="628"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cHP-xc-eax">
             <objects>
                 <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="ie3-Yx-wue" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Qq8-sW-Ray"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="57w-Kv-dOm">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

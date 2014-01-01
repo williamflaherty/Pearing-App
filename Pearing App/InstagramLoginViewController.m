@@ -35,8 +35,10 @@
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [NSURLConnection sendAsynchronousRequest:reqObj queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
      {
+         [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
          if ([data length] > 0 && error == nil) [self.webView loadRequest:reqObj];
          else if (error != nil) NSLog(@"Error: %@", error); //should probably actually handle this
+         }];
      }];
 }
 
@@ -75,8 +77,9 @@
 -(void)transitionToProfile
 {
     //transition to the logged in/get started screen
-    UIViewController *loggedIn = [self.storyboard instantiateViewControllerWithIdentifier:@"GetStarted"];
-    [self.navigationController pushViewController:loggedIn animated:YES];
+    [self performSegueWithIdentifier:@"GetStarted" sender:nil];
+//    UIViewController *loggedIn = [self.storyboard instantiateViewControllerWithIdentifier:@"GetStarted"];
+//    [self.navigationController pushViewController:loggedIn animated:YES];
     
 }
 

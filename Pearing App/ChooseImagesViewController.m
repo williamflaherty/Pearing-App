@@ -57,20 +57,25 @@ int s_SelectedCount;
     self.navigationController.navigationBar.barTintColor = color;
     //hide the back button
    // self.navBar.hidesBackButton = YES;
-    self.navigationItem.hidesBackButton = YES;
+  //  self.navigationItem.hidesBackButton = YES;
     //initialize the title
     s_SelectedCount = 0;
-    NSString *title = [NSString stringWithFormat:@"%d of 5", s_SelectedCount];
-    NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+      NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                     [UIColor whiteColor],NSForegroundColorAttributeName,
                                     [UIColor whiteColor],NSBackgroundColorAttributeName,nil];
     self.navigationController.navigationBar.titleTextAttributes = textAttributes;
-    self.title = title;
+
     
     //get pictures from instagram
     NSString *url = [NSString stringWithFormat:@"%@%@/media/recent?access_token=%@", APIURl, [[NSUserDefaults standardUserDefaults] valueForKey:USER_ID], [[NSUserDefaults standardUserDefaults] valueForKey:ACCESS_TOKEN]];
     self.instagramPictures = @[].mutableCopy;
     [self loadImages:url];
+        [self updateTitleCount];
+
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 
 }
 
@@ -146,8 +151,8 @@ int s_SelectedCount;
 
 -(IBAction)Add:(id)sender
 {
-    UIViewController *setupProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"SetupProfile"];
-    [self.navigationController pushViewController:setupProfile animated:YES];
+    [self performSegueWithIdentifier:@"SetupProfile" sender:nil];
+
 }
 
 //Should probably add some error checking to this method
