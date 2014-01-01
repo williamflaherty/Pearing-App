@@ -100,6 +100,11 @@ int s_SelectedCount;
 //trying to get the selected cell stuff to work when you choose photos
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (_selectedImages.count >= 5) {
+        [collectionView deselectItemAtIndexPath:indexPath animated:NO];
+        return;
+    }
+    
     NSDictionary *imageData = self.instagramPictures[indexPath.row];
     
     if (![_selectedImages containsObject:imageData]) {
@@ -119,7 +124,7 @@ int s_SelectedCount;
 - (void) updateTitleCount {
     self.title = [NSString stringWithFormat:@"%d of 5", _selectedImages.count];
     
-    if (_selectedImages.count == 5){
+    if (_selectedImages.count == 5 && self.navigationController.navigationBar.topItem.rightBarButtonItem == nil) {
         self.navigationController.navigationBar.topItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain target:self action:@selector(Add:)];
     } else {
         self.navigationController.navigationBar.topItem.rightBarButtonItem = nil;
