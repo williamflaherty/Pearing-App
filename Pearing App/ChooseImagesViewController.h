@@ -8,13 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "LoginViewController.h"
+#import "SetupProfileViewController.h"
 
 @interface ChooseImagesViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property(strong, nonatomic) NSMutableArray *instagramPictures;
 @property(strong, nonatomic) NSMutableDictionary *userImages;
 @property(strong, nonatomic) IBOutlet UINavigationItem *navBar;
-@property(strong, nonatomic) NSMutableArray *selectedPictures;
-
 
 @end

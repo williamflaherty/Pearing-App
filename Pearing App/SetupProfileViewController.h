@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
-@interface SetupProfileViewController : UIViewController
+@interface SetupProfileViewController : UIViewController <UITextViewDelegate, UIScrollViewDelegate>
+@property (strong, nonatomic) IBOutlet UIImageView *profilePictureView;
+@property (strong, nonatomic) IBOutlet UITextField *nameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *ageTextField;
+@property (strong, nonatomic) IBOutlet UITextView *bioTextView;
+@property (strong, nonatomic) IBOutlet UIScrollView *imagesScrollView;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *genderSegment;
+@property (strong, nonatomic) NSString *textViewPlaceholder;
+@property (strong, nonatomic) NSMutableArray *selectedPictures;
+@property (strong, nonatomic) NSMutableArray *profilePictures;
+
 
 @end

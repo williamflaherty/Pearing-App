@@ -47,20 +47,20 @@ int s_SelectedCount;
     _imageCache = [NZImageCache instance];
     self.collectionView.delegate = self;
     self.collectionView.allowsMultipleSelection = YES;
-    self.selectedPictures = [[NSMutableArray alloc] init];
     //show the navigation bar
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     //don't hide the view behind the bar because it's translucent
     self.navigationController.navigationBar.translucent = NO;
-    //set the navigation bar color
+    //set the navigation bar colors
     UIColor * color = [UIColor colorWithRed:253/255.0f green:125/255.0f blue:51/255.0f alpha:1.0f];
     self.navigationController.navigationBar.barTintColor = color;
+    //eventually gonna replace done with a custom "next" button 
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     //hide the back button
-   // self.navBar.hidesBackButton = YES;
-  //  self.navigationItem.hidesBackButton = YES;
+    self.navigationItem.hidesBackButton = YES;
     //initialize the title
     s_SelectedCount = 0;
-      NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+    NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                     [UIColor whiteColor],NSForegroundColorAttributeName,
                                     [UIColor whiteColor],NSBackgroundColorAttributeName,nil];
     self.navigationController.navigationBar.titleTextAttributes = textAttributes;
@@ -70,7 +70,7 @@ int s_SelectedCount;
     NSString *url = [NSString stringWithFormat:@"%@%@/media/recent?access_token=%@", APIURl, [[NSUserDefaults standardUserDefaults] valueForKey:USER_ID], [[NSUserDefaults standardUserDefaults] valueForKey:ACCESS_TOKEN]];
     self.instagramPictures = @[].mutableCopy;
     [self loadImages:url];
-        [self updateTitleCount];
+    [self updateTitleCount];
 
 }
 
@@ -136,19 +136,12 @@ int s_SelectedCount;
     }
 }
 
-
-
--(BOOL)isSelected:(UIImage *)image
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    for ( UIImage *iterImage in self.selectedPictures )
-    {
-        if([iterImage isEqual:image]) return YES;
-    }
-    
-    return NO;
+    SetupProfileViewController *setup = (SetupProfileViewController *)segue.destinationViewController;
+    setup.selectedPictures = [_selectedImages mutableCopy];
     
 }
-
 -(IBAction)Add:(id)sender
 {
     [self performSegueWithIdentifier:@"SetupProfile" sender:nil];

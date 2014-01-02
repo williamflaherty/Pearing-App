@@ -27,6 +27,9 @@
 		19DC5BD11868CF380035EE30 /* ChooseImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DC5BD01868CF380035EE30 /* ChooseImagesViewController.m */; };
 		19DC5BD41868D15B0035EE30 /* ChooseImagesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DC5BD31868D15B0035EE30 /* ChooseImagesCell.m */; };
 		19DC5BDB186976970035EE30 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DC5BDA186976970035EE30 /* ImageCache.m */; };
+		19DC5BDF1874A6390035EE30 /* profile_setup.png in Resources */ = {isa = PBXBuildFile; fileRef = 19DC5BDE1874A6390035EE30 /* profile_setup.png */; };
+		19DC5BE11874A7D30035EE30 /* profile_setup2.png in Resources */ = {isa = PBXBuildFile; fileRef = 19DC5BE01874A7D30035EE30 /* profile_setup2.png */; };
+		19DC5BE31874CDDE0035EE30 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DC5BE21874CDDE0035EE30 /* QuartzCore.framework */; };
 		C03FA84B18728A82001E7597 /* LoadingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FA84A18728A82001E7597 /* LoadingImageView.m */; };
 		C03FA84E18728DA7001E7597 /* NZImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FA84D18728DA7001E7597 /* NZImageCache.m */; };
 		C03FA87F18728FC7001E7597 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C03FA85018728FC7001E7597 /* 1.png */; };
@@ -121,6 +124,9 @@
 		19DC5BD31868D15B0035EE30 /* ChooseImagesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseImagesCell.m; sourceTree = "<group>"; };
 		19DC5BD9186976960035EE30 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
 		19DC5BDA186976970035EE30 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
+		19DC5BDE1874A6390035EE30 /* profile_setup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_setup.png; sourceTree = "<group>"; };
+		19DC5BE01874A7D30035EE30 /* profile_setup2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_setup2.png; sourceTree = "<group>"; };
+		19DC5BE21874CDDE0035EE30 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C03FA848187289AD001E7597 /* IImageCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IImageCache.h; sourceTree = "<group>"; };
 		C03FA84918728A82001E7597 /* LoadingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingImageView.h; sourceTree = "<group>"; };
 		C03FA84A18728A82001E7597 /* LoadingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingImageView.m; sourceTree = "<group>"; };
@@ -182,6 +188,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19DC5BE31874CDDE0035EE30 /* QuartzCore.framework in Frameworks */,
 				19D318C81867DD9200C34A5C /* CoreGraphics.framework in Frameworks */,
 				19D318CA1867DD9200C34A5C /* UIKit.framework in Frameworks */,
 				19D318C61867DD9200C34A5C /* Foundation.framework in Frameworks */,
@@ -223,6 +230,7 @@
 		19D318C41867DD9200C34A5C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				19DC5BE21874CDDE0035EE30 /* QuartzCore.framework */,
 				19D318C51867DD9200C34A5C /* Foundation.framework */,
 				19D318C71867DD9200C34A5C /* CoreGraphics.framework */,
 				19D318C91867DD9200C34A5C /* UIKit.framework */,
@@ -250,9 +258,6 @@
 				19DC5BD01868CF380035EE30 /* ChooseImagesViewController.m */,
 				19DC5BD21868D15B0035EE30 /* ChooseImagesCell.h */,
 				19DC5BD31868D15B0035EE30 /* ChooseImagesCell.m */,
-				19D318D71867DD9200C34A5C /* Main.storyboard */,
-				19D318DD1867DD9200C34A5C /* Images.xcassets */,
-				19D318CC1867DD9200C34A5C /* Supporting Files */,
 				C03FA848187289AD001E7597 /* IImageCache.h */,
 				C03FA84918728A82001E7597 /* LoadingImageView.h */,
 				C03FA84A18728A82001E7597 /* LoadingImageView.m */,
@@ -260,6 +265,9 @@
 				C03FA84D18728DA7001E7597 /* NZImageCache.m */,
 				C03FA8AE1873ECEF001E7597 /* SetupProfileViewController.h */,
 				C03FA8AF1873ECEF001E7597 /* SetupProfileViewController.m */,
+				19D318D71867DD9200C34A5C /* Main.storyboard */,
+				19D318CC1867DD9200C34A5C /* Supporting Files */,
+				19D318DD1867DD9200C34A5C /* Images.xcassets */,
 			);
 			path = "Pearing App";
 			sourceTree = "<group>";
@@ -305,6 +313,8 @@
 		C03FA84F18728FC7001E7597 /* pearing_pics */ = {
 			isa = PBXGroup;
 			children = (
+				19DC5BE01874A7D30035EE30 /* profile_setup2.png */,
+				19DC5BDE1874A6390035EE30 /* profile_setup.png */,
 				C03FA85018728FC7001E7597 /* 1.png */,
 				C03FA85118728FC7001E7597 /* 10.png */,
 				C03FA85218728FC7001E7597 /* 11.png */,
@@ -435,6 +445,7 @@
 				C03FA88C18728FC7001E7597 /* 8.png in Resources */,
 				C03FA88A18728FC7001E7597 /* 6.png in Resources */,
 				C03FA88218728FC7001E7597 /* 12.png in Resources */,
+				19DC5BDF1874A6390035EE30 /* profile_setup.png in Resources */,
 				C03FA88918728FC7001E7597 /* 5.png in Resources */,
 				C03FA8AD18728FC7001E7597 /* sign_up_button.png in Resources */,
 				C03FA89218728FC7001E7597 /* insta_login_bg.png in Resources */,
@@ -463,6 +474,7 @@
 				C03FA89118728FC7001E7597 /* insta_cam.png in Resources */,
 				C03FA88F18728FC7001E7597 /* hello_joe.png in Resources */,
 				C03FA89318728FC7001E7597 /* insta_login_heart.png in Resources */,
+				19DC5BE11874A7D30035EE30 /* profile_setup2.png in Resources */,
 				C03FA8A618728FC7001E7597 /* iOS_0005s_0002s_0025_Rounded-Rectangle-2-copy-2.png in Resources */,
 				19D318D01867DD9200C34A5C /* InfoPlist.strings in Resources */,
 				C03FA89018728FC7001E7597 /* insta_button.png in Resources */,
