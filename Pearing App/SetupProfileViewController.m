@@ -26,6 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Edit Profile";
+    
     //setup back button
     self.navigationItem.backBarButtonItem.title = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
     
@@ -59,7 +61,8 @@
     
     //setup scrollview
     self.imagesScrollView.delegate = self;
-    self.imagesScrollView.pagingEnabled = YES;
+    self.imagesScrollView.contentInset = UIEdgeInsetsMake(0, 60.0, 0, 0);
+    self.imagesScrollView.pagingEnabled = YES; 
     self.imagesScrollView.showsHorizontalScrollIndicator = NO;
     self.imagesScrollView.showsVerticalScrollIndicator = NO;
     self.profilePictures = [self getProfilePictures];
@@ -90,7 +93,7 @@
         NSDictionary *imageData = self.selectedPictures[i];
         NSURL *lowResURL = [NSURL URLWithString:imageData[@"images"][@"low_resolution"][@"url"]];
         UIImageView *pictureView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:lowResURL]]];
-        pictureView.frame = CGRectMake(0.0f, 0.0f, 200.0f, 200.0f);
+        pictureView.frame = CGRectMake(0.0f, 0.0f, 280.0f, 260.0f);
         [retArray addObject:pictureView];
     }
     return retArray;
