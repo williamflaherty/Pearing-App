@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "PearingClient.h"
+
 
 @interface SetupProfileViewController : UIViewController <UITextViewDelegate, UIScrollViewDelegate, UITextFieldDelegate>
 
+@property (nonatomic) PearingClient *pearingClient;
 @property (strong, nonatomic) IBOutlet UIImageView *profilePictureView;
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *ageTextField;
