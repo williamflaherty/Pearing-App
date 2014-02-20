@@ -18,9 +18,7 @@
     return client;
 }
 
-- (void)createNewUserWithName:(NSString *)userName gender:(PEGender)gender age:(int)age description:(NSString *)description completion:(void (^)(BOOL, NSString *))completionHandler {
-    
-    //save user to server
+- (void)createNewUserWithName:(NSString *)userName gender:(PEGender)gender age:(int)age description:(NSString *)description images:(NSArray *)images completion:(void (^)(BOOL, NSString *))completionHandler {
     
     completionHandler(YES, nil);
     
