@@ -80,14 +80,6 @@
 		C03FA8AC18728FC7001E7597 /* screen.png in Resources */ = {isa = PBXBuildFile; fileRef = C03FA87D18728FC7001E7597 /* screen.png */; };
 		C03FA8AD18728FC7001E7597 /* sign_up_button.png in Resources */ = {isa = PBXBuildFile; fileRef = C03FA87E18728FC7001E7597 /* sign_up_button.png */; };
 		C03FA8B01873ECEF001E7597 /* SetupProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FA8AF1873ECEF001E7597 /* SetupProfileViewController.m */; };
-		C0E17190188BC9D200435DCE /* BrowseMatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E1718F188BC9D200435DCE /* BrowseMatchesViewController.m */; };
-		C0E17193188BC9E700435DCE /* BrowseMatchesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E17192188BC9E700435DCE /* BrowseMatchesCell.m */; };
-		C0E17196188BCD8900435DCE /* PEMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E17195188BCD8900435DCE /* PEMatch.m */; };
-		C0E17199188BCE7E00435DCE /* PearingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E17198188BCE7E00435DCE /* PearingClient.m */; };
-		C0E1719C188BCFC800435DCE /* PEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E1719B188BCFC800435DCE /* PEUser.m */; };
-		C0E171A0188BD69800435DCE /* MatchImagesScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E1719F188BD69800435DCE /* MatchImagesScrollView.m */; };
-		C0E171A3188BD89600435DCE /* PEImage.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E171A2188BD89600435DCE /* PEImage.m */; };
-		C0E171A6188BE3C300435DCE /* FullSizeImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E171A5188BE3C300435DCE /* FullSizeImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,22 +181,6 @@
 		C03FA87E18728FC7001E7597 /* sign_up_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sign_up_button.png; sourceTree = "<group>"; };
 		C03FA8AE1873ECEF001E7597 /* SetupProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupProfileViewController.h; sourceTree = "<group>"; };
 		C03FA8AF1873ECEF001E7597 /* SetupProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupProfileViewController.m; sourceTree = "<group>"; };
-		C0E1718E188BC9D200435DCE /* BrowseMatchesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowseMatchesViewController.h; sourceTree = "<group>"; };
-		C0E1718F188BC9D200435DCE /* BrowseMatchesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowseMatchesViewController.m; sourceTree = "<group>"; };
-		C0E17191188BC9E700435DCE /* BrowseMatchesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowseMatchesCell.h; sourceTree = "<group>"; };
-		C0E17192188BC9E700435DCE /* BrowseMatchesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowseMatchesCell.m; sourceTree = "<group>"; };
-		C0E17194188BCD8900435DCE /* PEMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEMatch.h; sourceTree = "<group>"; };
-		C0E17195188BCD8900435DCE /* PEMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEMatch.m; sourceTree = "<group>"; };
-		C0E17197188BCE7E00435DCE /* PearingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PearingClient.h; sourceTree = "<group>"; };
-		C0E17198188BCE7E00435DCE /* PearingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PearingClient.m; sourceTree = "<group>"; };
-		C0E1719A188BCFC800435DCE /* PEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEUser.h; sourceTree = "<group>"; };
-		C0E1719B188BCFC800435DCE /* PEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEUser.m; sourceTree = "<group>"; };
-		C0E1719E188BD69800435DCE /* MatchImagesScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchImagesScrollView.h; sourceTree = "<group>"; };
-		C0E1719F188BD69800435DCE /* MatchImagesScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchImagesScrollView.m; sourceTree = "<group>"; };
-		C0E171A1188BD89600435DCE /* PEImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEImage.h; sourceTree = "<group>"; };
-		C0E171A2188BD89600435DCE /* PEImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEImage.m; sourceTree = "<group>"; };
-		C0E171A4188BE3C300435DCE /* FullSizeImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullSizeImageViewController.h; sourceTree = "<group>"; };
-		C0E171A5188BE3C300435DCE /* FullSizeImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullSizeImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,11 +242,29 @@
 		19D318CB1867DD9200C34A5C /* Pearing App */ = {
 			isa = PBXGroup;
 			children = (
-				C0E1718D188BC91500435DCE /* Controllers */,
-				C0E1718C188BC90D00435DCE /* Views */,
-				C0E1718B188BC90700435DCE /* Models */,
 				19D318D41867DD9200C34A5C /* AppDelegate.h */,
 				19D318D51867DD9200C34A5C /* AppDelegate.m */,
+				19DC5BD9186976960035EE30 /* ImageCache.h */,
+				19DC5BDA186976970035EE30 /* ImageCache.m */,
+				19D318FA1867EF4700C34A5C /* LoginViewController.h */,
+				19D318FB1867EF4700C34A5C /* LoginViewController.m */,
+				19D318DA1867DD9200C34A5C /* ViewController.h */,
+				19D318DB1867DD9200C34A5C /* ViewController.m */,
+				19DC5BC5186828AA0035EE30 /* InstagramLoginViewController.h */,
+				19DC5BC6186828AA0035EE30 /* InstagramLoginViewController.m */,
+				19DC5BC818682F130035EE30 /* GetStartedViewController.h */,
+				19DC5BC918682F130035EE30 /* GetStartedViewController.m */,
+				19DC5BCF1868CF380035EE30 /* ChooseImagesViewController.h */,
+				19DC5BD01868CF380035EE30 /* ChooseImagesViewController.m */,
+				19DC5BD21868D15B0035EE30 /* ChooseImagesCell.h */,
+				19DC5BD31868D15B0035EE30 /* ChooseImagesCell.m */,
+				C03FA848187289AD001E7597 /* IImageCache.h */,
+				C03FA84918728A82001E7597 /* LoadingImageView.h */,
+				C03FA84A18728A82001E7597 /* LoadingImageView.m */,
+				C03FA84C18728DA7001E7597 /* NZImageCache.h */,
+				C03FA84D18728DA7001E7597 /* NZImageCache.m */,
+				C03FA8AE1873ECEF001E7597 /* SetupProfileViewController.h */,
+				C03FA8AF1873ECEF001E7597 /* SetupProfileViewController.m */,
 				19D318D71867DD9200C34A5C /* Main.storyboard */,
 				19D318CC1867DD9200C34A5C /* Supporting Files */,
 				19D318DD1867DD9200C34A5C /* Images.xcassets */,
@@ -372,72 +366,6 @@
 			path = pearing_pics;
 			sourceTree = "<group>";
 		};
-		C0E1718B188BC90700435DCE /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				C0E1719D188BD05F00435DCE /* Pearing */,
-				19DC5BD9186976960035EE30 /* ImageCache.h */,
-				19DC5BDA186976970035EE30 /* ImageCache.m */,
-				C03FA848187289AD001E7597 /* IImageCache.h */,
-				C03FA84C18728DA7001E7597 /* NZImageCache.h */,
-				C03FA84D18728DA7001E7597 /* NZImageCache.m */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-		C0E1718C188BC90D00435DCE /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				19DC5BD21868D15B0035EE30 /* ChooseImagesCell.h */,
-				19DC5BD31868D15B0035EE30 /* ChooseImagesCell.m */,
-				C03FA84918728A82001E7597 /* LoadingImageView.h */,
-				C03FA84A18728A82001E7597 /* LoadingImageView.m */,
-				C0E17191188BC9E700435DCE /* BrowseMatchesCell.h */,
-				C0E17192188BC9E700435DCE /* BrowseMatchesCell.m */,
-				C0E1719E188BD69800435DCE /* MatchImagesScrollView.h */,
-				C0E1719F188BD69800435DCE /* MatchImagesScrollView.m */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		C0E1718D188BC91500435DCE /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				C03FA8AE1873ECEF001E7597 /* SetupProfileViewController.h */,
-				C03FA8AF1873ECEF001E7597 /* SetupProfileViewController.m */,
-				19D318FA1867EF4700C34A5C /* LoginViewController.h */,
-				19D318FB1867EF4700C34A5C /* LoginViewController.m */,
-				19D318DA1867DD9200C34A5C /* ViewController.h */,
-				19D318DB1867DD9200C34A5C /* ViewController.m */,
-				19DC5BC5186828AA0035EE30 /* InstagramLoginViewController.h */,
-				19DC5BC6186828AA0035EE30 /* InstagramLoginViewController.m */,
-				19DC5BC818682F130035EE30 /* GetStartedViewController.h */,
-				19DC5BC918682F130035EE30 /* GetStartedViewController.m */,
-				19DC5BCF1868CF380035EE30 /* ChooseImagesViewController.h */,
-				19DC5BD01868CF380035EE30 /* ChooseImagesViewController.m */,
-				C0E1718E188BC9D200435DCE /* BrowseMatchesViewController.h */,
-				C0E1718F188BC9D200435DCE /* BrowseMatchesViewController.m */,
-				C0E171A4188BE3C300435DCE /* FullSizeImageViewController.h */,
-				C0E171A5188BE3C300435DCE /* FullSizeImageViewController.m */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		C0E1719D188BD05F00435DCE /* Pearing */ = {
-			isa = PBXGroup;
-			children = (
-				C0E17194188BCD8900435DCE /* PEMatch.h */,
-				C0E17195188BCD8900435DCE /* PEMatch.m */,
-				C0E17197188BCE7E00435DCE /* PearingClient.h */,
-				C0E17198188BCE7E00435DCE /* PearingClient.m */,
-				C0E1719A188BCFC800435DCE /* PEUser.h */,
-				C0E1719B188BCFC800435DCE /* PEUser.m */,
-				C0E171A1188BD89600435DCE /* PEImage.h */,
-				C0E171A2188BD89600435DCE /* PEImage.m */,
-			);
-			name = Pearing;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -485,9 +413,6 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Pearing;
 				TargetAttributes = {
-					19D318C11867DD9200C34A5C = {
-						DevelopmentTeam = N298MCJD7G;
-					};
 					19D318E21867DD9200C34A5C = {
 						TestTargetID = 19D318C11867DD9200C34A5C;
 					};
@@ -587,26 +512,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0E171A3188BD89600435DCE /* PEImage.m in Sources */,
 				19D318FC1867EF4700C34A5C /* LoginViewController.m in Sources */,
 				C03FA84E18728DA7001E7597 /* NZImageCache.m in Sources */,
 				19DC5BD11868CF380035EE30 /* ChooseImagesViewController.m in Sources */,
-				C0E171A0188BD69800435DCE /* MatchImagesScrollView.m in Sources */,
 				19DC5BCA18682F130035EE30 /* GetStartedViewController.m in Sources */,
 				C03FA84B18728A82001E7597 /* LoadingImageView.m in Sources */,
-				C0E17193188BC9E700435DCE /* BrowseMatchesCell.m in Sources */,
-				C0E171A6188BE3C300435DCE /* FullSizeImageViewController.m in Sources */,
 				19DC5BC7186828AA0035EE30 /* InstagramLoginViewController.m in Sources */,
 				19DC5BD41868D15B0035EE30 /* ChooseImagesCell.m in Sources */,
-				C0E1719C188BCFC800435DCE /* PEUser.m in Sources */,
 				19D318DC1867DD9200C34A5C /* ViewController.m in Sources */,
 				C03FA8B01873ECEF001E7597 /* SetupProfileViewController.m in Sources */,
-				C0E17196188BCD8900435DCE /* PEMatch.m in Sources */,
 				19D318D61867DD9200C34A5C /* AppDelegate.m in Sources */,
-				C0E17190188BC9D200435DCE /* BrowseMatchesViewController.m in Sources */,
 				19DC5BDB186976970035EE30 /* ImageCache.m in Sources */,
 				19D318D21867DD9200C34A5C /* main.m in Sources */,
-				C0E17199188BCE7E00435DCE /* PearingClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,13 +650,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pearing App/Pearing App-Prefix.pch";
 				INFOPLIST_FILE = "Pearing App/Pearing App-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -749,13 +663,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pearing App/Pearing App-Prefix.pch";
 				INFOPLIST_FILE = "Pearing App/Pearing App-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
