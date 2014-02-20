@@ -26,12 +26,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Edit Profile";
+    
+    //stop back up swiping
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    
     //setup back button
     self.navigationItem.backBarButtonItem.title = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    //and done button
+    self.navigationController.navigationBar.topItem.rightBarButtonItem = nil;
+
     
     //setup background color for the view
     UIColor * greyColor = [UIColor colorWithRed:244/255.0f green:244/255.0f blue:244/255.0f alpha:1.0f];
     self.view.backgroundColor = greyColor;
+    self.transparentUIView.backgroundColor = greyColor;
     
     //make the profile picture rounded and set it
     self.profilePictureView.layer.cornerRadius = (self.profilePictureView.frame.size.height)/2;
@@ -43,6 +52,13 @@
     
     //set user name
     self.nameTextField.text = [defaults valueForKey:@"userName"];
+    
+    //set the text field delegates as this controller
+    self.nameTextField.delegate = self;
+    self.ageTextField.delegate = self;
+    [self.ageTextField addTarget:self action:@selector(textFieldChanged:) forControlEvents:UIControlEventEditingChanged];
+    [self.nameTextField addTarget:self action:@selector(textFieldChanged:) forControlEvents:UIControlEventEditingChanged];
+    
     
     //make text view look similar to age/name text fields
     self.bioTextView.delegate = self;
@@ -59,9 +75,11 @@
     
     //setup scrollview
     self.imagesScrollView.delegate = self;
+    self.imagesScrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     self.imagesScrollView.pagingEnabled = YES;
     self.imagesScrollView.showsHorizontalScrollIndicator = NO;
     self.imagesScrollView.showsVerticalScrollIndicator = NO;
+    self.imagesScrollView.clipsToBounds = NO;
     self.profilePictures = [self getProfilePictures];
     for(int i = 0; i < [self.profilePictures count]; i++)
     {
@@ -77,7 +95,6 @@
     }
     
    self.imagesScrollView.contentSize = CGSizeMake(self.imagesScrollView.frame.size.width * self.profilePictures.count, self.imagesScrollView.frame.size.height);
-    //self.imagesScrollView.contentSize = CGSizeMake(95, 95);
     
 	// Do any additional setup after loading the view.
     
@@ -93,17 +110,108 @@
         NSDictionary *imageData = self.selectedPictures[i];
         NSURL *lowResURL = [NSURL URLWithString:imageData[@"images"][@"low_resolution"][@"url"]];
         UIImageView *pictureView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:lowResURL]]];
-        pictureView.frame = CGRectMake(0.0f, 0.0f, 200.0f, 200.0f);
+        pictureView.frame = CGRectMake(15.0f, 0.0f, 230.0f, 230.0f);
         [retArray addObject:pictureView];
     }
     return retArray;
 }
 
-//- (void)scrollViewDidScroll:(UIScrollView *)sender {
-    //CGFloat pageWidth = self.imagesScrollView.frame.size.width;
-    //int page = floor((self.imagesScrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    //self.imagesPageControl.currentPage = page;
-//}
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+	if ([self.transparentUIView pointInside:point withEvent:event]) {
+		return self.imagesScrollView;
+	}
+	return nil;
+}
+
+-(IBAction)editingIsComplete:(id)sender {
+    if( ![_nameTextField.text isEqualToString:@""] && ![_ageTextField.text isEqualToString:@""] ){
+        self.navigationController.navigationBar.topItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain target:self action:@selector(finishSegue:)];
+    }
+    else {
+        self.navigationController.navigationBar.topItem.rightBarButtonItem = nil;
+    }
+}
+
+-(IBAction)finishSegue:(id)sender
+{
+
+    if([self savePerson]){
+        //dismiss view and go to matches view controller
+        //[self performSegueWithIdentifier:@"SetupProfile" sender:nil];
+
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Server Problem"
+                                                        message:@"We couldn't save you :( Try again?"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+
+    }
+    
+}
+-(BOOL)savePerson
+{
+    //call server here to save the person
+    return NO;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if(textField == self.ageTextField){
+        NSInteger age = [textField.text integerValue];
+        if(age < 18 && ![textField.text isEqualToString:@""]){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Age Restriction"
+                                                            message:@"You must be over 18 to use this app."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            textField.text = @"";
+        }
+        else if(age > 100){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Age Restriction"
+                                                            message:@"You must be alive to use this app."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            textField.text = @"";
+            
+        }
+    }
+    
+    if(textField == self.nameTextField){
+        if([textField.text isEqualToString:@""]){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hold on!"
+                                                            message:@"You need a name!"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            textField.text = @"";
+        }
+    }
+    if([textField.text isEqualToString:@""]){
+        self.navigationController.navigationBar.topItem.rightBarButtonItem = nil;
+    }
+}
+
+-(void)textFieldChanged:(UITextField *)textField
+{
+    if (textField.text.length == 0) {
+        self.navigationController.navigationBar.topItem.rightBarButtonItem = nil;
+    }
+    
+    if(textField == self.ageTextField){
+        NSInteger age = [textField.text integerValue];
+    
+        if (textField.text.length > 1 && age >= 18 && age <= 100 && ![_nameTextField.text isEqualToString:@""]){
+            self.navigationController.navigationBar.topItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain target:self action:@selector(finishSegue:)];
+        }
+    }
+}
 
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
