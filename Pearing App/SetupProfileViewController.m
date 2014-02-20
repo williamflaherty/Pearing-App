@@ -151,9 +151,19 @@
     }
     
 }
+
 -(BOOL)savePerson
 {
     //call server here to save the person
+    [_pearingClient createNewUserWithName:_nameTextField.text gender:(int)_genderSegment.selectedSegmentIndex age:[_ageTextField.text integerValue] description:_bioTextView.text completion:^(BOOL success, NSString *error){
+        
+        if (success) {
+            //do stuff
+        }
+        else{
+            NSLog(@"%@", error);
+        }
+    }];
     return NO;
 }
 
@@ -196,6 +206,12 @@
     if([textField.text isEqualToString:@""]){
         self.navigationController.navigationBar.topItem.rightBarButtonItem = nil;
     }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 -(void)textFieldChanged:(UITextField *)textField

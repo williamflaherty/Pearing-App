@@ -18,11 +18,16 @@
     return client;
 }
 
-- (void)createNewUserWithName:(NSString *)userName gender:(PEGender)gender age:(int)age description:(NSString *)description images:(NSArray *)images completion:(void (^)(BOOL, NSString *))completionHandler {
+- (void)createNewUserWithName:(NSString *)userName gender:(PEGender)gender age:(int)age description:(NSString *)description completion:(void (^)(BOOL, NSString *))completionHandler {
+    
+    //save user to server
+    
     completionHandler(YES, nil);
+    
 }
 
 - (void) getMatchesWithCompletion:(void (^)(NSArray *, NSString *))completionHandler {
+    
     NSString *sampleImageURL = @"http://crdm.chass.ncsu.edu/sites/public/files/nisbet-profile.jpg";
     PEImage *sampleImage = [PEImage imageWithFullSizeURL:sampleImageURL thumbnailURL:sampleImageURL];
     NSArray *sampleImages = @[sampleImage,sampleImage,sampleImage,sampleImage,sampleImage];
