@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 typedef enum PEUserGender: int {
-    Male = 0,
-    Female = 1
+    Female = 0,
+    Male = 1
 } PEGender;
 
 @interface PEUser : NSObject

@@ -18,7 +18,7 @@
 
 // Registers a new user
 // images should contain UIImages
-- (void) createNewUserWithName:(NSString *)userName gender:(PEGender)gender age:(int)age description:(NSString *)description images:(NSArray *)images completion:(void (^)(BOOL success, NSString *error))completionHandler;
+- (void) createNewUserWithName:(NSString *)userName gender:(PEGender)gender age:(int)age description:(NSString *)description completion:(void (^)(BOOL success, NSString *error))completionHandler;
 
 
 // Gets the current list of matches for the specified user
