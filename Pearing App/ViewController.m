@@ -29,9 +29,17 @@
      UIViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Login"];
      [self presentViewController:loginVC animated:NO completion:nil];
      }*/
+    UIViewController *openVC;
     
-    UIViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Login"];
-    [self presentViewController:loginVC animated:NO completion:nil];
+    /* if the user has registered then open their matches */
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"UserRegistered"]){
+        openVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Matches"];
+    }
+    else {
+        openVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Login"];
+    }
+    
+    [self presentViewController:openVC animated:NO completion:nil];
 
 //#endif
    // [self becomeFirstResponder];

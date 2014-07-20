@@ -9,6 +9,7 @@
 #import "BrowseMatchesViewController.h"
 #import "BrowseMatchesCell.h"
 #import "FullSizeImageViewController.h"
+#import "AMSlideOutNavigationController.h"
 
 @interface BrowseMatchesViewController () <UIAlertViewDelegate, BrowseMatchesCellDelegate>
 
@@ -30,6 +31,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.slideoutController = [AMSlideOutNavigationController slideOutNavigation];
+    _navBar.topItem.title = @"Pearing";
+    
+    
 	[self loadMatches];
 }
 

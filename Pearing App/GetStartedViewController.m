@@ -7,6 +7,7 @@
 //
 
 #import "GetStartedViewController.h"
+#import "PearingAuth.h"
 
 @interface GetStartedViewController ()
 

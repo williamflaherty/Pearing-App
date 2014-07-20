@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LoginViewController.h"
 #import "SetupProfileViewController.h"
 
 @interface ChooseImagesViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate>

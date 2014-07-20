@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LoginViewController.h"
 
 @interface GetStartedViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIImageView *profilePicture;

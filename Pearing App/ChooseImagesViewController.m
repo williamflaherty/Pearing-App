@@ -10,6 +10,7 @@
 #import "ChooseImagesCell.h"
 #import "ImageCache.h"
 #import "NZImageCache.h"
+#import "PearingAuth.h"
 
 int s_SelectedCount;
 

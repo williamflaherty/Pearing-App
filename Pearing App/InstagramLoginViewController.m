@@ -7,6 +7,7 @@
 //
 
 #import "InstagramLoginViewController.h"
+#import "PearingAuth.h"
 
 @interface InstagramLoginViewController ()
 
@@ -61,8 +62,8 @@
             NSArray *parts = [strAccessToken componentsSeparatedByString:@"."];
             NSString *userId = [parts objectAtIndex:0];
             [defaults setObject:userId forKey:USER_ID];
-           // NSLog(@"AccessToken = %@ ",strAccessToken);
-           // NSLog(@"UserID = %@ ", userId);
+            NSLog(@"AccessToken = %@ ",strAccessToken);
+            NSLog(@"UserID = %@ ", userId);
             [self transitionToProfile];
             return NO;
         }

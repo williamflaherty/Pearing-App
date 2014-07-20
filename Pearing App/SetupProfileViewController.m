@@ -35,6 +35,7 @@
     self.navigationItem.backBarButtonItem.title = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
     //and done button
     self.navigationController.navigationBar.topItem.rightBarButtonItem = nil;
+    self.navigationItem.rightBarButtonItem.title = @"";
 
     
     //setup background color for the view
@@ -83,9 +84,10 @@
     self.profilePictures = [self getProfilePictures];
     for(int i = 0; i < [self.profilePictures count]; i++)
     {
+        
         CGRect frame;
-        frame.origin.x = self.imagesScrollView.frame.size.width * i;
-        frame.origin.y = 0;
+        frame.origin.x = (self.imagesScrollView.frame.size.width * i);
+        frame.origin.y = 60;
         frame.size = self.imagesScrollView.frame.size;
         
        // UIView *subview = [[UIView alloc] initWithFrame:frame];
@@ -96,6 +98,8 @@
     
    self.imagesScrollView.contentSize = CGSizeMake(self.imagesScrollView.frame.size.width * self.profilePictures.count, self.imagesScrollView.frame.size.height);
     
+    /* open the pearing client */
+    _pearingClient = [PearingClient instance];
 	// Do any additional setup after loading the view.
     
     
@@ -110,7 +114,7 @@
         NSDictionary *imageData = self.selectedPictures[i];
         NSURL *lowResURL = [NSURL URLWithString:imageData[@"images"][@"low_resolution"][@"url"]];
         UIImageView *pictureView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:lowResURL]]];
-        pictureView.frame = CGRectMake(15.0f, 0.0f, 230.0f, 230.0f);
+        pictureView.frame = CGRectMake(45.0f, 0.0f, 230.0f, 230.0f);
         [retArray addObject:pictureView];
     }
     return retArray;
@@ -137,9 +141,11 @@
 
     if([self savePerson]){
         //dismiss view and go to matches view controller
-        //[self performSegueWithIdentifier:@"SetupProfile" sender:nil];
+    UIViewController *openVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Matches"];
+    [self presentViewController:openVC animated:YES completion:nil];
 
     }
+    
     else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Server Problem"
                                                         message:@"We couldn't save you :( Try again?"
@@ -154,17 +160,24 @@
 
 -(BOOL)savePerson
 {
+    __block BOOL retVal = NO;
     //call server here to save the person
-    [_pearingClient createNewUserWithName:_nameTextField.text gender:(int)_genderSegment.selectedSegmentIndex age:[_ageTextField.text integerValue] description:_bioTextView.text completion:^(BOOL success, NSString *error){
-        
-        if (success) {
-            //do stuff
-        }
-        else{
-            NSLog(@"%@", error);
-        }
+    [_pearingClient createNewUserWithName:_nameTextField.text
+                    gender:(int)_genderSegment.selectedSegmentIndex
+                    age:[_ageTextField.text integerValue]
+                    description:_bioTextView.text
+                    completion:^(BOOL success, NSString *error){
+                        if (success) {
+                            //do stuff
+                            retVal = success;
+                        }
+                        else{
+                            NSLog(@"%@", error);
+                            retVal = NO;
+                        }
     }];
-    return NO;
+    
+    return retVal;
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
