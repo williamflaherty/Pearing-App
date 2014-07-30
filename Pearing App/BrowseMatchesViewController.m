@@ -9,7 +9,6 @@
 #import "BrowseMatchesViewController.h"
 #import "BrowseMatchesCell.h"
 #import "FullSizeImageViewController.h"
-#import "AMSlideOutNavigationController.h"
 
 @interface BrowseMatchesViewController () <UIAlertViewDelegate, BrowseMatchesCellDelegate>
 
@@ -31,9 +30,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.slideoutController = [AMSlideOutNavigationController slideOutNavigation];
-    _navBar.topItem.title = @"Pearing";
-    
+    _navigationBar.title = @"Pearing";
+    //set the navigation bar colors
+    UIColor * color = [UIColor colorWithRed:253/255.0f green:125/255.0f blue:51/255.0f alpha:1.0f];
+    self.navigationController.navigationBar.barTintColor = color;
+    //eventually replace with custom
+    //images
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
 	[self loadMatches];
 }

@@ -10,7 +10,6 @@
 #import <QuartzCore/QuartzCore.h>
 #import "PearingClient.h"
 
-
 @interface SetupProfileViewController : UIViewController <UITextViewDelegate, UIScrollViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic) PearingClient *pearingClient;
@@ -23,6 +22,10 @@
 @property (strong, nonatomic) NSString *textViewPlaceholder;
 @property (strong, nonatomic) NSMutableArray *selectedPictures;
 @property (strong, nonatomic) NSMutableArray *profilePictures;
+@property (nonatomic, retain) IBOutlet UIToolbar    *accessoryView;
+@property (nonatomic, retain) IBOutlet UIDatePicker *datePickerView;
+
+
 @property (strong, nonatomic) IBOutlet UIView *transparentUIView;
 
 -(IBAction)editingIsComplete:(id)sender;

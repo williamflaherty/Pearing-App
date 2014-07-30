@@ -14,6 +14,7 @@
 
 @implementation SetupProfileViewController
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -32,7 +33,7 @@
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     
     //setup back button
-    self.navigationItem.backBarButtonItem.title = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
     //and done button
     self.navigationController.navigationBar.topItem.rightBarButtonItem = nil;
     self.navigationItem.rightBarButtonItem.title = @"";
@@ -60,6 +61,12 @@
     [self.ageTextField addTarget:self action:@selector(textFieldChanged:) forControlEvents:UIControlEventEditingChanged];
     [self.nameTextField addTarget:self action:@selector(textFieldChanged:) forControlEvents:UIControlEventEditingChanged];
     
+    //setup age/datepicker
+    self.datePickerView.hidden = YES;
+    self.accessoryView.hidden = YES;
+    [self.datePickerView setDatePickerMode:UIDatePickerModeDate];
+    self.ageTextField.inputView = self.datePickerView;
+    self.ageTextField.inputAccessoryView = self.accessoryView;
     
     //make text view look similar to age/name text fields
     self.bioTextView.delegate = self;
@@ -120,12 +127,12 @@
     return retArray;
 }
 
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-	if ([self.transparentUIView pointInside:point withEvent:event]) {
-		return self.imagesScrollView;
-	}
-	return nil;
-}
+//- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+//	if ([self.transparentUIView pointInside:point withEvent:event]) {
+//		return self.imagesScrollView;
+//	}
+//	return nil;
+//}
 
 -(IBAction)editingIsComplete:(id)sender {
     if( ![_nameTextField.text isEqualToString:@""] && ![_ageTextField.text isEqualToString:@""] ){
@@ -141,8 +148,13 @@
 
     if([self savePerson]){
         //dismiss view and go to matches view controller
-    UIViewController *openVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Matches"];
-    [self presentViewController:openVC animated:YES completion:nil];
+        
+        
+        UIViewController *settingsView = [self.storyboard instantiateViewControllerWithIdentifier:@"Settings"];
+        UITableViewController *matchesView = [self.storyboard instantiateViewControllerWithIdentifier:@"Matches"];
+         UINavigationController *appNav = [[UINavigationController alloc] initWithRootViewController:settingsView];
+        [appNav pushViewController:matchesView animated:NO];
+        [self presentViewController:appNav animated:YES completion:nil];
 
     }
     
@@ -178,6 +190,45 @@
     }];
     
     return retVal;
+}
+
+- (IBAction)dateChanged:(id)sender {
+    UIDatePicker *picker = (UIDatePicker *)sender;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy"];
+    NSString *year = [formatter stringFromDate:picker.date];
+    [formatter setDateFormat:@"MM"];
+    NSString *month = [formatter stringFromDate:picker.date];
+    [formatter setDateFormat:@"dd"];
+    NSString *day = [formatter stringFromDate:picker.date];
+    
+    NSString *birthday = [NSString stringWithFormat:@"%@-%@-%@", year, month, day];
+    //save the birthday for later.
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:birthday forKey:@"Birthday"];
+    NSDateComponents* ageComponents = [[NSCalendar currentCalendar]
+                                       components:NSYearCalendarUnit
+                                       fromDate:picker.date
+                                       toDate:[NSDate date]
+                                       options:0];
+    NSInteger age = [ageComponents year];
+    self.ageTextField.text = [NSString stringWithFormat:@"%d", age];
+    
+    if (self.ageTextField.text.length > 1 && age >= 18 && age <= 100 && ![_nameTextField.text isEqualToString:@""]){
+        self.navigationController.navigationBar.topItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain target:self action:@selector(finishSegue:)];
+    }
+}
+
+- (IBAction)doneEditing:(id)sender {
+    [self.ageTextField resignFirstResponder];
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+
+    if(textField == self.ageTextField){
+        return NO;
+    }
+    return YES;
 }
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
@@ -242,11 +293,21 @@
     }
 }
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if(textField == self.ageTextField){
+        self.accessoryView.hidden = NO;
+        self.datePickerView.hidden = NO;
+    }
+    [textField becomeFirstResponder];
+}
+
 -(void)textViewDidBeginEditing:(UITextView *)textView
 {
     if ([textView.text isEqualToString:self.textViewPlaceholder]) {
         textView.text = @"";
     }
+    
     [textView becomeFirstResponder];
 }
 

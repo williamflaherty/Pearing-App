@@ -12,6 +12,6 @@
 @interface BrowseMatchesViewController : UITableViewController 
 
 @property (nonatomic) PearingClient *pearingClient;
-@property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navigationBar;
 
 @end

@@ -77,7 +77,7 @@
                                 
                                 handle, @"handle",
                                 
-                                @"1991-10-09", @"birthday",
+                                [defaults objectForKey:@"Birthday"], @"birthday",
                                 
                                 [NSString stringWithFormat:@"%d", age-2], @"age_start",
                                 
