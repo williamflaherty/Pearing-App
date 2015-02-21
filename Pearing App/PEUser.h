@@ -17,7 +17,7 @@ typedef enum PEUserGender: int {
 
 @property (nonatomic) NSString *userName;
 @property (nonatomic) NSArray *imageURLs;
-@property (nonatomic) NSString *description;
+@property (nonatomic) NSString *desc;
 @property (nonatomic) int age;
 @property (nonatomic) PEGender gender;
 

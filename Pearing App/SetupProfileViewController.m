@@ -58,14 +58,13 @@
     //set the text field delegates as this controller
     self.nameTextField.delegate = self;
     self.ageTextField.delegate = self;
-    [self.ageTextField addTarget:self action:@selector(textFieldChanged:) forControlEvents:UIControlEventEditingChanged];
-    [self.nameTextField addTarget:self action:@selector(textFieldChanged:) forControlEvents:UIControlEventEditingChanged];
     
     //setup age/datepicker
     self.datePickerView.hidden = YES;
     self.accessoryView.hidden = YES;
     [self.datePickerView setDatePickerMode:UIDatePickerModeDate];
     self.ageTextField.inputView = self.datePickerView;
+    [self.accessoryView removeFromSuperview];
     self.ageTextField.inputAccessoryView = self.accessoryView;
     
     //make text view look similar to age/name text fields
@@ -78,8 +77,13 @@
     self.textViewPlaceholder = @"A short bio...";
     
     //setup color for gender picker
-    UIColor * orangeColor = [UIColor colorWithRed:253/255.0f green:125/255.0f blue:51/255.0f alpha:1.0f];
+    //UIColor * orangeColor = [UIColor colorWithRed:253/255.0f green:125/255.0f blue:51/255.0f alpha:1.0f];
+    UIColor * orangeColor = [UIColor colorWithRed:237/255.0f green:132/255.0f blue:92/255.0f alpha:1.0f];
     self.genderSegment.tintColor = orangeColor;
+    
+    //setup page control
+    [self.pageControl addTarget:self action:@selector(onPageControlPageChanged:) forControlEvents:UIControlEventValueChanged];
+    self.pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:237/255.0f green:132/255.0f blue:92/255.0f alpha:1.0f];
     
     //setup scrollview
     self.imagesScrollView.delegate = self;
@@ -87,23 +91,38 @@
     self.imagesScrollView.pagingEnabled = YES;
     self.imagesScrollView.showsHorizontalScrollIndicator = NO;
     self.imagesScrollView.showsVerticalScrollIndicator = NO;
-    self.imagesScrollView.clipsToBounds = NO;
     self.profilePictures = [self getProfilePictures];
     for(int i = 0; i < [self.profilePictures count]; i++)
     {
-        
         CGRect frame;
         frame.origin.x = (self.imagesScrollView.frame.size.width * i);
-        frame.origin.y = 60;
+        frame.origin.y = 30;
         frame.size = self.imagesScrollView.frame.size;
-        
-       // UIView *subview = [[UIView alloc] initWithFrame:frame];
+        //figure out how to round the images edges for nicer aestethic like hte rest of the boxes.
+        //using cornerRadius and cliptobounds wasn't working :/
+       
         UIImageView *subview = [[UIImageView alloc] initWithFrame:frame];
+        
+        CALayer *borderLayer = [CALayer layer];
+        CGRect borderFrame = CGRectMake(42,
+                                        -3,
+                                        ([[self.profilePictures objectAtIndex:i] frame].size.width)+6,
+                                        ([[self.profilePictures objectAtIndex:i] frame].size.height)+6);
+        
+        [borderLayer setBackgroundColor:[[UIColor colorWithRed:237/255.0f green:132/255.0f blue:92/255.0f alpha:1.0f] CGColor] ];
+        [borderLayer setFrame:borderFrame];
+        [borderLayer setCornerRadius:8.0];
+        [borderLayer setBorderWidth:3.0];
+        [borderLayer setBorderColor:[[UIColor colorWithRed:237/255.0f green:132/255.0f blue:92/255.0f alpha:1.0f] CGColor]];
+        [subview.layer addSublayer:borderLayer];
+        [subview setClipsToBounds:YES];
+        [subview.layer setCornerRadius:8.0];
         [subview addSubview:[self.profilePictures objectAtIndex:i]];
+        
         [self.imagesScrollView addSubview:subview];
+        
     }
-    
-   self.imagesScrollView.contentSize = CGSizeMake(self.imagesScrollView.frame.size.width * self.profilePictures.count, self.imagesScrollView.frame.size.height);
+    self.imagesScrollView.contentSize = CGSizeMake(self.imagesScrollView.frame.size.width * self.profilePictures.count, self.imagesScrollView.frame.size.height);
     
     /* open the pearing client */
     _pearingClient = [PearingClient instance];
@@ -112,6 +131,20 @@
     
 }
 
+- (void)onPageControlPageChanged:(UIPageControl *)pageControl_ {
+    
+    int offsetX = pageControl_.currentPage * self.imagesScrollView.frame.size.width;
+    
+    CGPoint offset = CGPointMake(offsetX, 0);
+    
+    [self.imagesScrollView setContentOffset:offset animated:YES];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView_ {
+    
+    int page = self.imagesScrollView.contentOffset.x / self.imagesScrollView.frame.size.width;
+    self.pageControl.currentPage = page;
+}
 
 -(NSMutableArray *)getProfilePictures
 {
@@ -127,16 +160,11 @@
     return retArray;
 }
 
-//- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-//	if ([self.transparentUIView pointInside:point withEvent:event]) {
-//		return self.imagesScrollView;
-//	}
-//	return nil;
-//}
-
--(IBAction)editingIsComplete:(id)sender {
+-(void)editingIsComplete{
     if( ![_nameTextField.text isEqualToString:@""] && ![_ageTextField.text isEqualToString:@""] ){
-        self.navigationController.navigationBar.topItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain target:self action:@selector(finishSegue:)];
+        //self.navigationController.navigationBar.topItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain target:self action:@selector(finishSegue:)];
+        
+        self.navigationController.navigationBar.topItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(finishSegue:)];
     }
     else {
         self.navigationController.navigationBar.topItem.rightBarButtonItem = nil;
@@ -174,9 +202,9 @@
 {
     __block BOOL retVal = NO;
     //call server here to save the person
-    [_pearingClient createNewUserWithName:_nameTextField.text
+    [_pearingClient createNewUserWithHandle:_nameTextField.text
                     gender:(int)_genderSegment.selectedSegmentIndex
-                    age:[_ageTextField.text integerValue]
+                    age:(int)[_ageTextField.text integerValue]
                     description:_bioTextView.text
                     completion:^(BOOL success, NSString *error){
                         if (success) {
@@ -212,11 +240,8 @@
                                        toDate:[NSDate date]
                                        options:0];
     NSInteger age = [ageComponents year];
-    self.ageTextField.text = [NSString stringWithFormat:@"%d", age];
+    self.ageTextField.text = [NSString stringWithFormat:@"%ld", (long)age];
     
-    if (self.ageTextField.text.length > 1 && age >= 18 && age <= 100 && ![_nameTextField.text isEqualToString:@""]){
-        self.navigationController.navigationBar.topItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain target:self action:@selector(finishSegue:)];
-    }
 }
 
 - (IBAction)doneEditing:(id)sender {
@@ -228,6 +253,7 @@
     if(textField == self.ageTextField){
         return NO;
     }
+    
     return YES;
 }
 
@@ -243,6 +269,7 @@
                                                   otherButtonTitles:nil];
             [alert show];
             textField.text = @"";
+            [textField becomeFirstResponder];
         }
         else if(age > 100){
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Age Restriction"
@@ -252,6 +279,7 @@
                                                   otherButtonTitles:nil];
             [alert show];
             textField.text = @"";
+            [textField becomeFirstResponder];
             
         }
     }
@@ -265,33 +293,36 @@
                                                   otherButtonTitles:nil];
             [alert show];
             textField.text = @"";
+            [textField becomeFirstResponder];
         }
     }
     if([textField.text isEqualToString:@""]){
         self.navigationController.navigationBar.topItem.rightBarButtonItem = nil;
     }
+    [self editingIsComplete];
 }
 
+//process them pressing the return button
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     return YES;
 }
 
--(void)textFieldChanged:(UITextField *)textField
-{
-    if (textField.text.length == 0) {
-        self.navigationController.navigationBar.topItem.rightBarButtonItem = nil;
-    }
-    
-    if(textField == self.ageTextField){
-        NSInteger age = [textField.text integerValue];
-    
-        if (textField.text.length > 1 && age >= 18 && age <= 100 && ![_nameTextField.text isEqualToString:@""]){
-            self.navigationController.navigationBar.topItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain target:self action:@selector(finishSegue:)];
-        }
-    }
-}
+//-(void)textFieldChanged:(UITextField *)textField
+//{
+//    if (textField.text.length == 0) {
+//        self.navigationController.navigationBar.topItem.rightBarButtonItem = nil;
+//    }
+//    
+//    if(textField == self.ageTextField){
+//        NSInteger age = [textField.text integerValue];
+//    
+//        if (textField.text.length > 1 && age >= 18 && age <= 120 && ![_nameTextField.text isEqualToString:@""]){
+//            self.navigationController.navigationBar.topItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain target:self action:@selector(finishSegue:)];
+//        }
+//    }
+//}
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
@@ -299,6 +330,7 @@
         self.accessoryView.hidden = NO;
         self.datePickerView.hidden = NO;
     }
+    [self.datePickerView removeFromSuperview];
     [textField becomeFirstResponder];
 }
 

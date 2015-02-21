@@ -19,8 +19,29 @@
 
 // Registers a new user
 // images should contain UIImages
-- (void) createNewUserWithName:(NSString *)userName gender:(PEGender)gender age:(int)age description:(NSString *)description completion:(void (^)(BOOL success, NSString *error))completionHandler;
+- (void) createNewUserWithHandle:(NSString *)handle
+                          gender:(PEGender)gender
+                             age:(int)age
+                     description:(NSString *)description
+                      completion:(void (^)(BOOL success, NSString *error))completionHandler;
 
+- (void) updateUserWithHandle:(NSString *)handle
+                       gender:(int)gender
+                     birthday:(NSString *)birthday
+                  description:(NSString *)description
+                     ageBegin:(NSString *)ageBegin
+                       ageEnd:(NSString *)ageEnd
+                  orientation:(int)orientation
+                   completion:(void (^)(BOOL success, NSString *error))completionHandler;
+
+- (void) updateUserDefaultsWithHandle:(NSString *)handle
+                               gender:(int)gender
+                             birthday:(NSString *)birthday
+                          description:(NSString *)description
+                             ageBegin:(NSString *)ageBegin
+                               ageEnd:(NSString *)ageEnd
+                          orientation:(int)orientation
+                             distance:(NSString *)distance;
 
 // Gets the current list of matches for the specified user
 // returned array contains PEMatches

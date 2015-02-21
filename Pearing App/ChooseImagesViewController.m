@@ -53,8 +53,14 @@ int s_SelectedCount;
     //don't hide the view behind the bar because it's translucent
     self.navigationController.navigationBar.translucent = NO;
     //set the navigation bar colors
-    UIColor * color = [UIColor colorWithRed:253/255.0f green:125/255.0f blue:51/255.0f alpha:1.0f];
+    //UIColor * color = [UIColor colorWithRed:253/255.0f green:125/255.0f blue:51/255.0f alpha:1.0f];
+    UIColor * color = [UIColor colorWithRed:237/255.0f green:132/255.0f blue:92/255.0f alpha:1.0f];
     self.navigationController.navigationBar.barTintColor = color;
+    /*if ([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
+        UIImage *image = [UIImage imageNamed:@"testy.png"];
+        [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    }*/
+    self.view.backgroundColor = [UIColor colorWithRed:253/255.0f green:125/255.0f blue:51/255.0f alpha:1.0f];
     //eventually gonna replace done with a custom "next" button 
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     //hide the back button
@@ -128,10 +134,11 @@ int s_SelectedCount;
 }
 
 - (void) updateTitleCount {
-    self.title = [NSString stringWithFormat:@"%d of 5", _selectedImages.count];
+    self.title = [NSString stringWithFormat:@"%lu of 5", (unsigned long)_selectedImages.count];
     
     if (_selectedImages.count == 5 && self.navigationController.navigationBar.topItem.rightBarButtonItem == nil) {
-        self.navigationController.navigationBar.topItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain target:self action:@selector(Add:)];
+        //self.navigationController.navigationBar.topItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain target:self action:@selector(Add:)];
+        self.navigationController.navigationBar.topItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(Add:)];
     } else {
         self.navigationController.navigationBar.topItem.rightBarButtonItem = nil;
     }

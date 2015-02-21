@@ -25,10 +25,8 @@
 @property (nonatomic, retain) IBOutlet UIToolbar    *accessoryView;
 @property (nonatomic, retain) IBOutlet UIDatePicker *datePickerView;
 
+@property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @property (strong, nonatomic) IBOutlet UIView *transparentUIView;
-
--(IBAction)editingIsComplete:(id)sender;
-
 
 @end

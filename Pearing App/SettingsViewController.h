@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "PearingClient.h"
 
-@interface SettingsViewController : UIViewController <UITextViewDelegate, UITextFieldDelegate>
+@interface SettingsViewController : UIViewController <UITextViewDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
+@property (nonatomic) PearingClient *pearingClient;
 @property (strong, nonatomic) IBOutlet UINavigationItem *navigationBar;
 @property (strong, nonatomic) IBOutlet UITextField *ageBegin;
 @property (strong, nonatomic) IBOutlet UITextField *ageEnd;
@@ -25,5 +27,11 @@
 @property (strong, nonatomic) IBOutlet UITextView *bioTextView;
 @property (strong, nonatomic) NSString *textViewPlaceholder;
 @property (strong, nonatomic) IBOutlet UITextField *distanceTextField;
+@property (strong, nonatomic) UIView *animationView;
+@property (strong, nonatomic) IBOutlet UIPickerView *distancePickerView;
+
+
+- (IBAction)womenOrButtonPressed:(id)sender;
+- (IBAction)menOrButtonPressed:(id)sender;
 
 @end
