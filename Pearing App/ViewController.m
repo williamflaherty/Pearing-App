@@ -33,7 +33,7 @@
     
     /* if the user has registered then open their matches */
     if([[NSUserDefaults standardUserDefaults] boolForKey:@"UserRegistered"]){
-        openVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Matches"];
+
     }
     else {
         openVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Login"];

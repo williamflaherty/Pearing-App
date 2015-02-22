@@ -184,15 +184,15 @@
     NSArray *sampleImages = @[sampleImage,sampleImage,sampleImage,sampleImage,sampleImage];
     
     PEUser *sampleUser = [PEUser new];
-    sampleUser.userName = @"macbeth";
-    sampleUser.desc = @"I was written by William Shakespeare.";
+    sampleUser.userName = @"123456789012345678901234567890";
+    sampleUser.desc = @"aaaaakkkdkdkdkkdkdkdkdkdkkdkdkdkdkdkdkkdkdkdkdkkdkdkdkjfkdjfkdjfkdjfkjasdlkfja;sldjfa;iosjdf;aisjdf;ajsd;fijasd;lfkjasijfa;sidjf;iaemsc;iams";
     
     PEMatch *sampleMatch = [PEMatch new];
     sampleMatch.profileImage = sampleImage;
     sampleMatch.images = sampleImages;
     sampleMatch.user = sampleUser;
     
-    completionHandler(@[sampleMatch, sampleMatch], nil);
+    completionHandler(@[sampleMatch, sampleMatch, sampleMatch, sampleMatch, sampleMatch], nil);
 }
 
 @end

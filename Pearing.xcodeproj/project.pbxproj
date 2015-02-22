@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		19339BBD1A9955F900B5BF5F /* profileCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 19339BBC1A9955F900B5BF5F /* profileCard.png */; };
+		19339BBF1A99852500B5BF5F /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 19339BBE1A99852500B5BF5F /* settings.png */; };
 		19544170197D82D0007E2985 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1954416F197D82CF007E2985 /* SettingsViewController.m */; };
 		19AA47131A9905C900D6B5C3 /* testy.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AA47121A9905C900D6B5C3 /* testy.png */; };
 		19AA47151A990A6200D6B5C3 /* screen_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AA47141A990A6200D6B5C3 /* screen_2.png */; };
@@ -84,6 +85,7 @@
 
 /* Begin PBXFileReference section */
 		19339BBC1A9955F900B5BF5F /* profileCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileCard.png; sourceTree = "<group>"; };
+		19339BBE1A99852500B5BF5F /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		1941BF20197B91DA00903654 /* PearingAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PearingAuth.h; sourceTree = "<group>"; };
 		1954416E197D82CF007E2985 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		1954416F197D82CF007E2985 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 		C03FA84F18728FC7001E7597 /* pearing_pics */ = {
 			isa = PBXGroup;
 			children = (
+				19339BBE1A99852500B5BF5F /* settings.png */,
 				19339BBC1A9955F900B5BF5F /* profileCard.png */,
 				19AA47141A990A6200D6B5C3 /* screen_2.png */,
 				19AA47121A9905C900D6B5C3 /* testy.png */,
@@ -488,6 +491,7 @@
 				C03FA89318728FC7001E7597 /* insta_login_heart.png in Resources */,
 				19AA47131A9905C900D6B5C3 /* testy.png in Resources */,
 				19DC5BE11874A7D30035EE30 /* profile_setup2.png in Resources */,
+				19339BBF1A99852500B5BF5F /* settings.png in Resources */,
 				19D318D01867DD9200C34A5C /* InfoPlist.strings in Resources */,
 				C03FA89018728FC7001E7597 /* insta_button.png in Resources */,
 				C03FA88B18728FC7001E7597 /* 7.png in Resources */,

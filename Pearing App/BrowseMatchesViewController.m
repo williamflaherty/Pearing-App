@@ -38,11 +38,18 @@
 
     self.navigationController.navigationBar.barTintColor = color;
     //eventually replace with custom images
+    
+    UIImage *barButtonImage = [UIImage imageNamed:@"settings.png"];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:barButtonImage style:UIBarButtonItemStylePlain target:self action:@selector(backButtonPressed:)];
+    self.navigationItem.leftBarButtonItem = backButton;
+
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                     [UIColor whiteColor],NSForegroundColorAttributeName,
                                     [UIColor whiteColor],NSBackgroundColorAttributeName,nil];
     self.navigationController.navigationBar.titleTextAttributes = textAttributes;
+    
+    
 	[self loadMatches];
 }
 
@@ -59,6 +66,11 @@
     }];
 }
 
+- (IBAction) backButtonPressed:(id)sender {
+    //[self performSegueWithIdentifier:@"Settings" sender:sender];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 # pragma mark - tableView
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -67,11 +79,12 @@
     cell.match = _matches[indexPath.row];
     cell.backgroundColor = [UIColor colorWithRed:236/255.0f green:240/255.0f blue:241/255.0f alpha:1.0f];;
     cell.delegate = self;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

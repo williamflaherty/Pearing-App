@@ -210,6 +210,10 @@
                         }
     }];
     
+//    if(retVal){
+//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"UserRegistered"];
+//    }
+    
     return retVal;
 }
 
