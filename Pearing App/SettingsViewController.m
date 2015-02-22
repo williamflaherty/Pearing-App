@@ -75,7 +75,10 @@
     self.textViewPlaceholder = @"A short bio...";
     
     //setup color for gender picker
-    UIColor * orangeColor = [UIColor colorWithRed:253/255.0f green:125/255.0f blue:51/255.0f alpha:1.0f];
+    //UIColor * orangeColor = [UIColor colorWithRed:237/255.0f green:132/255.0f blue:92/255.0f alpha:1.0f]; too harsh?
+    //UIColor * orangeColor = [UIColor colorWithRed:239/255.0f green:121/255.0f blue:103/255.0f alpha:1.0f]; too subdued?
+    UIColor * orangeColor = [UIColor colorWithRed:239/255.0f green:121/255.0f blue:103/255.0f alpha:1.0f];
+
     self.genderSegment.tintColor = orangeColor;
     
     //add borders to orientation buttons
@@ -197,12 +200,12 @@
         
         self.womenOrButton.backgroundColor = [UIColor whiteColor];
         [self.womenOrButton
-         setTitleColor:[UIColor colorWithRed:253/255.0f green:125/255.0f blue:51/255.0f alpha:1.0f]
+         setTitleColor:[UIColor colorWithRed:239/255.0f green:121/255.0f blue:103/255.0f alpha:1.0f]
          forState:UIControlStateNormal];
         [self.womenOrButton setSelected:NO];
     }
     else if(self.womenOrButton.selected == NO){
-        self.womenOrButton.backgroundColor = [UIColor colorWithRed:253/255.0f green:125/255.0f blue:51/255.0f alpha:1.0f];
+        self.womenOrButton.backgroundColor = [UIColor colorWithRed:239/255.0f green:121/255.0f blue:103/255.0f alpha:1.0f];
         ;
         [self.womenOrButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.womenOrButton setSelected:YES];
@@ -213,12 +216,12 @@
     if(self.menOrButton.selected == YES){
         self.menOrButton.backgroundColor = [UIColor whiteColor];
         [self.menOrButton
-         setTitleColor:[UIColor colorWithRed:253/255.0f green:125/255.0f blue:51/255.0f alpha:1.0f]
+         setTitleColor:[UIColor colorWithRed:239/255.0f green:121/255.0f blue:103/255.0f alpha:1.0f]
          forState:UIControlStateNormal];
         [self.menOrButton setSelected:NO];
     }
     else if(self.menOrButton.selected == NO){
-        self.menOrButton.backgroundColor = [UIColor colorWithRed:253/255.0f green:125/255.0f blue:51/255.0f alpha:1.0f];
+        self.menOrButton.backgroundColor = [UIColor colorWithRed:239/255.0f green:121/255.0f blue:103/255.0f alpha:1.0f];
         ;
         [self.menOrButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.menOrButton setSelected:YES];

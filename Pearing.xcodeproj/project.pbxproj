@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19339BBD1A9955F900B5BF5F /* profileCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 19339BBC1A9955F900B5BF5F /* profileCard.png */; };
 		19544170197D82D0007E2985 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1954416F197D82CF007E2985 /* SettingsViewController.m */; };
 		19AA47131A9905C900D6B5C3 /* testy.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AA47121A9905C900D6B5C3 /* testy.png */; };
 		19AA47151A990A6200D6B5C3 /* screen_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AA47141A990A6200D6B5C3 /* screen_2.png */; };
@@ -82,6 +83,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19339BBC1A9955F900B5BF5F /* profileCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileCard.png; sourceTree = "<group>"; };
 		1941BF20197B91DA00903654 /* PearingAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PearingAuth.h; sourceTree = "<group>"; };
 		1954416E197D82CF007E2985 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		1954416F197D82CF007E2985 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 		C03FA84F18728FC7001E7597 /* pearing_pics */ = {
 			isa = PBXGroup;
 			children = (
+				19339BBC1A9955F900B5BF5F /* profileCard.png */,
 				19AA47141A990A6200D6B5C3 /* screen_2.png */,
 				19AA47121A9905C900D6B5C3 /* testy.png */,
 				19DC5BE01874A7D30035EE30 /* profile_setup2.png */,
@@ -465,6 +468,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19339BBD1A9955F900B5BF5F /* profileCard.png in Resources */,
 				C03FA88C18728FC7001E7597 /* 8.png in Resources */,
 				C03FA88A18728FC7001E7597 /* 6.png in Resources */,
 				C03FA88218728FC7001E7597 /* 12.png in Resources */,

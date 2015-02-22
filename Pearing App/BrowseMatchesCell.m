@@ -43,9 +43,12 @@
 - (void)setMatch:(PEMatch *)match {
     _match = match;
     
+    UIImage *image = [UIImage imageNamed:@"profileCard.png"];
+    [self.profileCard setImage:image];
     self.userNameLabel.text = match.user.userName;
-    self.descriptionLabel.text = match.user.description;
+    self.descriptionLabel.text = match.user.desc;
     [self.profileImageView setImageUrl:match.profileImage.thumbnailURL cache:[NZImageCache instance]];
+    self.imagesScrollView.backgroundColor = [UIColor blackColor];
     
     self.imagesScrollView.images = match.images;
 }

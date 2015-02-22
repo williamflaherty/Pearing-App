@@ -25,10 +25,14 @@
 
 @property (nonatomic) PEMatch *match;
 
-@property (nonatomic) IBOutlet UILabel *descriptionLabel, *userNameLabel;
+@property (nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (nonatomic) IBOutlet UILabel *userNameLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (nonatomic) IBOutlet LoadingImageView *profileImageView;
 @property (nonatomic) IBOutlet MatchImagesScrollView *imagesScrollView;
-@property (nonatomic) IBOutlet UIButton *favoriteButton, *chatAndChallengeButton;
+@property (nonatomic) IBOutlet UIButton *favoriteButton;
+@property (nonatomic) IBOutlet UIButton *chatAndChallengeButton;
+@property (strong, nonatomic) IBOutlet UIImageView *profileCard;
 
 @property (nonatomic) UIEdgeInsets edgeInsets;
 

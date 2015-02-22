@@ -77,13 +77,17 @@
     self.textViewPlaceholder = @"A short bio...";
     
     //setup color for gender picker
-    //UIColor * orangeColor = [UIColor colorWithRed:253/255.0f green:125/255.0f blue:51/255.0f alpha:1.0f];
-    UIColor * orangeColor = [UIColor colorWithRed:237/255.0f green:132/255.0f blue:92/255.0f alpha:1.0f];
+    //UIColor * orangeColor = [UIColor colorWithRed:253/255.0f green:125/255.0f blue:51/255.0f alpha:1.0f]; too harsh?
+    //UIColor * orangeColor = [UIColor colorWithRed:237/255.0f green:132/255.0f blue:92/255.0f alpha:1.0f]; too subdued?
+    UIColor * orangeColor = [UIColor colorWithRed:239/255.0f green:121/255.0f blue:103/255.0f alpha:1.0f];
+    
     self.genderSegment.tintColor = orangeColor;
     
     //setup page control
     [self.pageControl addTarget:self action:@selector(onPageControlPageChanged:) forControlEvents:UIControlEventValueChanged];
-    self.pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:237/255.0f green:132/255.0f blue:92/255.0f alpha:1.0f];
+    //self.pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:237/255.0f green:132/255.0f blue:92/255.0f alpha:1.0f];
+    self.pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:239/255.0f green:121/255.0f blue:103/255.0f alpha:1.0f];
+
     
     //setup scrollview
     self.imagesScrollView.delegate = self;
@@ -98,25 +102,14 @@
         frame.origin.x = (self.imagesScrollView.frame.size.width * i);
         frame.origin.y = 30;
         frame.size = self.imagesScrollView.frame.size;
-        //figure out how to round the images edges for nicer aestethic like hte rest of the boxes.
-        //using cornerRadius and cliptobounds wasn't working :/
        
         UIImageView *subview = [[UIImageView alloc] initWithFrame:frame];
         
-        CALayer *borderLayer = [CALayer layer];
-        CGRect borderFrame = CGRectMake(42,
-                                        -3,
-                                        ([[self.profilePictures objectAtIndex:i] frame].size.width)+6,
-                                        ([[self.profilePictures objectAtIndex:i] frame].size.height)+6);
-        
-        [borderLayer setBackgroundColor:[[UIColor colorWithRed:237/255.0f green:132/255.0f blue:92/255.0f alpha:1.0f] CGColor] ];
-        [borderLayer setFrame:borderFrame];
-        [borderLayer setCornerRadius:8.0];
-        [borderLayer setBorderWidth:3.0];
-        [borderLayer setBorderColor:[[UIColor colorWithRed:237/255.0f green:132/255.0f blue:92/255.0f alpha:1.0f] CGColor]];
-        [subview.layer addSublayer:borderLayer];
-        [subview setClipsToBounds:YES];
-        [subview.layer setCornerRadius:8.0];
+        subview.layer.shadowColor = [UIColor blackColor].CGColor;
+        subview.layer.shadowOffset = CGSizeMake(0, 1);
+        subview.layer.shadowOpacity = 1;
+        subview.layer.shadowRadius = 2.0;
+        [subview setClipsToBounds:NO];
         [subview addSubview:[self.profilePictures objectAtIndex:i]];
         
         [self.imagesScrollView addSubview:subview];

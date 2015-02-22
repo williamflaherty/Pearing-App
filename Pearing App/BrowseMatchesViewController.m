@@ -32,12 +32,17 @@
     [super viewDidLoad];
     _navigationBar.title = @"Pearing";
     //set the navigation bar colors
-    UIColor * color = [UIColor colorWithRed:253/255.0f green:125/255.0f blue:51/255.0f alpha:1.0f];
+    //UIColor * color = [UIColor colorWithRed:253/255.0f green:125/255.0f blue:51/255.0f alpha:1.0f]; too harsh?
+    //UIColor * color = [UIColor colorWithRed:237/255.0f green:132/255.0f blue:92/255.0f alpha:1.0f]; too subdued?
+    UIColor * color = [UIColor colorWithRed:239/255.0f green:121/255.0f blue:103/255.0f alpha:1.0f];
+
     self.navigationController.navigationBar.barTintColor = color;
-    //eventually replace with custom
-    //images
+    //eventually replace with custom images
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    
+    NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    [UIColor whiteColor],NSForegroundColorAttributeName,
+                                    [UIColor whiteColor],NSBackgroundColorAttributeName,nil];
+    self.navigationController.navigationBar.titleTextAttributes = textAttributes;
 	[self loadMatches];
 }
 
@@ -60,13 +65,13 @@
     BrowseMatchesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Match"];
     
     cell.match = _matches[indexPath.row];
+    cell.backgroundColor = [UIColor colorWithRed:236/255.0f green:240/255.0f blue:241/255.0f alpha:1.0f];;
     cell.delegate = self;
-    
     return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
