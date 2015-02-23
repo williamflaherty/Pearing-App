@@ -17,6 +17,8 @@
 
 @property (nonatomic) NSString *localUserName;
 
+- (instancetype) initWithServerUrl:(NSString *)serverUrl;
+
 // Registers a new user
 // images should contain UIImages
 - (void) createNewUserWithHandle:(NSString *)handle

@@ -7,12 +7,15 @@
 //
 
 #import "SettingsViewController.h"
+#import "PEContainer.h"
 
 @interface SettingsViewController ()
 
 @end
 
-@implementation SettingsViewController
+@implementation SettingsViewController {
+    PEInstagramService *_instagramService;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,12 +32,15 @@
     _navigationBar.title = @"Settings";
     _navigationBar.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Matches" style:UIBarButtonItemStylePlain target:self action:@selector(finishSegue:)];
     
+    _instagramService = [PEContainer instagramService];
+    
     //make the profile picture rounded and set it
     self.profilePictureView.layer.cornerRadius = (self.profilePictureView.frame.size.height)/2;
     self.profilePictureView.layer.masksToBounds = YES;
     self.profilePictureView.layer.borderWidth = 0;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSURL *picUrl = [defaults URLForKey:@"profilePictureURL"];
+    
+    NSURL *picUrl = [NSURL URLWithString:_instagramService.userInfo.profilePictureURL];
     self.profilePictureView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL: picUrl]];
     
     //set the text field delegates as this controller
@@ -153,7 +159,7 @@
 -(BOOL)saveDetails
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    __block BOOL retVal = NO;
+    __block BOOL retVal = YES;
     
     
     //call server here to save the person

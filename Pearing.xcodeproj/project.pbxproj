@@ -21,11 +21,6 @@
 		19D318D91867DD9200C34A5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19D318D71867DD9200C34A5C /* Main.storyboard */; };
 		19D318DC1867DD9200C34A5C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D318DB1867DD9200C34A5C /* ViewController.m */; };
 		19D318DE1867DD9200C34A5C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19D318DD1867DD9200C34A5C /* Images.xcassets */; };
-		19D318E51867DD9200C34A5C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D318E41867DD9200C34A5C /* XCTest.framework */; };
-		19D318E61867DD9200C34A5C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D318C51867DD9200C34A5C /* Foundation.framework */; };
-		19D318E71867DD9200C34A5C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D318C91867DD9200C34A5C /* UIKit.framework */; };
-		19D318EF1867DD9200C34A5C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 19D318ED1867DD9200C34A5C /* InfoPlist.strings */; };
-		19D318F11867DD9200C34A5C /* Pearing_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D318F01867DD9200C34A5C /* Pearing_AppTests.m */; };
 		19D318FC1867EF4700C34A5C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D318FB1867EF4700C34A5C /* LoginViewController.m */; };
 		19DC5BC7186828AA0035EE30 /* InstagramLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DC5BC6186828AA0035EE30 /* InstagramLoginViewController.m */; };
 		19DC5BCA18682F130035EE30 /* GetStartedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DC5BC918682F130035EE30 /* GetStartedViewController.m */; };
@@ -35,6 +30,20 @@
 		19DC5BDF1874A6390035EE30 /* profile_setup.png in Resources */ = {isa = PBXBuildFile; fileRef = 19DC5BDE1874A6390035EE30 /* profile_setup.png */; };
 		19DC5BE11874A7D30035EE30 /* profile_setup2.png in Resources */ = {isa = PBXBuildFile; fileRef = 19DC5BE01874A7D30035EE30 /* profile_setup2.png */; };
 		19DC5BE31874CDDE0035EE30 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DC5BE21874CDDE0035EE30 /* QuartzCore.framework */; };
+		43339E741A9ACFD9009E42DE /* PEInstagramService.m in Sources */ = {isa = PBXBuildFile; fileRef = 43339E731A9ACFD8009E42DE /* PEInstagramService.m */; };
+		435DBE091A9AB83C00BFF0D0 /* PEContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 435DBE081A9AB83C00BFF0D0 /* PEContainer.m */; };
+		435DBE0D1A9AB95300BFF0D0 /* PEStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 435DBE0C1A9AB95300BFF0D0 /* PEStorage.m */; };
+		435DBE111A9ABBBE00BFF0D0 /* PEUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 435DBE101A9ABBBE00BFF0D0 /* PEUserService.m */; };
+		435DBE2D1A9ABE0E00BFF0D0 /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 435DBE161A9ABE0E00BFF0D0 /* JSONModel.m */; };
+		435DBE2E1A9ABE0E00BFF0D0 /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 435DBE181A9ABE0E00BFF0D0 /* JSONModelArray.m */; };
+		435DBE2F1A9ABE0E00BFF0D0 /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 435DBE1A1A9ABE0E00BFF0D0 /* JSONModelClassProperty.m */; };
+		435DBE301A9ABE0E00BFF0D0 /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 435DBE1C1A9ABE0E00BFF0D0 /* JSONModelError.m */; };
+		435DBE311A9ABE0E00BFF0D0 /* NSArray+JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 435DBE1F1A9ABE0E00BFF0D0 /* NSArray+JSONModel.m */; };
+		435DBE321A9ABE0E00BFF0D0 /* JSONAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 435DBE231A9ABE0E00BFF0D0 /* JSONAPI.m */; };
+		435DBE331A9ABE0E00BFF0D0 /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 435DBE251A9ABE0E00BFF0D0 /* JSONHTTPClient.m */; };
+		435DBE341A9ABE0E00BFF0D0 /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 435DBE271A9ABE0E00BFF0D0 /* JSONModel+networking.m */; };
+		435DBE351A9ABE0E00BFF0D0 /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 435DBE2A1A9ABE0E00BFF0D0 /* JSONKeyMapper.m */; };
+		435DBE361A9ABE0E00BFF0D0 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 435DBE2C1A9ABE0E00BFF0D0 /* JSONValueTransformer.m */; };
 		C03FA84B18728A82001E7597 /* LoadingImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FA84A18728A82001E7597 /* LoadingImageView.m */; };
 		C03FA84E18728DA7001E7597 /* NZImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FA84D18728DA7001E7597 /* NZImageCache.m */; };
 		C03FA87F18728FC7001E7597 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C03FA85018728FC7001E7597 /* 1.png */; };
@@ -73,16 +82,6 @@
 		C0E171A6188BE3C300435DCE /* FullSizeImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E171A5188BE3C300435DCE /* FullSizeImageViewController.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		19D318E81867DD9200C34A5C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 19D318BA1867DD9100C34A5C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 19D318C11867DD9200C34A5C;
-			remoteInfo = "Pearing App";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		19339BBC1A9955F900B5BF5F /* profileCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileCard.png; sourceTree = "<group>"; };
 		19339BBE1A99852500B5BF5F /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
@@ -105,7 +104,6 @@
 		19D318DA1867DD9200C34A5C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		19D318DB1867DD9200C34A5C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		19D318DD1867DD9200C34A5C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		19D318E31867DD9200C34A5C /* Pearing AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pearing AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19D318E41867DD9200C34A5C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		19D318EC1867DD9200C34A5C /* Pearing AppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pearing AppTests-Info.plist"; sourceTree = "<group>"; };
 		19D318EE1867DD9200C34A5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -125,6 +123,36 @@
 		19DC5BDE1874A6390035EE30 /* profile_setup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_setup.png; sourceTree = "<group>"; };
 		19DC5BE01874A7D30035EE30 /* profile_setup2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_setup2.png; sourceTree = "<group>"; };
 		19DC5BE21874CDDE0035EE30 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		43339E721A9ACFD8009E42DE /* PEInstagramService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEInstagramService.h; sourceTree = "<group>"; };
+		43339E731A9ACFD8009E42DE /* PEInstagramService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEInstagramService.m; sourceTree = "<group>"; };
+		435DBE041A9AB6AD00BFF0D0 /* PEConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEConfiguration.h; sourceTree = "<group>"; };
+		435DBE071A9AB83C00BFF0D0 /* PEContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEContainer.h; sourceTree = "<group>"; };
+		435DBE081A9AB83C00BFF0D0 /* PEContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEContainer.m; sourceTree = "<group>"; };
+		435DBE0B1A9AB95300BFF0D0 /* PEStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEStorage.h; sourceTree = "<group>"; };
+		435DBE0C1A9AB95300BFF0D0 /* PEStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEStorage.m; sourceTree = "<group>"; };
+		435DBE0F1A9ABBBE00BFF0D0 /* PEUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEUserService.h; sourceTree = "<group>"; };
+		435DBE101A9ABBBE00BFF0D0 /* PEUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEUserService.m; sourceTree = "<group>"; };
+		435DBE151A9ABE0E00BFF0D0 /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
+		435DBE161A9ABE0E00BFF0D0 /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
+		435DBE171A9ABE0E00BFF0D0 /* JSONModelArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelArray.h; sourceTree = "<group>"; };
+		435DBE181A9ABE0E00BFF0D0 /* JSONModelArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelArray.m; sourceTree = "<group>"; };
+		435DBE191A9ABE0E00BFF0D0 /* JSONModelClassProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelClassProperty.h; sourceTree = "<group>"; };
+		435DBE1A1A9ABE0E00BFF0D0 /* JSONModelClassProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelClassProperty.m; sourceTree = "<group>"; };
+		435DBE1B1A9ABE0E00BFF0D0 /* JSONModelError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelError.h; sourceTree = "<group>"; };
+		435DBE1C1A9ABE0E00BFF0D0 /* JSONModelError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModelError.m; sourceTree = "<group>"; };
+		435DBE1E1A9ABE0E00BFF0D0 /* NSArray+JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+JSONModel.h"; sourceTree = "<group>"; };
+		435DBE1F1A9ABE0E00BFF0D0 /* NSArray+JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+JSONModel.m"; sourceTree = "<group>"; };
+		435DBE201A9ABE0E00BFF0D0 /* JSONModelLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelLib.h; sourceTree = "<group>"; };
+		435DBE221A9ABE0E00BFF0D0 /* JSONAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONAPI.h; sourceTree = "<group>"; };
+		435DBE231A9ABE0E00BFF0D0 /* JSONAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONAPI.m; sourceTree = "<group>"; };
+		435DBE241A9ABE0E00BFF0D0 /* JSONHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONHTTPClient.h; sourceTree = "<group>"; };
+		435DBE251A9ABE0E00BFF0D0 /* JSONHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONHTTPClient.m; sourceTree = "<group>"; };
+		435DBE261A9ABE0E00BFF0D0 /* JSONModel+networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSONModel+networking.h"; sourceTree = "<group>"; };
+		435DBE271A9ABE0E00BFF0D0 /* JSONModel+networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSONModel+networking.m"; sourceTree = "<group>"; };
+		435DBE291A9ABE0E00BFF0D0 /* JSONKeyMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKeyMapper.h; sourceTree = "<group>"; };
+		435DBE2A1A9ABE0E00BFF0D0 /* JSONKeyMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKeyMapper.m; sourceTree = "<group>"; };
+		435DBE2B1A9ABE0E00BFF0D0 /* JSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONValueTransformer.h; sourceTree = "<group>"; };
+		435DBE2C1A9ABE0E00BFF0D0 /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
 		C03FA848187289AD001E7597 /* IImageCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IImageCache.h; sourceTree = "<group>"; };
 		C03FA84918728A82001E7597 /* LoadingImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingImageView.h; sourceTree = "<group>"; };
 		C03FA84A18728A82001E7597 /* LoadingImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingImageView.m; sourceTree = "<group>"; };
@@ -187,16 +215,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		19D318E01867DD9200C34A5C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				19D318E51867DD9200C34A5C /* XCTest.framework in Frameworks */,
-				19D318E71867DD9200C34A5C /* UIKit.framework in Frameworks */,
-				19D318E61867DD9200C34A5C /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -214,7 +232,6 @@
 			isa = PBXGroup;
 			children = (
 				19D318C21867DD9200C34A5C /* Pearing.app */,
-				19D318E31867DD9200C34A5C /* Pearing AppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -234,6 +251,10 @@
 		19D318CB1867DD9200C34A5C /* Pearing App */ = {
 			isa = PBXGroup;
 			children = (
+				435DBE121A9ABDDC00BFF0D0 /* Packages */,
+				435DBE0E1A9ABB0100BFF0D0 /* Services */,
+				435DBE0A1A9AB92100BFF0D0 /* Data Storage */,
+				435DBE031A9AB65900BFF0D0 /* Configuration */,
 				C0E1718D188BC91500435DCE /* Controllers */,
 				C0E1718C188BC90D00435DCE /* Views */,
 				C0E1718B188BC90700435DCE /* Models */,
@@ -284,6 +305,111 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		43339E711A9ACBD5009E42DE /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		435DBE031A9AB65900BFF0D0 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				435DBE041A9AB6AD00BFF0D0 /* PEConfiguration.h */,
+				435DBE071A9AB83C00BFF0D0 /* PEContainer.h */,
+				435DBE081A9AB83C00BFF0D0 /* PEContainer.m */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
+		435DBE0A1A9AB92100BFF0D0 /* Data Storage */ = {
+			isa = PBXGroup;
+			children = (
+				435DBE0B1A9AB95300BFF0D0 /* PEStorage.h */,
+				435DBE0C1A9AB95300BFF0D0 /* PEStorage.m */,
+			);
+			name = "Data Storage";
+			sourceTree = "<group>";
+		};
+		435DBE0E1A9ABB0100BFF0D0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				435DBE0F1A9ABBBE00BFF0D0 /* PEUserService.h */,
+				435DBE101A9ABBBE00BFF0D0 /* PEUserService.m */,
+				43339E721A9ACFD8009E42DE /* PEInstagramService.h */,
+				43339E731A9ACFD8009E42DE /* PEInstagramService.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		435DBE121A9ABDDC00BFF0D0 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				435DBE131A9ABE0E00BFF0D0 /* JSONModel */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		435DBE131A9ABE0E00BFF0D0 /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				435DBE141A9ABE0E00BFF0D0 /* JSONModel */,
+				435DBE1D1A9ABE0E00BFF0D0 /* JSONModelCategories */,
+				435DBE201A9ABE0E00BFF0D0 /* JSONModelLib.h */,
+				435DBE211A9ABE0E00BFF0D0 /* JSONModelNetworking */,
+				435DBE281A9ABE0E00BFF0D0 /* JSONModelTransformations */,
+			);
+			path = JSONModel;
+			sourceTree = "<group>";
+		};
+		435DBE141A9ABE0E00BFF0D0 /* JSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				435DBE151A9ABE0E00BFF0D0 /* JSONModel.h */,
+				435DBE161A9ABE0E00BFF0D0 /* JSONModel.m */,
+				435DBE171A9ABE0E00BFF0D0 /* JSONModelArray.h */,
+				435DBE181A9ABE0E00BFF0D0 /* JSONModelArray.m */,
+				435DBE191A9ABE0E00BFF0D0 /* JSONModelClassProperty.h */,
+				435DBE1A1A9ABE0E00BFF0D0 /* JSONModelClassProperty.m */,
+				435DBE1B1A9ABE0E00BFF0D0 /* JSONModelError.h */,
+				435DBE1C1A9ABE0E00BFF0D0 /* JSONModelError.m */,
+			);
+			path = JSONModel;
+			sourceTree = "<group>";
+		};
+		435DBE1D1A9ABE0E00BFF0D0 /* JSONModelCategories */ = {
+			isa = PBXGroup;
+			children = (
+				435DBE1E1A9ABE0E00BFF0D0 /* NSArray+JSONModel.h */,
+				435DBE1F1A9ABE0E00BFF0D0 /* NSArray+JSONModel.m */,
+			);
+			path = JSONModelCategories;
+			sourceTree = "<group>";
+		};
+		435DBE211A9ABE0E00BFF0D0 /* JSONModelNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				435DBE221A9ABE0E00BFF0D0 /* JSONAPI.h */,
+				435DBE231A9ABE0E00BFF0D0 /* JSONAPI.m */,
+				435DBE241A9ABE0E00BFF0D0 /* JSONHTTPClient.h */,
+				435DBE251A9ABE0E00BFF0D0 /* JSONHTTPClient.m */,
+				435DBE261A9ABE0E00BFF0D0 /* JSONModel+networking.h */,
+				435DBE271A9ABE0E00BFF0D0 /* JSONModel+networking.m */,
+			);
+			path = JSONModelNetworking;
+			sourceTree = "<group>";
+		};
+		435DBE281A9ABE0E00BFF0D0 /* JSONModelTransformations */ = {
+			isa = PBXGroup;
+			children = (
+				435DBE291A9ABE0E00BFF0D0 /* JSONKeyMapper.h */,
+				435DBE2A1A9ABE0E00BFF0D0 /* JSONKeyMapper.m */,
+				435DBE2B1A9ABE0E00BFF0D0 /* JSONValueTransformer.h */,
+				435DBE2C1A9ABE0E00BFF0D0 /* JSONValueTransformer.m */,
+			);
+			path = JSONModelTransformations;
+			sourceTree = "<group>";
+		};
 		C03FA84F18728FC7001E7597 /* pearing_pics */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +451,7 @@
 		C0E1718B188BC90700435DCE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				43339E711A9ACBD5009E42DE /* API */,
 				C0E1719D188BD05F00435DCE /* Pearing */,
 				19DC5BD9186976960035EE30 /* ImageCache.h */,
 				19DC5BDA186976970035EE30 /* ImageCache.m */,
@@ -411,24 +538,6 @@
 			productReference = 19D318C21867DD9200C34A5C /* Pearing.app */;
 			productType = "com.apple.product-type.application";
 		};
-		19D318E21867DD9200C34A5C /* Pearing AppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 19D318F71867DD9200C34A5C /* Build configuration list for PBXNativeTarget "Pearing AppTests" */;
-			buildPhases = (
-				19D318DF1867DD9200C34A5C /* Sources */,
-				19D318E01867DD9200C34A5C /* Frameworks */,
-				19D318E11867DD9200C34A5C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				19D318E91867DD9200C34A5C /* PBXTargetDependency */,
-			);
-			name = "Pearing AppTests";
-			productName = "Pearing AppTests";
-			productReference = 19D318E31867DD9200C34A5C /* Pearing AppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -440,9 +549,6 @@
 				TargetAttributes = {
 					19D318C11867DD9200C34A5C = {
 						DevelopmentTeam = N298MCJD7G;
-					};
-					19D318E21867DD9200C34A5C = {
-						TestTargetID = 19D318C11867DD9200C34A5C;
 					};
 				};
 			};
@@ -461,7 +567,6 @@
 			projectRoot = "";
 			targets = (
 				19D318C11867DD9200C34A5C /* Pearing App */,
-				19D318E21867DD9200C34A5C /* Pearing AppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -508,14 +613,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		19D318E11867DD9200C34A5C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				19D318EF1867DD9200C34A5C /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -524,22 +621,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0E171A3188BD89600435DCE /* PEImage.m in Sources */,
+				435DBE301A9ABE0E00BFF0D0 /* JSONModelError.m in Sources */,
+				435DBE321A9ABE0E00BFF0D0 /* JSONAPI.m in Sources */,
+				435DBE111A9ABBBE00BFF0D0 /* PEUserService.m in Sources */,
+				435DBE331A9ABE0E00BFF0D0 /* JSONHTTPClient.m in Sources */,
 				19D318FC1867EF4700C34A5C /* LoginViewController.m in Sources */,
+				435DBE091A9AB83C00BFF0D0 /* PEContainer.m in Sources */,
 				C03FA84E18728DA7001E7597 /* NZImageCache.m in Sources */,
 				19DC5BD11868CF380035EE30 /* ChooseImagesViewController.m in Sources */,
 				C0E171A0188BD69800435DCE /* MatchImagesScrollView.m in Sources */,
 				19DC5BCA18682F130035EE30 /* GetStartedViewController.m in Sources */,
+				435DBE2D1A9ABE0E00BFF0D0 /* JSONModel.m in Sources */,
 				19544170197D82D0007E2985 /* SettingsViewController.m in Sources */,
 				C03FA84B18728A82001E7597 /* LoadingImageView.m in Sources */,
+				43339E741A9ACFD9009E42DE /* PEInstagramService.m in Sources */,
 				C0E17193188BC9E700435DCE /* BrowseMatchesCell.m in Sources */,
 				C0E171A6188BE3C300435DCE /* FullSizeImageViewController.m in Sources */,
 				19DC5BC7186828AA0035EE30 /* InstagramLoginViewController.m in Sources */,
+				435DBE361A9ABE0E00BFF0D0 /* JSONValueTransformer.m in Sources */,
+				435DBE311A9ABE0E00BFF0D0 /* NSArray+JSONModel.m in Sources */,
 				19DC5BD41868D15B0035EE30 /* ChooseImagesCell.m in Sources */,
 				C0E1719C188BCFC800435DCE /* PEUser.m in Sources */,
 				19D318DC1867DD9200C34A5C /* ViewController.m in Sources */,
+				435DBE0D1A9AB95300BFF0D0 /* PEStorage.m in Sources */,
 				C03FA8B01873ECEF001E7597 /* SetupProfileViewController.m in Sources */,
 				C0E17196188BCD8900435DCE /* PEMatch.m in Sources */,
+				435DBE2F1A9ABE0E00BFF0D0 /* JSONModelClassProperty.m in Sources */,
+				435DBE2E1A9ABE0E00BFF0D0 /* JSONModelArray.m in Sources */,
 				19D318D61867DD9200C34A5C /* AppDelegate.m in Sources */,
+				435DBE351A9ABE0E00BFF0D0 /* JSONKeyMapper.m in Sources */,
+				435DBE341A9ABE0E00BFF0D0 /* JSONModel+networking.m in Sources */,
 				C0E17190188BC9D200435DCE /* BrowseMatchesViewController.m in Sources */,
 				19DC5BDB186976970035EE30 /* ImageCache.m in Sources */,
 				19D318D21867DD9200C34A5C /* main.m in Sources */,
@@ -547,23 +658,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		19D318DF1867DD9200C34A5C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				19D318F11867DD9200C34A5C /* Pearing_AppTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		19D318E91867DD9200C34A5C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 19D318C11867DD9200C34A5C /* Pearing App */;
-			targetProxy = 19D318E81867DD9200C34A5C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		19D318CE1867DD9200C34A5C /* InfoPlist.strings */ = {
@@ -709,46 +804,6 @@
 			};
 			name = Release;
 		};
-		19D318F81867DD9200C34A5C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Pearing App.app/Pearing App";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pearing App/Pearing App-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Pearing AppTests/Pearing AppTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		19D318F91867DD9200C34A5C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Pearing App.app/Pearing App";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Pearing App/Pearing App-Prefix.pch";
-				INFOPLIST_FILE = "Pearing AppTests/Pearing AppTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -766,15 +821,6 @@
 			buildConfigurations = (
 				19D318F51867DD9200C34A5C /* Debug */,
 				19D318F61867DD9200C34A5C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		19D318F71867DD9200C34A5C /* Build configuration list for PBXNativeTarget "Pearing AppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				19D318F81867DD9200C34A5C /* Debug */,
-				19D318F91867DD9200C34A5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

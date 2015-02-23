@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LoadingImageView.h"
 
 @interface GetStartedViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIImageView *profilePicture;
+@property (strong, nonatomic) IBOutlet LoadingImageView *profilePicture;
 @property (strong, nonatomic) IBOutlet UIButton *getStartedButton;
 @property (strong, nonatomic) IBOutlet UILabel *helloUserName;
 

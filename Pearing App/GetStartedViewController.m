@@ -8,12 +8,15 @@
 
 #import "GetStartedViewController.h"
 #import "PearingAuth.h"
+#import "PEContainer.h"
 
 @interface GetStartedViewController ()
 
 @end
 
-@implementation GetStartedViewController
+@implementation GetStartedViewController {
+    PEInstagramService *_instagramService;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,30 +30,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //Get the users profile picture and username
-    NSDictionary *userInfo = [self getUserInfo];
-    userInfo = [userInfo objectForKey:@"data"];
-    NSString *strPicUrl = [userInfo objectForKey:@"profile_picture"];
-    //NSLog(@"pic url= %@ ", strPicUrl);
-   // NSString *strPicUrl = [NSString stringWithFormat:[userInfo objectForKey:@"profile_picture"]];
-    NSURL *picUrl = [NSURL URLWithString:strPicUrl];
-    //save the profile picture URL for later use in NSUserDefaults
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    // Save access token to user defaults for later use.
-    [defaults setURL:picUrl forKey:@"profilePictureURL"];
-    UIImage *pp = [UIImage imageWithData:[NSData dataWithContentsOfURL: picUrl]];
+    
+    _instagramService = [PEContainer instagramService];
+    
+    [self loadUserInfo];
+    
     self.profilePicture.layer.cornerRadius = (self.profilePicture.frame.size.height)/2;
     self.profilePicture.layer.masksToBounds = YES;
     self.profilePicture.layer.borderWidth = 0;
-    self.profilePicture.image = pp;
-    self.helloUserName.text = [NSString stringWithFormat:@"Hello, %@", [userInfo objectForKey:@"username"]];
-    [defaults setValue:[userInfo objectForKey:@"username"] forKey:@"userName"];
+}
+
+- (void) loadUserInfo {
+    [_instagramService loadUserInfoWithCompletion:^(PEInstagramUserInfo *info, NSError *error) {
+        if (error) {
+            // TODO: Show error alert
+            return;
+        }
+        
+        [self displayUserInfo:info];
+    }];
+}
+
+- (void) displayUserInfo:(PEInstagramUserInfo *)info
+{
+    self.helloUserName.text = [NSString stringWithFormat:@"Hello, %@", info.username];
     
-    //save the bio into the user defaults for later
-    [defaults setValue:[userInfo objectForKey:@"bio"] forKey:@"userBio"];
-    
-   // NSLog(@"%@", userInfo);
-    
+    [self.profilePicture setImageUrl:info.profilePictureURL cache:[PEContainer imageCache]];
 }
 
 -(void)viewWillAppear:(BOOL)animated {

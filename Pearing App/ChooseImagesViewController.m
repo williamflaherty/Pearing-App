@@ -11,6 +11,7 @@
 #import "ImageCache.h"
 #import "NZImageCache.h"
 #import "PearingAuth.h"
+#import "PEContainer.h"
 
 int s_SelectedCount;
 
@@ -21,7 +22,9 @@ int s_SelectedCount;
 @implementation ChooseImagesViewController {
     NSMutableArray *_selectedImages;
     id<IImageCache> _imageCache;
+    NSString *_nextImagesPageToken;
     BOOL _isLoadingImages;
+    PEInstagramService *_instagramService;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -44,6 +47,9 @@ int s_SelectedCount;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _instagramService = [PEContainer instagramService];
+    
     _selectedImages = @[].mutableCopy;
     _imageCache = [NZImageCache instance];
     self.collectionView.delegate = self;
@@ -73,11 +79,9 @@ int s_SelectedCount;
                                     [UIColor whiteColor],NSBackgroundColorAttributeName,nil];
     self.navigationController.navigationBar.titleTextAttributes = textAttributes;
 
-    
-    //get pictures from instagram
-    NSString *url = [NSString stringWithFormat:@"%@%@/media/recent?access_token=%@", APIURl, [[NSUserDefaults standardUserDefaults] valueForKey:USER_ID], [[NSUserDefaults standardUserDefaults] valueForKey:ACCESS_TOKEN]];
+
     self.instagramPictures = @[].mutableCopy;
-    [self loadImages:url];
+    [self loadImages:nil];
     [self updateTitleCount];
 
 }
@@ -168,27 +172,27 @@ int s_SelectedCount;
 
 -(void)updateImagesDataSource
 {
-    NSString *nextUrl = [[self.userImages objectForKey:@"pagination"] objectForKey:@"next_url"];
-    if (nextUrl)
+    if (_nextImagesPageToken)
     {
-        [self loadImages:nextUrl];
+        [self loadImages:_nextImagesPageToken];
     }
 }
 
 
 - (void) loadImages:(NSString *)url {
     if (_isLoadingImages) return;
-    
     _isLoadingImages = YES;
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    [NSURLConnection sendAsynchronousRequest:request queue:[self operationQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-         NSMutableDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        
+    [_instagramService loadRecentImages:url completion:^(NSArray *imageURLs, NSString *nextPageToken, NSError *error)
+    {
         [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
-            self.userImages = jsonDict;
-            [self.instagramPictures addObjectsFromArray:jsonDict[@"data"]];
-            [self.collectionView reloadData];
+            // TODO: handle error
+            if (!error) {
+                _nextImagesPageToken = nextPageToken;
+                [self.instagramPictures addObjectsFromArray:imageURLs];
+                [self.collectionView reloadData];
+            }
+            
             _isLoadingImages = NO;
         }];
     }];

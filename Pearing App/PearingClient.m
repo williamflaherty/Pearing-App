@@ -9,14 +9,16 @@
 #import "PearingClient.h"
 #import "PearingAuth.h"
 
-@implementation PearingClient
+@implementation PearingClient {
+    NSString *_serverURL;
+}
 
-+ (instancetype)instance {
-    static PearingClient *client;
-    if (!client) {
-        client = [PearingClient new];
-    }
-    return client;
+- (instancetype)initWithServerUrl:(NSString *)serverUrl {
+    self = [super init];
+    
+    _serverURL = serverUrl;
+    
+    return self;
 }
 
 - (NSOperationQueue *) operationQueue {

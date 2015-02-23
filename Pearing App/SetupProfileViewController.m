@@ -7,12 +7,15 @@
 //
 
 #import "SetupProfileViewController.h"
+#import "PEContainer.h"
 
 @interface SetupProfileViewController ()
 
 @end
 
-@implementation SetupProfileViewController
+@implementation SetupProfileViewController {
+     PEInstagramService *_instagramService;
+}
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -27,6 +30,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _instagramService = [PEContainer instagramService];
+    
     self.title = @"Edit Profile";
     
     //stop back up swiping
@@ -49,7 +55,7 @@
     self.profilePictureView.layer.masksToBounds = YES;
     self.profilePictureView.layer.borderWidth = 0;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSURL *picUrl = [defaults URLForKey:@"profilePictureURL"];
+    NSURL *picUrl = [NSURL URLWithString:_instagramService.userInfo.profilePictureURL];
     self.profilePictureView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL: picUrl]];
     
     //set user name
@@ -118,7 +124,7 @@
     self.imagesScrollView.contentSize = CGSizeMake(self.imagesScrollView.frame.size.width * self.profilePictures.count, self.imagesScrollView.frame.size.height);
     
     /* open the pearing client */
-    _pearingClient = [PearingClient instance];
+    _pearingClient = [PEContainer APIClient];
 	// Do any additional setup after loading the view.
     
     

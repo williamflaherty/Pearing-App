@@ -49,6 +49,7 @@
     
     if (image) {
         self.image = image;
+        [self.activityIndicator stopAnimating];
     } else {
         self.image = nil;
         [self loadImage:url cache:cache];
