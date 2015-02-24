@@ -9,6 +9,7 @@
 #import "BrowseMatchesViewController.h"
 #import "BrowseMatchesCell.h"
 #import "FullSizeImageViewController.h"
+#import "PEContainer.h"
 
 @interface BrowseMatchesViewController () <UIAlertViewDelegate, BrowseMatchesCellDelegate>
 
@@ -54,7 +55,7 @@
 }
 
 - (void) loadMatches {
-    if (!_pearingClient) _pearingClient = [PearingClient instance];
+    if (!_pearingClient) _pearingClient = [PEContainer APIClient];
     
     [_pearingClient getMatchesWithCompletion:^(NSArray *matches, NSString *error) {
         if (error) {

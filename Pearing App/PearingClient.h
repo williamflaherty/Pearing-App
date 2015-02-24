@@ -13,8 +13,6 @@
 @interface PearingClient : NSObject
 
 
-+ (instancetype) instance;
-
 @property (nonatomic) NSString *localUserName;
 
 - (instancetype) initWithServerUrl:(NSString *)serverUrl;

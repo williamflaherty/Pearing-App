@@ -151,7 +151,7 @@
     }
     
     /* open the pearing client */
-    _pearingClient = [PearingClient instance];
+    _pearingClient = [PEContainer APIClient];
 
 	// Do any additional setup after loading the view.
 }
