@@ -10,6 +10,7 @@
 #import "PEMatch.h"
 #import "MatchImagesScrollView.h"
 #import "LoadingImageView.h"
+#import "PearingClient.h"
 
 @protocol BrowseMatchesCellDelegate
 
@@ -33,6 +34,7 @@
 @property (nonatomic) IBOutlet UIButton *favoriteButton;
 @property (nonatomic) IBOutlet UIButton *chatAndChallengeButton;
 @property (strong, nonatomic) IBOutlet UIImageView *profileCard;
+@property (nonatomic) PearingClient *pearingClient;
 
 @property (nonatomic) UIEdgeInsets edgeInsets;
 

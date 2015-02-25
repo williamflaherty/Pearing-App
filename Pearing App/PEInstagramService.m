@@ -86,7 +86,7 @@ static NSString *const UserInfoKey = @"PEInstagramService_UserInfo";
     
     if (accessTokenRange.location != NSNotFound) {
         NSString *accessToken = [url substringFromIndex:NSMaxRange(accessTokenRange)];
-        
+        NSLog(@"access token:%@", accessToken);
         // The access token is in the form <user_id>.<other_stuff>
         *userID = [accessToken componentsSeparatedByString:@"."][0];
         
@@ -193,6 +193,10 @@ static NSString *const UserInfoKey = @"PEInstagramService_UserInfo";
 
 - (instancetype) initWithInstagramDictionary:(NSDictionary *)dict {
     self = [super init];
+    
+    for (id key in dict) {
+        NSLog(@"mcshits: key: %@, value: %@ \n", key, [dict objectForKey:key]);
+    }
     
     self.profilePictureURL = dict[@"profile_picture"];
     self.username = dict[@"username"];

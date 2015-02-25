@@ -81,10 +81,10 @@
     self.textViewPlaceholder = @"A short bio...";
     
     //setup color for gender picker
-    //UIColor * orangeColor = [UIColor colorWithRed:237/255.0f green:132/255.0f blue:92/255.0f alpha:1.0f]; too harsh?
-    //UIColor * orangeColor = [UIColor colorWithRed:239/255.0f green:121/255.0f blue:103/255.0f alpha:1.0f]; too subdued?
-    UIColor * orangeColor = [UIColor colorWithRed:239/255.0f green:121/255.0f blue:103/255.0f alpha:1.0f];
-
+    //UIColor * orangeColor = [UIColor colorWithRed:237/255.0f green:132/255.0f blue:92/255.0f alpha:1.0f]; //too harsh? yes
+    //UIColor * orangeColor = [UIColor colorWithRed:239/255.0f green:121/255.0f blue:103/255.0f alpha:1.0f]; //too subdued?
+    UIColor * orangeColor = [UIColor colorWithRed:239/255.0f green:121/255.0f blue:103/255.0f alpha:1.0f]; //too flat?
+    
     self.genderSegment.tintColor = orangeColor;
     
     //add borders to orientation buttons
@@ -158,7 +158,7 @@
 
 -(BOOL)saveDetails
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     __block BOOL retVal = YES;
     
     

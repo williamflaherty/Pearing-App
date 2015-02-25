@@ -8,6 +8,7 @@
 
 #import "SetupProfileViewController.h"
 #import "PEContainer.h"
+#import "PEStorage.h"
 
 @interface SetupProfileViewController ()
 
@@ -33,6 +34,8 @@
     
     _instagramService = [PEContainer instagramService];
     
+    PEInstagramUserInfo *info = [_instagramService userInfo];
+
     self.title = @"Edit Profile";
     
     //stop back up swiping
@@ -40,26 +43,34 @@
     
     //setup back button
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
     //and done button
     self.navigationController.navigationBar.topItem.rightBarButtonItem = nil;
     self.navigationItem.rightBarButtonItem.title = @"";
-
     
     //setup background color for the view
     UIColor * greyColor = [UIColor colorWithRed:244/255.0f green:244/255.0f blue:244/255.0f alpha:1.0f];
     self.view.backgroundColor = greyColor;
     self.transparentUIView.backgroundColor = greyColor;
-    
+
     //make the profile picture rounded and set it
     self.profilePictureView.layer.cornerRadius = (self.profilePictureView.frame.size.height)/2;
     self.profilePictureView.layer.masksToBounds = YES;
     self.profilePictureView.layer.borderWidth = 0;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSURL *picUrl = [NSURL URLWithString:_instagramService.userInfo.profilePictureURL];
-    self.profilePictureView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL: picUrl]];
+    NSURL *picUrl = [NSURL URLWithString:info.profilePictureURL];
+    self.profilePictureView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:picUrl ]];
     
     //set user name
-    self.nameTextField.text = [defaults valueForKey:@"userName"];
+    self.nameTextField.text = info.username;
+    
+    //make text view look similar to age/name text fields
+    self.bioTextView.delegate = self;
+    [self.bioTextView.layer setBorderColor:[[[UIColor lightGrayColor] colorWithAlphaComponent:0.5] CGColor]];
+    [self.bioTextView.layer setBorderWidth:.5];
+    self.bioTextView.layer.cornerRadius = 5;
+    self.bioTextView.clipsToBounds = YES;
+    self.bioTextView.text = info.bio;
+    self.textViewPlaceholder = @"A short bio...";
     
     //set the text field delegates as this controller
     self.nameTextField.delegate = self;
@@ -73,19 +84,10 @@
     [self.accessoryView removeFromSuperview];
     self.ageTextField.inputAccessoryView = self.accessoryView;
     
-    //make text view look similar to age/name text fields
-    self.bioTextView.delegate = self;
-    [self.bioTextView.layer setBorderColor:[[[UIColor lightGrayColor] colorWithAlphaComponent:0.5] CGColor]];
-    [self.bioTextView.layer setBorderWidth:.5];
-    self.bioTextView.layer.cornerRadius = 5;
-    self.bioTextView.clipsToBounds = YES;
-    self.bioTextView.text = [defaults valueForKey:@"userBio"];
-    self.textViewPlaceholder = @"A short bio...";
-    
     //setup color for gender picker
-    //UIColor * orangeColor = [UIColor colorWithRed:253/255.0f green:125/255.0f blue:51/255.0f alpha:1.0f]; too harsh?
-    //UIColor * orangeColor = [UIColor colorWithRed:237/255.0f green:132/255.0f blue:92/255.0f alpha:1.0f]; too subdued?
-    UIColor * orangeColor = [UIColor colorWithRed:239/255.0f green:121/255.0f blue:103/255.0f alpha:1.0f];
+    //UIColor * orangeColor = [UIColor colorWithRed:253/255.0f green:125/255.0f blue:51/255.0f alpha:1.0f]; //too harsh?
+    //UIColor * orangeColor = [UIColor colorWithRed:237/255.0f green:132/255.0f blue:92/255.0f alpha:1.0f]; //too subdued?
+    UIColor * orangeColor = [UIColor colorWithRed:239/255.0f green:121/255.0f blue:103/255.0f alpha:1.0f]; // too flat
     
     self.genderSegment.tintColor = orangeColor;
     
@@ -114,7 +116,7 @@
         subview.layer.shadowColor = [UIColor blackColor].CGColor;
         subview.layer.shadowOffset = CGSizeMake(0, 1);
         subview.layer.shadowOpacity = 1;
-        subview.layer.shadowRadius = 2.0;
+        subview.layer.shadowRadius = 1.0;
         [subview setClipsToBounds:NO];
         [subview addSubview:[self.profilePictures objectAtIndex:i]];
         
@@ -235,8 +237,10 @@
     
     NSString *birthday = [NSString stringWithFormat:@"%@-%@-%@", year, month, day];
     //save the birthday for later.
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:birthday forKey:@"Birthday"];
+    //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    PEStorage *pearingStorage = [[PEStorage alloc ]init];
+    [pearingStorage setObject:birthday forKey:@"Birthday"];
+    //[defaults setObject:birthday forKey:@"Birthday"];
     NSDateComponents* ageComponents = [[NSCalendar currentCalendar]
                                        components:NSYearCalendarUnit
                                        fromDate:picker.date

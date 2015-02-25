@@ -33,10 +33,11 @@
     [super viewDidLoad];
     _navigationBar.title = @"Pearing";
     //set the navigation bar colors
-    //UIColor * color = [UIColor colorWithRed:253/255.0f green:125/255.0f blue:51/255.0f alpha:1.0f]; too harsh?
-    //UIColor * color = [UIColor colorWithRed:237/255.0f green:132/255.0f blue:92/255.0f alpha:1.0f]; too subdued?
-    UIColor * color = [UIColor colorWithRed:239/255.0f green:121/255.0f blue:103/255.0f alpha:1.0f];
+    //UIColor * color = [UIColor colorWithRed:253/255.0f green:125/255.0f blue:51/255.0f alpha:1.0f]; //too harsh?
+    //UIColor * color = [UIColor colorWithRed:237/255.0f green:132/255.0f blue:92/255.0f alpha:1.0f]; //too subdued?
+    UIColor * color = [UIColor colorWithRed:239/255.0f green:121/255.0f blue:103/255.0f alpha:1.0f]; //too flat?
 
+    self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barTintColor = color;
     //eventually replace with custom images
     
@@ -68,7 +69,6 @@
 }
 
 - (IBAction) backButtonPressed:(id)sender {
-    //[self performSegueWithIdentifier:@"Settings" sender:sender];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

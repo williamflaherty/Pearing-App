@@ -8,6 +8,8 @@
 
 #import "PearingClient.h"
 #import "PearingAuth.h"
+#import "PEContainer.h"
+#import "PEStorage.h"
 
 @implementation PearingClient {
     NSString *_serverURL;
@@ -103,8 +105,8 @@
                    gender:(PEGender)gender
                    age:(int)age
         andDescription:(NSString *)description{
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    PEStorage *pearingStorage = [[PEStorage alloc ]init];
+    //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     int orientationRand = (1 + arc4random_uniform(2)); //these values are numbers in the db
     int userRand = (1 + arc4random_uniform(5000)); //generating random user names atm
     NSString *userRandString = [NSString stringWithFormat:@"CoolPerson%d", userRand];
@@ -113,26 +115,35 @@
     //save some of this info to user defaults, this should probably be it's own function
     //for each one or for a set of them to update the info, probably should make use of the
     //pearing user class nathan made
-    [defaults setObject:[NSNumber numberWithInt:age] forKey:@"age"];
-    [defaults setObject:[NSNumber numberWithInt:(age-2)] forKey:@"ageBegin"];
-    [defaults setObject:[NSNumber numberWithInt:(age+3)] forKey:@"ageEnd"];
-    [defaults setObject:[NSNumber numberWithInt:genderNum] forKey:@"gender"];
-    [defaults setObject:description forKey:@"userBio"];
-    [defaults setObject:[NSNumber numberWithInt:orientationRand] forKey:@"orientation"];
-    [defaults setObject:@"25" forKey:@"distance"];
-    [defaults setObject:handle forKey:@"handle"];
     
+    [pearingStorage setObject:[NSNumber numberWithInt:age] forKey:@"age"];
+    [pearingStorage setObject:[NSNumber numberWithInt:(age-2)] forKey:@"ageBegin"];
+    [pearingStorage setObject:[NSNumber numberWithInt:(age+3)] forKey:@"ageEnd" ];
+    [pearingStorage setObject:[NSNumber numberWithInt:genderNum] forKey:@"gender"];
+    [pearingStorage setObject:description forKey:@"userBio"];
+    [pearingStorage setObject:[NSNumber numberWithInt:orientationRand] forKey:@"orientation"];
+    [pearingStorage setObject:@"25" forKey:@"distance"];
+    [pearingStorage setObject:handle forKey:@"handle"];
+    
+    //[defaults setObject:[NSNumber numberWithInt:age] forKey:@"age"];
+    //[defaults setObject:[NSNumber numberWithInt:(age-2)] forKey:];
+    //[defaults setObject:[NSNumber numberWithInt:(age+3)] forKey:@"ageEnd"];
+    //[defaults setObject:[NSNumber numberWithInt:genderNum] forKey:@"gender"];
+    //[defaults setObject:description forKey:@"userBio"];
+    //[defaults setObject:[NSNumber numberWithInt:orientationRand] forKey:];
+    //[defaults setObject:@"25" forKey:@"distance"];
+    //[defaults setObject:handle forKey:@"handle"];
     
     NSDictionary *appDict = [NSDictionary dictionaryWithObjectsAndKeys:SECRET_KEY, @"key", nil];
     NSDictionary *personDict = [NSDictionary dictionaryWithObjectsAndKeys:
                                 //[defaults objectForKey:@"userName"],@"username",
                                 userRandString, @"username",
                                 
-                                [defaults objectForKey:ACCESS_TOKEN], @"token",
+                                [pearingStorage objectForKey:@"PEInstagramService_AccessToken"], @"token",
                                 
                                 handle, @"handle",
                                 
-                                [defaults objectForKey:@"Birthday"], @"birthday",
+                                [pearingStorage objectForKey:@"Birthday"], @"birthday",
                                 
                                 [NSString stringWithFormat:@"%d", age-2], @"age_start",
                                 
@@ -196,5 +207,6 @@
     
     completionHandler(@[sampleMatch, sampleMatch, sampleMatch, sampleMatch, sampleMatch], nil);
 }
+
 
 @end

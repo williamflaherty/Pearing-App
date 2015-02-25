@@ -8,6 +8,7 @@
 
 #import "BrowseMatchesCell.h"
 #import "NZImageCache.h"
+#import "PEContainer.h"
 
 @interface BrowseMatchesCell ()
 
@@ -16,7 +17,10 @@
 
 @end
 
-@implementation BrowseMatchesCell
+@implementation BrowseMatchesCell {
+    PEInstagramService *_instagramService;
+
+}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -42,16 +46,25 @@
 
 - (void)setMatch:(PEMatch *)match {
     _match = match;
+    _instagramService = [PEContainer instagramService];
+    PEInstagramUserInfo * info = [_instagramService userInfo];
+    
     UIColor *orangeColor = [UIColor colorWithRed:239/255.0f green:121/255.0f blue:103/255.0f alpha:1.0f];
+
     //setup profile picture
     //this is currently using the default users profile picture
     //when we load matches it will be from the match lollll
     self.profilePicture.layer.cornerRadius = (self.profilePicture.frame.size.height)/2;
     self.profilePicture.layer.masksToBounds = YES;
     self.profilePicture.layer.borderWidth = 0;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSURL *picUrl = [defaults URLForKey:@"profilePictureURL"];
-    self.profilePicture.image = [UIImage imageWithData:[NSData dataWithContentsOfURL: picUrl]];
+    NSURL *picUrl = [NSURL URLWithString:info.profilePictureURL];
+    self.profilePicture.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:picUrl ]];
+    
+    //set user name
+    self.userNameLabel.text = info.username;
+    
+    //make text view look similar to age/name text fields
+    self.descriptionLabel.text = info.bio;
     
     //setup the chats and challenges button
     [[self.chatAndChallengeButton layer] setBorderWidth:.5f];
@@ -67,10 +80,8 @@
     [[self.favoriteButton layer] setMasksToBounds:YES];
     [self.favoriteButton setTitleColor:orangeColor forState:UIControlStateNormal];
     
-    UIImage *image = [UIImage imageNamed:@"profileCard.png"];
+    UIImage *image = [UIImage imageNamed:@"profileCardColor.png"];
     [self.profileCard setImage:image];
-    self.userNameLabel.text = match.user.userName;
-    self.descriptionLabel.text = match.user.desc;
     [self.profileImageView setImageUrl:match.profileImage.thumbnailURL cache:[NZImageCache instance]];
     
     self.imagesScrollView.images = match.images;

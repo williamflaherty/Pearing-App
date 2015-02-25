@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		19339BBD1A9955F900B5BF5F /* profileCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 19339BBC1A9955F900B5BF5F /* profileCard.png */; };
 		19339BBF1A99852500B5BF5F /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 19339BBE1A99852500B5BF5F /* settings.png */; };
+		19339BC11A9C5E3A00B5BF5F /* pears_login_alt.png in Resources */ = {isa = PBXBuildFile; fileRef = 19339BC01A9C5E3A00B5BF5F /* pears_login_alt.png */; };
+		19339BC31A9D6E9600B5BF5F /* profileCardColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 19339BC21A9D6E9600B5BF5F /* profileCardColor.png */; };
+		19339BC51A9DA76E00B5BF5F /* profileCardOrange.png in Resources */ = {isa = PBXBuildFile; fileRef = 19339BC41A9DA76E00B5BF5F /* profileCardOrange.png */; };
+		19339BC71A9DA8E800B5BF5F /* profileCardJoe.png in Resources */ = {isa = PBXBuildFile; fileRef = 19339BC61A9DA8E800B5BF5F /* profileCardJoe.png */; };
 		19544170197D82D0007E2985 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1954416F197D82CF007E2985 /* SettingsViewController.m */; };
 		19AA47131A9905C900D6B5C3 /* testy.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AA47121A9905C900D6B5C3 /* testy.png */; };
 		19AA47151A990A6200D6B5C3 /* screen_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AA47141A990A6200D6B5C3 /* screen_2.png */; };
@@ -85,6 +89,10 @@
 /* Begin PBXFileReference section */
 		19339BBC1A9955F900B5BF5F /* profileCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileCard.png; sourceTree = "<group>"; };
 		19339BBE1A99852500B5BF5F /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		19339BC01A9C5E3A00B5BF5F /* pears_login_alt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pears_login_alt.png; sourceTree = "<group>"; };
+		19339BC21A9D6E9600B5BF5F /* profileCardColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileCardColor.png; sourceTree = "<group>"; };
+		19339BC41A9DA76E00B5BF5F /* profileCardOrange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileCardOrange.png; sourceTree = "<group>"; };
+		19339BC61A9DA8E800B5BF5F /* profileCardJoe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileCardJoe.png; sourceTree = "<group>"; };
 		1941BF20197B91DA00903654 /* PearingAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PearingAuth.h; sourceTree = "<group>"; };
 		1954416E197D82CF007E2985 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		1954416F197D82CF007E2985 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
@@ -413,6 +421,10 @@
 		C03FA84F18728FC7001E7597 /* pearing_pics */ = {
 			isa = PBXGroup;
 			children = (
+				19339BC61A9DA8E800B5BF5F /* profileCardJoe.png */,
+				19339BC41A9DA76E00B5BF5F /* profileCardOrange.png */,
+				19339BC21A9D6E9600B5BF5F /* profileCardColor.png */,
+				19339BC01A9C5E3A00B5BF5F /* pears_login_alt.png */,
 				19339BBE1A99852500B5BF5F /* settings.png */,
 				19339BBC1A9955F900B5BF5F /* profileCard.png */,
 				19AA47141A990A6200D6B5C3 /* screen_2.png */,
@@ -480,18 +492,18 @@
 		C0E1718D188BC91500435DCE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1954416E197D82CF007E2985 /* SettingsViewController.h */,
-				1954416F197D82CF007E2985 /* SettingsViewController.m */,
-				C03FA8AE1873ECEF001E7597 /* SetupProfileViewController.h */,
-				C03FA8AF1873ECEF001E7597 /* SetupProfileViewController.m */,
-				19D318FA1867EF4700C34A5C /* LoginViewController.h */,
-				19D318FB1867EF4700C34A5C /* LoginViewController.m */,
 				19D318DA1867DD9200C34A5C /* ViewController.h */,
 				19D318DB1867DD9200C34A5C /* ViewController.m */,
+				19D318FA1867EF4700C34A5C /* LoginViewController.h */,
+				19D318FB1867EF4700C34A5C /* LoginViewController.m */,
 				19DC5BC5186828AA0035EE30 /* InstagramLoginViewController.h */,
 				19DC5BC6186828AA0035EE30 /* InstagramLoginViewController.m */,
 				19DC5BC818682F130035EE30 /* GetStartedViewController.h */,
 				19DC5BC918682F130035EE30 /* GetStartedViewController.m */,
+				C03FA8AE1873ECEF001E7597 /* SetupProfileViewController.h */,
+				C03FA8AF1873ECEF001E7597 /* SetupProfileViewController.m */,
+				1954416E197D82CF007E2985 /* SettingsViewController.h */,
+				1954416F197D82CF007E2985 /* SettingsViewController.m */,
 				19DC5BCF1868CF380035EE30 /* ChooseImagesViewController.h */,
 				19DC5BD01868CF380035EE30 /* ChooseImagesViewController.m */,
 				C0E1718E188BC9D200435DCE /* BrowseMatchesViewController.h */,
@@ -588,8 +600,10 @@
 				C03FA88718728FC7001E7597 /* 3.png in Resources */,
 				C03FA8AC18728FC7001E7597 /* screen.png in Resources */,
 				19D318DE1867DD9200C34A5C /* Images.xcassets in Resources */,
+				19339BC51A9DA76E00B5BF5F /* profileCardOrange.png in Resources */,
 				C03FA88D18728FC7001E7597 /* 9.png in Resources */,
 				C03FA88018728FC7001E7597 /* 10.png in Resources */,
+				19339BC11A9C5E3A00B5BF5F /* pears_login_alt.png in Resources */,
 				19AA47151A990A6200D6B5C3 /* screen_2.png in Resources */,
 				C03FA89118728FC7001E7597 /* insta_cam.png in Resources */,
 				C03FA88F18728FC7001E7597 /* hello_joe.png in Resources */,
@@ -600,6 +614,7 @@
 				19D318D01867DD9200C34A5C /* InfoPlist.strings in Resources */,
 				C03FA89018728FC7001E7597 /* insta_button.png in Resources */,
 				C03FA88B18728FC7001E7597 /* 7.png in Resources */,
+				19339BC31A9D6E9600B5BF5F /* profileCardColor.png in Resources */,
 				C03FA88E18728FC7001E7597 /* get_started.png in Resources */,
 				C03FA88118728FC7001E7597 /* 11.png in Resources */,
 				C03FA88418728FC7001E7597 /* 14.png in Resources */,
@@ -607,6 +622,7 @@
 				19D318D91867DD9200C34A5C /* Main.storyboard in Resources */,
 				C03FA87F18728FC7001E7597 /* 1.png in Resources */,
 				C03FA8AA18728FC7001E7597 /* login_bg.png in Resources */,
+				19339BC71A9DA8E800B5BF5F /* profileCardJoe.png in Resources */,
 				C03FA88318728FC7001E7597 /* 13.png in Resources */,
 				C03FA8AB18728FC7001E7597 /* pears_login.png in Resources */,
 				C03FA88518728FC7001E7597 /* 15.png in Resources */,
