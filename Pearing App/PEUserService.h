@@ -19,5 +19,6 @@
 
 - (BOOL) isUserLoggedIn;
 - (NSString *) userToken;
+- (PEUser *)saveUser:(PEUser *)person;
 
 @end

@@ -24,6 +24,7 @@
 @property (strong, nonatomic) NSMutableArray *profilePictures;
 @property (nonatomic, retain) IBOutlet UIToolbar    *accessoryView;
 @property (nonatomic, retain) IBOutlet UIDatePicker *datePickerView;
+@property (strong, nonatomic) NSString *birthday;
 
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 

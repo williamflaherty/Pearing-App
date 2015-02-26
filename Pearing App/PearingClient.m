@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Pearing. All rights reserved.
 //
 
+//#import "PEConfiguration.h" for some reason when I include this file I get multiple definition erros and I just didn't feel like trying to figure out why. If we do figure it out we can just replace the string down there with the actual API call.
 #import "PearingClient.h"
 #import "PearingAuth.h"
 #import "PEContainer.h"
@@ -19,7 +20,7 @@
     self = [super init];
     
     _serverURL = serverUrl;
-    
+
     return self;
 }
 
@@ -30,6 +31,105 @@
     }
     return queue;
 }
+
+-(PEUser *) registerUser:(PEUser *)userInfo {
+    
+    __block NSMutableArray *jsonArray;
+    NSData *jsonData = [self convertObjectToNSData:[userInfo toJSONString]];
+    NSLog(@"JSON String: \n %@", [userInfo toJSONString]);
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://127.0.0.1:8000/dateme_app/register_person/"]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
+    [request setHTTPBody:jsonData];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[self operationQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        if(!error){
+            //temporarily keeping to see if this works
+            NSMutableDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            jsonArray = [PEUser arrayOfModelsFromData:data error:&error];
+            if(error){
+                NSLog(@"Error converting new user json to array:%@", error);
+            }
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
+                NSLog(@"\n\nPerson Dict from save user:\n");
+                for (id key in jsonDict) {
+                    NSLog(@"key: %@, value: %@ \n", key, [jsonDict objectForKey:key]);
+                }
+                
+            }];
+        }
+        else {
+            NSLog(@"Error updating user:%@", error);
+        }
+        
+    }];
+    
+    return [jsonArray objectAtIndex:0];
+}
+
+- (PEUser *) updateUser:(PEUser *)userInfo {
+    
+    __block NSMutableArray *jsonArray;
+    NSData *jsonData = [self convertObjectToNSData:[userInfo toJSONString]];
+    NSLog(@"JSON String: \n %@", [userInfo toJSONString]);
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://127.0.0.1:8000/dateme_app/update_person/"]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
+    [request setHTTPBody:jsonData];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[self operationQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        if(!error){
+            //temporarily keeping to see if this works
+            NSMutableDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            jsonArray = [PEUser arrayOfModelsFromData:data error:&error];
+            if(error){
+                NSLog(@"Error converting updated user json to array:%@", error);
+            }
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
+                NSLog(@"\n\nPerson Dict from update user:\n");
+                for (id key in jsonDict) {
+                    NSLog(@"key: %@, value: %@ \n", key, [jsonDict objectForKey:key]);
+                }
+                
+            }];
+        }
+        else {
+            NSLog(@"Error updating user:%@", error);
+        }
+        
+    }];
+    
+    return [jsonArray objectAtIndex:0];
+    
+}
+
+-(NSData *) convertObjectToNSData:(id)obj {
+    if ([NSJSONSerialization isValidJSONObject:obj]) {
+        
+        NSError *error;
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:obj options:NSJSONWritingPrettyPrinted error:&error];
+        
+        if (error == nil && jsonData != nil) {
+            return jsonData;
+        } else {
+            NSLog(@"Error creating JSON data: %@", error);
+            return nil;
+        }
+    }
+    else {
+        NSLog(@"invalid JSON object to convert to NSData.");
+        return nil;
+    }
+    
+    return nil;
+}
+
 
 - (void)createNewUserWithHandle:(NSString *)handle
                          gender:(PEGender)gender
@@ -52,7 +152,7 @@
     
     [NSURLConnection sendAsynchronousRequest:request queue:[self operationQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
-        NSMutableDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        NSMutableDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
 
         [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
             NSLog(@"Person Dict:\n");
@@ -68,38 +168,29 @@
     completionHandler(YES, nil);
     
 }
-- (void) updateUserWithHandle:(NSString *)handle
-                       gender:(int)gender
-                     birthday:(NSString *)birthday
-                  description:(NSString *)description
-                     ageBegin:(NSString *)ageBegin
-                       ageEnd:(NSString *)ageEnd
-                  orientation:(int)orientation
-                   completion:(void (^)(BOOL success, NSString *error))completionHandler{
-    
-}
 
 
-- (void) updateUserDefaultsWithHandle:(NSString *)handle
-                               gender:(int)gender
-                             birthday:(NSString *)birthday
-                          description:(NSString *)description
-                             ageBegin:(NSString *)ageBegin
-                               ageEnd:(NSString *)ageEnd
-                          orientation:(int)orientation
-                             distance:(NSString *)distance{
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:handle forKey:@"handle"];
-    //[defaults setObject:gender forKey:@"gender"];
-    [defaults setObject:birthday forKey:@"birthday"];
-    [defaults setObject:description forKey:@"userBio"];
-    [defaults setObject:ageBegin forKey:@"ageBegin"];
-    [defaults setObject:ageEnd forKey:@"ageEnd"];
-    [defaults setObject:[NSNumber numberWithInt:orientation] forKey:@"orientation"];
-    [defaults setObject:distance forKey:@"distance"];
-    
-}
+
+//- (void) updateUserDefaultsWithHandle:(NSString *)handle
+//                               gender:(int)gender
+//                             birthday:(NSString *)birthday
+//                          description:(NSString *)description
+//                             ageBegin:(NSString *)ageBegin
+//                               ageEnd:(NSString *)ageEnd
+//                          orientation:(int)orientation
+//                             distance:(NSString *)distance{
+//    
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults setObject:handle forKey:@"handle"];
+//    //[defaults setObject:gender forKey:@"gender"];
+//    [defaults setObject:birthday forKey:@"birthday"];
+//    [defaults setObject:description forKey:@"userBio"];
+//    [defaults setObject:ageBegin forKey:@"ageBegin"];
+//    [defaults setObject:ageEnd forKey:@"ageEnd"];
+//    [defaults setObject:[NSNumber numberWithInt:orientation] forKey:@"orientation"];
+//    [defaults setObject:distance forKey:@"distance"];
+//    
+//}
 
 - (NSData *)jSonifyHandle:(NSString *)handle
                    gender:(PEGender)gender
@@ -107,8 +198,8 @@
         andDescription:(NSString *)description{
     PEStorage *pearingStorage = [[PEStorage alloc ]init];
     //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    int orientationRand = (1 + arc4random_uniform(2)); //these values are numbers in the db
-    int userRand = (1 + arc4random_uniform(5000)); //generating random user names atm
+    int orientationRand = (1 + arc4random_uniform(2)); //these values are numbers in the db 1 and 2
+    int userRand = (1 + arc4random_uniform(5000)); //generating random user names atm 
     NSString *userRandString = [NSString stringWithFormat:@"CoolPerson%d", userRand];
     int genderNum = (gender == Female) ? 1 : 2;
     
@@ -120,7 +211,7 @@
     [pearingStorage setObject:[NSNumber numberWithInt:(age-2)] forKey:@"ageBegin"];
     [pearingStorage setObject:[NSNumber numberWithInt:(age+3)] forKey:@"ageEnd" ];
     [pearingStorage setObject:[NSNumber numberWithInt:genderNum] forKey:@"gender"];
-    [pearingStorage setObject:description forKey:@"userBio"];
+    [pearingStorage setObject:description forKey:@"bio"];
     [pearingStorage setObject:[NSNumber numberWithInt:orientationRand] forKey:@"orientation"];
     [pearingStorage setObject:@"25" forKey:@"distance"];
     [pearingStorage setObject:handle forKey:@"handle"];
@@ -168,25 +259,7 @@
                                 personDict, @"person",
                                 nil];
     
-    if ([NSJSONSerialization isValidJSONObject:postDict]) {
-        
-        NSError *error;
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:postDict options:NSJSONWritingPrettyPrinted error:&error];
-        
-        if (error == nil && jsonData != nil) {
-            return jsonData;
-        } else {
-            NSLog(@"Error creating JSON data: %@", error);
-            return nil;
-        }
-        
-    }
-    
-    else {
-        
-        NSLog(@"trackDictionary is not a valid JSON object.");
-        return nil;
-    }
+    return [self convertObjectToNSData:postDict];
     
 }
 

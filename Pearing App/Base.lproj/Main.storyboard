@@ -604,11 +604,11 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="nsu-Ag-Kq4">
-                                            <rect key="frame" x="8" y="8" width="305" height="383"/>
+                                            <rect key="frame" x="8" y="8" width="305" height="353"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9L1-ef-cE9">
-                                            <rect key="frame" x="8" y="390" width="152" height="30"/>
+                                            <rect key="frame" x="8" y="369" width="152" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Chat &amp; Challenge">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -632,15 +632,8 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="9qc-Om-1Jw" customClass="MatchImagesScrollView">
-                                            <rect key="frame" x="23" y="135" width="275" height="198"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <connections>
-                                                <outlet property="pearingDelegate" destination="gYd-aN-Oxg" id="MnC-sa-JUN"/>
-                                            </connections>
-                                        </scrollView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5gh-fD-5P5">
-                                            <rect key="frame" x="160" y="390" width="153" height="30"/>
+                                            <rect key="frame" x="160" y="369" width="153" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Favorite">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -649,6 +642,13 @@
                                                 <color key="titleColor" red="1" green="0.02998116118" blue="0.05092289765" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                         </button>
+                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="9qc-Om-1Jw" customClass="MatchImagesScrollView">
+                                            <rect key="frame" x="23" y="143" width="275" height="198"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <connections>
+                                                <outlet property="pearingDelegate" destination="gYd-aN-Oxg" id="MnC-sa-JUN"/>
+                                            </connections>
+                                        </scrollView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>

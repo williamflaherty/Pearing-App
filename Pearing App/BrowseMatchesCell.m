@@ -80,7 +80,13 @@
     [[self.favoriteButton layer] setMasksToBounds:YES];
     [self.favoriteButton setTitleColor:orangeColor forState:UIControlStateNormal];
     
-    UIImage *image = [UIImage imageNamed:@"profileCardColor.png"];
+    //setup the card for the background
+    UIImage *image = [UIImage imageNamed:@"profileCardColorNoDs.png"];
+    self.profileCard.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.profileCard.layer.shadowOffset = CGSizeMake(0, 1);
+    self.profileCard.layer.shadowOpacity = .25;
+    self.profileCard.layer.shadowRadius = 0.25;
+    [self.profileCard setClipsToBounds:NO];
     [self.profileCard setImage:image];
     [self.profileImageView setImageUrl:match.profileImage.thumbnailURL cache:[NZImageCache instance]];
     

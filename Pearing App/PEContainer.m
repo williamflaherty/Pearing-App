@@ -8,6 +8,7 @@
 
 #import "PEContainer.h"
 #import "PEConfiguration.h"
+#import "PEUserService.h"
 
 @implementation PEContainer
 
@@ -48,6 +49,20 @@
     });
     
     return service;
+}
+
++ (PEUserService *)pearingService {
+    static PEUserService *service;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        service = [[PEUserService alloc]
+                   initWithAPIClient:[self APIClient]
+                   storage:[self storage]
+                   ];
+    });
+    
+    return nil;
 }
 
 + (id<IImageCache>)imageCache {

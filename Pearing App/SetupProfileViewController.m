@@ -9,6 +9,7 @@
 #import "SetupProfileViewController.h"
 #import "PEContainer.h"
 #import "PEStorage.h"
+#import "PEUserService.h"
 
 @interface SetupProfileViewController ()
 
@@ -16,6 +17,7 @@
 
 @implementation SetupProfileViewController {
      PEInstagramService *_instagramService;
+     PEUserService *_pearingService;
 }
 
 
@@ -33,6 +35,7 @@
     [super viewDidLoad];
     
     _instagramService = [PEContainer instagramService];
+    _pearingService = [PEContainer pearingService];
     
     PEInstagramUserInfo *info = [_instagramService userInfo];
 
@@ -96,7 +99,6 @@
     //self.pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:237/255.0f green:132/255.0f blue:92/255.0f alpha:1.0f];
     self.pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:239/255.0f green:121/255.0f blue:103/255.0f alpha:1.0f];
 
-    
     //setup scrollview
     self.imagesScrollView.delegate = self;
     self.imagesScrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
@@ -115,8 +117,8 @@
         
         subview.layer.shadowColor = [UIColor blackColor].CGColor;
         subview.layer.shadowOffset = CGSizeMake(0, 1);
-        subview.layer.shadowOpacity = 1;
-        subview.layer.shadowRadius = 1.0;
+        subview.layer.shadowOpacity = .25;
+        subview.layer.shadowRadius = .25;
         [subview setClipsToBounds:NO];
         [subview addSubview:[self.profilePictures objectAtIndex:i]];
         
@@ -127,8 +129,6 @@
     
     /* open the pearing client */
     _pearingClient = [PEContainer APIClient];
-	// Do any additional setup after loading the view.
-    
     
 }
 
@@ -163,8 +163,6 @@
 
 -(void)editingIsComplete{
     if( ![_nameTextField.text isEqualToString:@""] && ![_ageTextField.text isEqualToString:@""] ){
-        //self.navigationController.navigationBar.topItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain target:self action:@selector(finishSegue:)];
-        
         self.navigationController.navigationBar.topItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(finishSegue:)];
     }
     else {
@@ -177,8 +175,6 @@
 
     if([self savePerson]){
         //dismiss view and go to matches view controller
-        
-        
         UIViewController *settingsView = [self.storyboard instantiateViewControllerWithIdentifier:@"Settings"];
         UITableViewController *matchesView = [self.storyboard instantiateViewControllerWithIdentifier:@"Matches"];
          UINavigationController *appNav = [[UINavigationController alloc] initWithRootViewController:settingsView];
@@ -201,28 +197,22 @@
 
 -(BOOL)savePerson
 {
-    __block BOOL retVal = NO;
-    //call server here to save the person
-    [_pearingClient createNewUserWithHandle:_nameTextField.text
-                    gender:(int)_genderSegment.selectedSegmentIndex
-                    age:(int)[_ageTextField.text integerValue]
-                    description:_bioTextView.text
-                    completion:^(BOOL success, NSString *error){
-                        if (success) {
-                            //do stuff
-                            retVal = success;
-                        }
-                        else{
-                            NSLog(@"%@", error);
-                            retVal = NO;
-                        }
-    }];
+    BOOL retVal = NO;
+    PEInstagramUserInfo *info = [_instagramService userInfo];
+    PEUser *person = [[PEUser alloc] initWithHandle:_nameTextField.text
+                                        andUserName:info.username
+                                          andGender:(int)_genderSegment.selectedSegmentIndex
+                                             andAge:(int)[_ageTextField.text integerValue]
+                                        andBirthday:self.birthday
+                          andDescriptionAndBullshit:_bioTextView.text];
     
-//    if(retVal){
-//        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"UserRegistered"];
-//    }
+
+    if ([_pearingService saveUser:person]) {
+        retVal = YES;
+    }
     
     return retVal;
+    
 }
 
 - (IBAction)dateChanged:(id)sender {
@@ -235,12 +225,10 @@
     [formatter setDateFormat:@"dd"];
     NSString *day = [formatter stringFromDate:picker.date];
     
-    NSString *birthday = [NSString stringWithFormat:@"%@-%@-%@", year, month, day];
-    //save the birthday for later.
-    //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.birthday = [NSString stringWithFormat:@"%@-%@-%@", year, month, day];
+    //save the birthday for later, do we need to keep this? I don't think so.
     PEStorage *pearingStorage = [[PEStorage alloc ]init];
-    [pearingStorage setObject:birthday forKey:@"Birthday"];
-    //[defaults setObject:birthday forKey:@"Birthday"];
+    [pearingStorage setObject:self.birthday forKey:@"Birthday"];
     NSDateComponents* ageComponents = [[NSCalendar currentCalendar]
                                        components:NSYearCalendarUnit
                                        fromDate:picker.date
@@ -315,21 +303,6 @@
     [textField resignFirstResponder];
     return YES;
 }
-
-//-(void)textFieldChanged:(UITextField *)textField
-//{
-//    if (textField.text.length == 0) {
-//        self.navigationController.navigationBar.topItem.rightBarButtonItem = nil;
-//    }
-//    
-//    if(textField == self.ageTextField){
-//        NSInteger age = [textField.text integerValue];
-//    
-//        if (textField.text.length > 1 && age >= 18 && age <= 120 && ![_nameTextField.text isEqualToString:@""]){
-//            self.navigationController.navigationBar.topItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain target:self action:@selector(finishSegue:)];
-//        }
-//    }
-//}
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {

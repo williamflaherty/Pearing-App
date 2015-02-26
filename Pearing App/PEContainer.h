@@ -11,7 +11,7 @@
 #import "PEStorage.h"
 #import "PEInstagramService.h"
 #import "NZImageCache.h"
-
+#import "PEUserService.h"
 
 @interface PEContainer : NSObject
 
@@ -20,6 +20,8 @@
 + (PEStorage *) storage;
 
 + (PEInstagramService *) instagramService;
+
++ (PEUserService *)pearingService;
 
 + (id<IImageCache>) imageCache;
 

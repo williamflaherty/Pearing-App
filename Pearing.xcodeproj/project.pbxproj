@@ -13,6 +13,7 @@
 		19339BC31A9D6E9600B5BF5F /* profileCardColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 19339BC21A9D6E9600B5BF5F /* profileCardColor.png */; };
 		19339BC51A9DA76E00B5BF5F /* profileCardOrange.png in Resources */ = {isa = PBXBuildFile; fileRef = 19339BC41A9DA76E00B5BF5F /* profileCardOrange.png */; };
 		19339BC71A9DA8E800B5BF5F /* profileCardJoe.png in Resources */ = {isa = PBXBuildFile; fileRef = 19339BC61A9DA8E800B5BF5F /* profileCardJoe.png */; };
+		19339BC91A9E953C00B5BF5F /* profileCardColorNoDs.png in Resources */ = {isa = PBXBuildFile; fileRef = 19339BC81A9E953C00B5BF5F /* profileCardColorNoDs.png */; };
 		19544170197D82D0007E2985 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1954416F197D82CF007E2985 /* SettingsViewController.m */; };
 		19AA47131A9905C900D6B5C3 /* testy.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AA47121A9905C900D6B5C3 /* testy.png */; };
 		19AA47151A990A6200D6B5C3 /* screen_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AA47141A990A6200D6B5C3 /* screen_2.png */; };
@@ -93,6 +94,7 @@
 		19339BC21A9D6E9600B5BF5F /* profileCardColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileCardColor.png; sourceTree = "<group>"; };
 		19339BC41A9DA76E00B5BF5F /* profileCardOrange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileCardOrange.png; sourceTree = "<group>"; };
 		19339BC61A9DA8E800B5BF5F /* profileCardJoe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileCardJoe.png; sourceTree = "<group>"; };
+		19339BC81A9E953C00B5BF5F /* profileCardColorNoDs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileCardColorNoDs.png; sourceTree = "<group>"; };
 		1941BF20197B91DA00903654 /* PearingAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PearingAuth.h; sourceTree = "<group>"; };
 		1954416E197D82CF007E2985 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		1954416F197D82CF007E2985 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 		C03FA84F18728FC7001E7597 /* pearing_pics */ = {
 			isa = PBXGroup;
 			children = (
+				19339BC81A9E953C00B5BF5F /* profileCardColorNoDs.png */,
 				19339BC61A9DA8E800B5BF5F /* profileCardJoe.png */,
 				19339BC41A9DA76E00B5BF5F /* profileCardOrange.png */,
 				19339BC21A9D6E9600B5BF5F /* profileCardColor.png */,
@@ -601,6 +604,7 @@
 				C03FA8AC18728FC7001E7597 /* screen.png in Resources */,
 				19D318DE1867DD9200C34A5C /* Images.xcassets in Resources */,
 				19339BC51A9DA76E00B5BF5F /* profileCardOrange.png in Resources */,
+				19339BC91A9E953C00B5BF5F /* profileCardColorNoDs.png in Resources */,
 				C03FA88D18728FC7001E7597 /* 9.png in Resources */,
 				C03FA88018728FC7001E7597 /* 10.png in Resources */,
 				19339BC11A9C5E3A00B5BF5F /* pears_login_alt.png in Resources */,
@@ -785,11 +789,7 @@
 				GCC_PREFIX_HEADER = "Pearing App/Pearing App-Prefix.pch";
 				INFOPLIST_FILE = "Pearing App/Pearing App-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/Toohey/Desktop/Xcode,
-					"Projects/cocos2d-iphone-2.0/cocos2d-iphone-2.0/Resources-Mac",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited) ";
 				PRODUCT_NAME = Pearing;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -808,11 +808,7 @@
 				GCC_PREFIX_HEADER = "Pearing App/Pearing App-Prefix.pch";
 				INFOPLIST_FILE = "Pearing App/Pearing App-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/Toohey/Desktop/Xcode,
-					"Projects/cocos2d-iphone-2.0/cocos2d-iphone-2.0/Resources-Mac",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited) ";
 				PRODUCT_NAME = Pearing;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
