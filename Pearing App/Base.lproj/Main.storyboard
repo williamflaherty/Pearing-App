@@ -366,21 +366,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="MCn-Q1-JXZ">
-                                <rect key="frame" x="67" y="-49" width="123" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Female"/>
-                                    <segment title="Male"/>
-                                </segments>
-                                <color key="tintColor" red="0.015686275440000001" green="0.0039215688589999999" blue="0.011764707040000001" alpha="1" colorSpace="deviceRGB"/>
-                            </segmentedControl>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age" minimumFontSize="17" id="4GA-MA-Ryb">
-                                <rect key="frame" x="-90" y="-51" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="tm4-XT-qK5">
                                 <rect key="frame" x="20" y="169" width="280" height="115"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -389,16 +374,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="insta_cam.png" id="QOO-pO-FjD">
-                                <rect key="frame" x="-90" y="-151" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" id="miR-CH-5oL">
-                                <rect key="frame" x="-2" y="-126" width="192" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Qex-Tw-nCI">
                                 <rect key="frame" x="108" y="123" width="104" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -564,7 +539,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Jg6-G0-F5i"/>
+                    <navigationItem key="navigationItem" id="0a5-OI-3Se"/>
                     <connections>
                         <outlet property="accessoryView" destination="6Go-ud-PCH" id="q2p-vo-6Kg"/>
                         <outlet property="ageBegin" destination="nwi-tN-1gN" id="gTV-AH-Bqs"/>
@@ -577,7 +552,7 @@
                         <outlet property="genderSegment" destination="Qex-Tw-nCI" id="11n-3B-DMR"/>
                         <outlet property="menOrButton" destination="7m1-FW-xkn" id="b60-bJ-CN8"/>
                         <outlet property="nameTextField" destination="aoS-3i-Q4m" id="r6E-e3-TkY"/>
-                        <outlet property="navigationBar" destination="Jg6-G0-F5i" id="d7B-GE-Lig"/>
+                        <outlet property="navigationBar" destination="0a5-OI-3Se" id="kH3-Rn-66q"/>
                         <outlet property="profilePictureView" destination="NzN-m5-BI4" id="tqz-Eq-OFz"/>
                         <outlet property="womenOrButton" destination="FjK-mc-SgA" id="fiy-Ot-U2x"/>
                         <segue destination="DqQ-iV-CNL" kind="push" identifier="MatchesID" id="D6J-if-eNy"/>

@@ -15,6 +15,7 @@
 
 @implementation SettingsViewController {
     PEInstagramService *_instagramService;
+    PEUserService *_pearingService;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -33,6 +34,8 @@
     _navigationBar.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Matches" style:UIBarButtonItemStylePlain target:self action:@selector(finishSegue:)];
     
     _instagramService = [PEContainer instagramService];
+    _pearingService = [PEContainer pearingService];
+    PEUser *info = [_pearingService userInfo];
     
     //make the profile picture rounded and set it
     self.profilePictureView.layer.cornerRadius = (self.profilePictureView.frame.size.height)/2;
@@ -108,12 +111,12 @@
     self.distanceTextField.inputAccessoryView = self.accessoryView;
     
     //fill out all of the information
-    self.nameTextField.text = [defaults objectForKey:@"handle"];
-    self.ageTextField.text = [NSString stringWithFormat:@"%@", [defaults objectForKey:@"age"]];
-    self.ageBegin.text = [NSString stringWithFormat:@"%@",[defaults objectForKey:@"ageBegin"]];
-    self.ageEnd.text =  [NSString stringWithFormat:@"%@" , [defaults objectForKey:@"ageEnd"] ];
-    self.genderSegment.selectedSegmentIndex = [[defaults objectForKey:@"gender"] integerValue];
-    self.bioTextView.text = [defaults valueForKey:@"userBio"];
+    self.nameTextField.text = info.handle;
+    self.ageTextField.text = [NSString stringWithFormat:@"%d", info.age];
+    self.ageBegin.text = [NSString stringWithFormat:@"%d", info.age_start];
+    self.ageEnd.text = [NSString stringWithFormat:@"%d", info.age_end];
+    self.genderSegment.selectedSegmentIndex = info.gender;
+    self.bioTextView.text = info.tagline;
     
     if([[defaults objectForKey:@"gender"] integerValue] == 1){
         self.genderSegment.selectedSegmentIndex = 1;
@@ -151,8 +154,7 @@
     }
     
     /* open the pearing client */
-    _pearingClient = [PEContainer APIClient];
-
+    
 	// Do any additional setup after loading the view.
 }
 

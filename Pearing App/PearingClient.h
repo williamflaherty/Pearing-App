@@ -19,14 +19,7 @@
 - (instancetype) initWithServerUrl:(NSString *)serverUrl;
 
 // Registers a new user
-// images should contain UIImages
-- (void) createNewUserWithHandle:(NSString *)handle
-                          gender:(PEGender)gender
-                             age:(int)age
-                     description:(NSString *)description
-                      completion:(void (^)(BOOL success, NSString *error))completionHandler;
-
-- (PEUser *) registerUser:(PEUser *)userInfo;
+- (void) registerUser:(PEUser *)userInfo withCompletion:(void (^)(PEUser *, NSError *))completion;
 - (PEUser *) updateUser:(PEUser *)userInfo;
 
 // Gets the current list of matches for the specified user

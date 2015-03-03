@@ -19,6 +19,7 @@
 
 - (BOOL) isUserLoggedIn;
 - (NSString *) userToken;
-- (PEUser *)saveUser:(PEUser *)person;
+- (PEUser *) userInfo;
+- (void)saveUser:(PEUser *)person withCompletion:(void (^)(PEUser *, NSError *))completion;
 
 @end

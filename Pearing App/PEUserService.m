@@ -54,13 +54,21 @@ static NSString *const UserInfoKey = @"PEService_UserInfo";
     return updatedUser;
 }
 
--(PEUser *)saveUser:(PEUser *)person {
+-(void)saveUser:(PEUser *)person withCompletion:(void (^)(PEUser *, NSError *))completion {
     
-    PEUser *savedUser = [_apiClient registerUser:person];
-    if(savedUser){
-        [_storage setObject:[savedUser toDictionary] forKey:UserInfoKey];
-    }
-    return nil;
+    [_apiClient registerUser:person withCompletion:^(PEUser *retPerson, NSError *error) {
+        //do stuff
+        if(retPerson){
+            [_storage setObject:[retPerson toDictionary] forKey:UserInfoKey];
+            completion(retPerson, nil);
+        }
+        else {
+            completion(nil, error);
+        }
+        
+        
+    }];
+    
 }
 
 

@@ -129,6 +129,7 @@
     
     /* open the pearing client */
     _pearingClient = [PEContainer APIClient];
+    _pearingService = [PEContainer pearingService];
     
 }
 
@@ -173,31 +174,6 @@
 -(IBAction)finishSegue:(id)sender
 {
 
-    if([self savePerson]){
-        //dismiss view and go to matches view controller
-        UIViewController *settingsView = [self.storyboard instantiateViewControllerWithIdentifier:@"Settings"];
-        UITableViewController *matchesView = [self.storyboard instantiateViewControllerWithIdentifier:@"Matches"];
-         UINavigationController *appNav = [[UINavigationController alloc] initWithRootViewController:settingsView];
-        [appNav pushViewController:matchesView animated:NO];
-        [self presentViewController:appNav animated:YES completion:nil];
-
-    }
-    
-    else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Server Problem"
-                                                        message:@"We couldn't save you :( Try again?"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-
-    }
-    
-}
-
--(BOOL)savePerson
-{
-    BOOL retVal = NO;
     PEInstagramUserInfo *info = [_instagramService userInfo];
     PEUser *person = [[PEUser alloc] initWithHandle:_nameTextField.text
                                         andUserName:info.username
@@ -206,12 +182,28 @@
                                         andBirthday:self.birthday
                           andDescriptionAndBullshit:_bioTextView.text];
     
+    [_pearingService saveUser:person withCompletion:^(PEUser *retPerson, NSError *error) {
+        if (person) {
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
+                //dismiss view and go to matches view controller
+                UIViewController *settingsView = [self.storyboard instantiateViewControllerWithIdentifier:@"Settings"];
+                UITableViewController *matchesView = [self.storyboard instantiateViewControllerWithIdentifier:@"Matches"];
+                UINavigationController *appNav = [[UINavigationController alloc] initWithRootViewController:settingsView];
+                [appNav pushViewController:matchesView animated:NO];
+                [self presentViewController:appNav animated:YES completion:nil];
+            }];
+        }
+        else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Server Problem"
+                                                            message:@"We couldn't save you :( Try again?"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+        
+    }];
 
-    if ([_pearingService saveUser:person]) {
-        retVal = YES;
-    }
-    
-    return retVal;
     
 }
 
@@ -226,9 +218,7 @@
     NSString *day = [formatter stringFromDate:picker.date];
     
     self.birthday = [NSString stringWithFormat:@"%@-%@-%@", year, month, day];
-    //save the birthday for later, do we need to keep this? I don't think so.
-    PEStorage *pearingStorage = [[PEStorage alloc ]init];
-    [pearingStorage setObject:self.birthday forKey:@"Birthday"];
+    //save the birthday for later, do we need to keep this? I don't think so. just pass in the birthday with the rest of the init data, duh
     NSDateComponents* ageComponents = [[NSCalendar currentCalendar]
                                        components:NSYearCalendarUnit
                                        fromDate:picker.date

@@ -12,7 +12,6 @@
 
 @interface SettingsViewController : UIViewController <UITextViewDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
-@property (nonatomic) PearingClient *pearingClient;
 @property (strong, nonatomic) IBOutlet UINavigationItem *navigationBar;
 @property (strong, nonatomic) IBOutlet UITextField *ageBegin;
 @property (strong, nonatomic) IBOutlet UITextField *ageEnd;

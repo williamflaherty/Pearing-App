@@ -21,17 +21,17 @@ typedef enum PEUserOrientation: int {
 
 @interface PEUser : JSONModel
 
-@property (nonatomic) NSString *userName;
+@property (nonatomic) NSString *username;
 @property (nonatomic) NSString *handle;
 //@property (nonatomic) NSArray  *imageURLs;
 @property (nonatomic) NSString *birthday;
-@property (nonatomic) NSString *desc;
+@property (nonatomic) NSString *tagline;
 @property (nonatomic) int age;
 @property (nonatomic) PEGender gender;
 @property (nonatomic) int age_start;
 @property (nonatomic) int age_end;
 @property (nonatomic) PEOrientation orientation;
-@property (nonatomic) NSString *accessToken;
+@property (nonatomic) NSString *token;
 
 -(instancetype) initWithHandle:(NSString*)handle
                    andUserName:(NSString*)username

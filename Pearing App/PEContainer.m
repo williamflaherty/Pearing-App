@@ -62,7 +62,7 @@
                    ];
     });
     
-    return nil;
+    return service;
 }
 
 + (id<IImageCache>)imageCache {

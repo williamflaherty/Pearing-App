@@ -14,7 +14,7 @@
 #define CLIENTID @"8952eacd1f004b5688b6052e9b6cb3d0"
 #define CLIENTSERCRET @"ed789713b6944db9b39356343e53216d"
 #define REDIRECT_URI @"http://www.pearingapp.com"
-#define ACCESS_TOKEN @"accessToken"
+#define ACCESS_TOKEN @"token"
 #define USER_ID @"userId"
 #define SECRET_KEY @"qahLbKqZG79E4N9XJV9nfdsj"
 

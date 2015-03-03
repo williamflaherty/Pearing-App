@@ -19,6 +19,7 @@
 
 @implementation BrowseMatchesCell {
     PEInstagramService *_instagramService;
+    PEUserService *_pearingService;
 
 }
 
@@ -47,7 +48,9 @@
 - (void)setMatch:(PEMatch *)match {
     _match = match;
     _instagramService = [PEContainer instagramService];
-    PEInstagramUserInfo * info = [_instagramService userInfo];
+    _pearingService = [PEContainer pearingService];
+    PEInstagramUserInfo * igInfo = [_instagramService userInfo];
+    PEUser *peInfo = [_pearingService userInfo];
     
     UIColor *orangeColor = [UIColor colorWithRed:239/255.0f green:121/255.0f blue:103/255.0f alpha:1.0f];
 
@@ -57,14 +60,14 @@
     self.profilePicture.layer.cornerRadius = (self.profilePicture.frame.size.height)/2;
     self.profilePicture.layer.masksToBounds = YES;
     self.profilePicture.layer.borderWidth = 0;
-    NSURL *picUrl = [NSURL URLWithString:info.profilePictureURL];
+    NSURL *picUrl = [NSURL URLWithString:igInfo.profilePictureURL];
     self.profilePicture.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:picUrl ]];
     
     //set user name
-    self.userNameLabel.text = info.username;
+    self.userNameLabel.text = peInfo.handle;
     
     //make text view look similar to age/name text fields
-    self.descriptionLabel.text = info.bio;
+    self.descriptionLabel.text = peInfo.tagline;
     
     //setup the chats and challenges button
     [[self.chatAndChallengeButton layer] setBorderWidth:.5f];
