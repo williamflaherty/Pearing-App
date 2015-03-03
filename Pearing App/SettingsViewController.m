@@ -152,9 +152,7 @@
        default:
             break;
     }
-    
-    /* open the pearing client */
-    
+        
 	// Do any additional setup after loading the view.
 }
 
