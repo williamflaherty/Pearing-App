@@ -14,6 +14,7 @@
 		19339BC51A9DA76E00B5BF5F /* profileCardOrange.png in Resources */ = {isa = PBXBuildFile; fileRef = 19339BC41A9DA76E00B5BF5F /* profileCardOrange.png */; };
 		19339BC71A9DA8E800B5BF5F /* profileCardJoe.png in Resources */ = {isa = PBXBuildFile; fileRef = 19339BC61A9DA8E800B5BF5F /* profileCardJoe.png */; };
 		19339BC91A9E953C00B5BF5F /* profileCardColorNoDs.png in Resources */ = {isa = PBXBuildFile; fileRef = 19339BC81A9E953C00B5BF5F /* profileCardColorNoDs.png */; };
+		19339BCB1AA68C5F00B5BF5F /* PEConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 19339BCA1AA68C5F00B5BF5F /* PEConfiguration.m */; };
 		19544170197D82D0007E2985 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1954416F197D82CF007E2985 /* SettingsViewController.m */; };
 		19AA47131A9905C900D6B5C3 /* testy.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AA47121A9905C900D6B5C3 /* testy.png */; };
 		19AA47151A990A6200D6B5C3 /* screen_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AA47141A990A6200D6B5C3 /* screen_2.png */; };
@@ -95,6 +96,7 @@
 		19339BC41A9DA76E00B5BF5F /* profileCardOrange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileCardOrange.png; sourceTree = "<group>"; };
 		19339BC61A9DA8E800B5BF5F /* profileCardJoe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileCardJoe.png; sourceTree = "<group>"; };
 		19339BC81A9E953C00B5BF5F /* profileCardColorNoDs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileCardColorNoDs.png; sourceTree = "<group>"; };
+		19339BCA1AA68C5F00B5BF5F /* PEConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEConfiguration.m; sourceTree = "<group>"; };
 		1941BF20197B91DA00903654 /* PearingAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PearingAuth.h; sourceTree = "<group>"; };
 		1954416E197D82CF007E2985 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		1954416F197D82CF007E2985 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				435DBE041A9AB6AD00BFF0D0 /* PEConfiguration.h */,
+				19339BCA1AA68C5F00B5BF5F /* PEConfiguration.m */,
 				435DBE071A9AB83C00BFF0D0 /* PEContainer.h */,
 				435DBE081A9AB83C00BFF0D0 /* PEContainer.m */,
 			);
@@ -657,6 +660,7 @@
 				43339E741A9ACFD9009E42DE /* PEInstagramService.m in Sources */,
 				C0E17193188BC9E700435DCE /* BrowseMatchesCell.m in Sources */,
 				C0E171A6188BE3C300435DCE /* FullSizeImageViewController.m in Sources */,
+				19339BCB1AA68C5F00B5BF5F /* PEConfiguration.m in Sources */,
 				19DC5BC7186828AA0035EE30 /* InstagramLoginViewController.m in Sources */,
 				435DBE361A9ABE0E00BFF0D0 /* JSONValueTransformer.m in Sources */,
 				435DBE311A9ABE0E00BFF0D0 /* NSArray+JSONModel.m in Sources */,

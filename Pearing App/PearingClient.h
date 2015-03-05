@@ -19,7 +19,7 @@
 - (instancetype) initWithServerUrl:(NSString *)serverUrl;
 
 // Registers a new user
-- (void) registerUser:(PEUser *)userInfo withCompletion:(void (^)(PEUser *, NSError *))completion;
+- (void) storeUser:(PEUser *)userInfo withType:(NSString*)callType andCompletion:(void (^)(PEUser *, NSError *))completion;
 - (PEUser *) updateUser:(PEUser *)userInfo;
 
 // Gets the current list of matches for the specified user

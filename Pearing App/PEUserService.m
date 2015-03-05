@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Pearing. All rights reserved.
 //
 
+#import "PEConfiguration.h"
 #import "PEUserService.h"
 #import "PEUser.h"
 
@@ -54,9 +55,26 @@ static NSString *const UserInfoKey = @"PEService_UserInfo";
     return updatedUser;
 }
 
--(void)saveUser:(PEUser *)person withCompletion:(void (^)(PEUser *, NSError *))completion {
+-(void)registerUser:(PEUser *)person withCompletion:(void (^)(PEUser *, NSError *))completion {
     
-    [_apiClient registerUser:person withCompletion:^(PEUser *retPerson, NSError *error) {
+    [_apiClient storeUser:person withType:PEConfiguration_RegisterUserURL andCompletion:^(PEUser *retPerson, NSError *error) {
+        //do stuff
+        if(retPerson){
+            [_storage setObject:[retPerson toDictionary] forKey:UserInfoKey];
+            completion(retPerson, nil);
+        }
+        else {
+            completion(nil, error);
+        }
+        
+        
+    }];
+    
+}
+
+-(void)updateUser:(PEUser *)person withCompletion:(void (^)(PEUser *, NSError *))completion {
+    
+    [_apiClient storeUser:person withType:PEConfiguration_UpdateUserURL andCompletion:^(PEUser *retPerson, NSError *error) {
         //do stuff
         if(retPerson){
             [_storage setObject:[retPerson toDictionary] forKey:UserInfoKey];

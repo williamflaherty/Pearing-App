@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Pearing. All rights reserved.
 //
 
-//#import "PEConfiguration.h" for some reason when I include this file I get multiple definition erros and I just didn't feel like trying to figure out why. If we do figure it out we can just replace the string down there with the actual API call.
+#import "PEConfiguration.h" //for some reason when I include this file I get multiple definition erros and I just didn't feel like trying to figure out why. If we do figure it out we can just replace the string down there with the actual API call.
 #import "PearingClient.h"
 #import "PearingAuth.h"
 #import "PEContainer.h"
@@ -32,11 +32,10 @@
     return queue;
 }
 
--(void) registerUser:(PEUser *)userInfo withCompletion:(void (^)(PEUser *, NSError *))completion {
+-(void) storeUser:(PEUser *)userInfo withType:(NSString *)callType andCompletion:(void (^)(PEUser *, NSError *))completion {
     
     NSData *jsonData = [self convertObjectToNSData:[userInfo toDictionary]];
-    //NSLog(@"JSON String: \n %@", [userInfo toJSONString]);
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://127.0.0.1:8000/dateme_app/register_person/"]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:callType]];
     [request setHTTPMethod:@"POST"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
@@ -56,47 +55,7 @@
         }
         
     }];
-    
-   // return [jsonArray objectAtIndex:0];
-}
 
-- (PEUser *) updateUser:(PEUser *)userInfo {
-    
-    __block NSMutableArray *jsonArray;
-    NSData *jsonData = [self convertObjectToNSData:[userInfo toDictionary]];
-    NSLog(@"JSON String: \n %@", [userInfo toJSONString]);
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://127.0.0.1:8000/dateme_app/update_person/"]];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
-    [request setHTTPBody:jsonData];
-    
-    [NSURLConnection sendAsynchronousRequest:request queue:[self operationQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        
-        if(!error){
-            //temporarily keeping to see if this works
-            NSMutableDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-            jsonArray = [PEUser arrayOfModelsFromData:data error:&error];
-            if(error){
-                NSLog(@"Error converting updated user json to array:%@", error);
-            }
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
-                NSLog(@"\n\nPerson Dict from update user:\n");
-                for (id key in jsonDict) {
-                    NSLog(@"key: %@, value: %@ \n", key, [jsonDict objectForKey:key]);
-                }
-                
-            }];
-        }
-        else {
-            NSLog(@"Error updating user:%@", error);
-        }
-        
-    }];
-    
-    return [jsonArray objectAtIndex:0];
-    
 }
 
 -(NSData *) convertObjectToNSData:(NSDictionary*)obj {

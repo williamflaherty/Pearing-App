@@ -162,15 +162,6 @@ int s_SelectedCount;
 
 }
 
-//Should probably add some error checking to this method
--(NSMutableDictionary *)getUserMedia:(NSString *)url
-{
-    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
-    NSMutableDictionary *dictResponse = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-    return dictResponse;
-    
-}
-
 -(void)updateImagesDataSource
 {
     if (_nextImagesPageToken)

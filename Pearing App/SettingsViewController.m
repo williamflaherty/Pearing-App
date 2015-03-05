@@ -16,6 +16,7 @@
 @implementation SettingsViewController {
     PEInstagramService *_instagramService;
     PEUserService *_pearingService;
+    PEUser *_info;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,7 +36,7 @@
     
     _instagramService = [PEContainer instagramService];
     _pearingService = [PEContainer pearingService];
-    PEUser *info = [_pearingService userInfo];
+    _info = [_pearingService userInfo];
     
     //make the profile picture rounded and set it
     self.profilePictureView.layer.cornerRadius = (self.profilePictureView.frame.size.height)/2;
@@ -74,6 +75,10 @@
     self.ageTextField.inputView = self.datePickerView;
     [self.accessoryView removeFromSuperview];
     self.ageTextField.inputAccessoryView = self.accessoryView;
+    NSDateFormatter *format = [[NSDateFormatter alloc] init ]; 
+    [format setDateFormat:@"yyyy-MM-dd"];
+    [self.datePickerView setDate:[format dateFromString:_info.birthday]];
+    self.birthday = _info.birthday;
 
     //make text view look similar to age/name text fields
     self.bioTextView.delegate = self;
@@ -111,12 +116,12 @@
     self.distanceTextField.inputAccessoryView = self.accessoryView;
     
     //fill out all of the information
-    self.nameTextField.text = info.handle;
-    self.ageTextField.text = [NSString stringWithFormat:@"%d", info.age];
-    self.ageBegin.text = [NSString stringWithFormat:@"%d", info.age_start];
-    self.ageEnd.text = [NSString stringWithFormat:@"%d", info.age_end];
-    self.genderSegment.selectedSegmentIndex = info.gender;
-    self.bioTextView.text = info.tagline;
+    self.nameTextField.text = _info.handle;
+    self.ageTextField.text = [NSString stringWithFormat:@"%d", _info.age];
+    self.ageBegin.text = [NSString stringWithFormat:@"%d", _info.age_start];
+    self.ageEnd.text = [NSString stringWithFormat:@"%d", _info.age_end];
+    self.genderSegment.selectedSegmentIndex = _info.gender;
+    self.bioTextView.text = _info.tagline;
     
     if([[defaults objectForKey:@"gender"] integerValue] == 1){
         self.genderSegment.selectedSegmentIndex = 1;
@@ -156,46 +161,43 @@
 	// Do any additional setup after loading the view.
 }
 
--(BOOL)saveDetails
+-(void)updatePersonDetails
 {
-    //NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    __block BOOL retVal = YES;
-    
-    
-    //call server here to save the person
-    /*[_pearingClient updateUserDefaultsWithHandle:self.nameTextField.text
-                                          gender:(int)self.genderSegment.selectedSegmentIndex
-                                        birthday:[defaults objectForKey:@"Birthday"] description:self.bioTextView.text ageBegin:self.ageBegin.text ageEnd:self.ageEnd.text orientation:<#(int)#> distance:<#(NSString *)#>]*/
-    //YOU NEED TO FIGURE OUT HOW YOU'RE HANDLING THE ORIENTATION SHIT
-    //WHERE ARE YOU SAVING THE VALUES? DEFAULTS. THAT'S WHERE.
-    //WHEN YOU SEE THIS YOU'RE SAVING THE BUTTON VALUES INTO DEFAULTS
-    //IF THEY'RE ACTIVE!
+    //Update the person with their new settings
+    _info.handle = self.nameTextField.text;
+    _info.age = [self.ageTextField.text intValue];
+    _info.age_end = [self.ageEnd.text intValue];
+    _info.age_start = [self.ageBegin.text intValue];
+    _info.birthday = self.birthday;
+    _info.gender = (PEGender)self.genderSegment.selectedSegmentIndex;
+    _info.orientation = 1; //this will have to be updated when the API changes
+    _info.tagline = self.bioTextView.text;
      
-    return retVal;
 }
 
 //this will be the saving of details
 -(IBAction)finishSegue:(id)sender
 {
-    
-    //update this to save details
-    
-    if([self saveDetails]){
-        //dismiss view and go to matches view controller
+    [self updatePersonDetails];
+    [_pearingService updateUser:_info withCompletion:^(PEUser *retPerson, NSError *error) {
+        if (retPerson) {
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
+                //go to matches view controller
+                UITableViewController *matchesView = [self.storyboard instantiateViewControllerWithIdentifier:@"Matches"];
+                [self.navigationController pushViewController:matchesView animated:YES];
+            }];
+        }
+        else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Saving Probs"
+                                                         message:@"We had trouble saving your updates :(."
+                                                        delegate:nil
+                                               cancelButtonTitle:@"OK"
+                                               otherButtonTitles:nil];
+            [alert show];
+         
+        }
         
-        UITableViewController *matchesView = [self.storyboard instantiateViewControllerWithIdentifier:@"Matches"];
-        [self.navigationController pushViewController:matchesView animated:YES];
-        
-    }
-    else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Saving Probs"
-                                                        message:@"We had trouble saving your updates :(."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-        
-    }
+    }];
     
 }
 
@@ -384,10 +386,10 @@
     [formatter setDateFormat:@"dd"];
     NSString *day = [formatter stringFromDate:picker.date];
     
-    NSString *birthday = [NSString stringWithFormat:@"%@-%@-%@", year, month, day];
+    self.birthday = [NSString stringWithFormat:@"%@-%@-%@", year, month, day];
     //save the birthday for later.
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:birthday forKey:@"Birthday"];
+    [defaults setObject:self.birthday forKey:@"Birthday"];
     NSDateComponents* ageComponents = [[NSCalendar currentCalendar]
                                        components:NSYearCalendarUnit
                                        fromDate:picker.date

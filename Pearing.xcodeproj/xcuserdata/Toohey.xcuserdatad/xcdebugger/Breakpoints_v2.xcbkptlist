@@ -90,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pearing App/PEUserService.m"
-            timestampString = "447044013.324716"
+            timestampString = "447122689.187951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "-saveUser:withCompletion:"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "-registerUser:withCompletion:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pearing App/SetupProfileViewController.m"
-            timestampString = "447044013.324716"
+            timestampString = "447122689.187951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -122,12 +122,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pearing App/PearingClient.m"
-            timestampString = "447041703.925833"
+            timestampString = "447122689.187951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "-registerUser:withCompletion:"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "-storeUser:withType:andCompletion:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -138,12 +138,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pearing App/PearingClient.m"
-            timestampString = "447042936.1057"
+            timestampString = "447122689.187951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "-registerUser:withCompletion:"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "-storeUser:withType:andCompletion:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -153,14 +153,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pearing App/PearingClient.m"
-            timestampString = "447042936.1057"
+            filePath = "Pearing App/PEConfiguration.m"
+            timestampString = "447122549.818295"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "-registerUser:withCompletion:"
-            landmarkType = "5">
+            startingLineNumber = "9"
+            endingLineNumber = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -28,7 +28,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *distanceTextField;
 @property (strong, nonatomic) UIView *animationView;
 @property (strong, nonatomic) IBOutlet UIPickerView *distancePickerView;
-
+@property (strong, nonatomic) NSString* birthday;
 
 - (IBAction)womenOrButtonPressed:(id)sender;
 - (IBAction)menOrButtonPressed:(id)sender;

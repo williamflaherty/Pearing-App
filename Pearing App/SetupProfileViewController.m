@@ -82,6 +82,18 @@
     //setup age/datepicker
     self.datePickerView.hidden = YES;
     self.accessoryView.hidden = YES;
+    NSDate *now = [NSDate date];
+    NSDateComponents *dateComponents = [NSDateComponents new];
+    dateComponents.year = -18;
+    NSDate *eighteenYearsAgo = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents
+                                                                             toDate:now
+                                                                            options:0];
+    self.datePickerView.maximumDate = eighteenYearsAgo;
+    dateComponents.year = -80;
+    NSDate *eightyYearsAgo = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents
+                                                                           toDate:now
+                                                                          options:0];
+    self.datePickerView.minimumDate = eightyYearsAgo;
     [self.datePickerView setDatePickerMode:UIDatePickerModeDate];
     self.ageTextField.inputView = self.datePickerView;
     [self.accessoryView removeFromSuperview];
@@ -182,8 +194,8 @@
                                         andBirthday:self.birthday
                           andDescriptionAndBullshit:_bioTextView.text];
     
-    [_pearingService saveUser:person withCompletion:^(PEUser *retPerson, NSError *error) {
-        if (person) {
+    [_pearingService registerUser:person withCompletion:^(PEUser *retPerson, NSError *error) {
+        if (retPerson) {
             [[NSOperationQueue mainQueue] addOperationWithBlock:^(void) {
                 //dismiss view and go to matches view controller
                 UIViewController *settingsView = [self.storyboard instantiateViewControllerWithIdentifier:@"Settings"];
