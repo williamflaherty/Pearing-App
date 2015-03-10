@@ -14,4 +14,5 @@
 @property (nonatomic) PearingClient *pearingClient;
 @property (strong, nonatomic) IBOutlet UINavigationItem *navigationBar;
 
+
 @end

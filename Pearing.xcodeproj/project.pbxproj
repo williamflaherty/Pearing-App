@@ -36,6 +36,14 @@
 		19DC5BDF1874A6390035EE30 /* profile_setup.png in Resources */ = {isa = PBXBuildFile; fileRef = 19DC5BDE1874A6390035EE30 /* profile_setup.png */; };
 		19DC5BE11874A7D30035EE30 /* profile_setup2.png in Resources */ = {isa = PBXBuildFile; fileRef = 19DC5BE01874A7D30035EE30 /* profile_setup2.png */; };
 		19DC5BE31874CDDE0035EE30 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DC5BE21874CDDE0035EE30 /* QuartzCore.framework */; };
+		19FD65D11AABAFE0000E6F67 /* flat-ui-icons-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 19FD65D01AABAFE0000E6F67 /* flat-ui-icons-regular.ttf */; };
+		19FD65D41AABB38C000E6F67 /* chat-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 19FD65D21AABB38C000E6F67 /* chat-button.png */; };
+		19FD65D51AABB38C000E6F67 /* fave-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 19FD65D31AABB38C000E6F67 /* fave-button.png */; };
+		19FD65D71AABF046000E6F67 /* settings-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 19FD65D61AABF046000E6F67 /* settings-button.png */; };
+		19FD65DA1AACDB23000E6F67 /* chat-button-round.png in Resources */ = {isa = PBXBuildFile; fileRef = 19FD65D81AACDB23000E6F67 /* chat-button-round.png */; };
+		19FD65DB1AACDB23000E6F67 /* fave-button-round.png in Resources */ = {isa = PBXBuildFile; fileRef = 19FD65D91AACDB23000E6F67 /* fave-button-round.png */; };
+		19FD65DE1AACE7DE000E6F67 /* chat-button-round@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19FD65DC1AACE7DE000E6F67 /* chat-button-round@2x.png */; };
+		19FD65DF1AACE7DE000E6F67 /* fave-button-round@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19FD65DD1AACE7DE000E6F67 /* fave-button-round@2x.png */; };
 		43339E741A9ACFD9009E42DE /* PEInstagramService.m in Sources */ = {isa = PBXBuildFile; fileRef = 43339E731A9ACFD8009E42DE /* PEInstagramService.m */; };
 		435DBE091A9AB83C00BFF0D0 /* PEContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 435DBE081A9AB83C00BFF0D0 /* PEContainer.m */; };
 		435DBE0D1A9AB95300BFF0D0 /* PEStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 435DBE0C1A9AB95300BFF0D0 /* PEStorage.m */; };
@@ -135,6 +143,14 @@
 		19DC5BDE1874A6390035EE30 /* profile_setup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_setup.png; sourceTree = "<group>"; };
 		19DC5BE01874A7D30035EE30 /* profile_setup2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile_setup2.png; sourceTree = "<group>"; };
 		19DC5BE21874CDDE0035EE30 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		19FD65D01AABAFE0000E6F67 /* flat-ui-icons-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "flat-ui-icons-regular.ttf"; sourceTree = "<group>"; };
+		19FD65D21AABB38C000E6F67 /* chat-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat-button.png"; sourceTree = "<group>"; };
+		19FD65D31AABB38C000E6F67 /* fave-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fave-button.png"; sourceTree = "<group>"; };
+		19FD65D61AABF046000E6F67 /* settings-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-button.png"; sourceTree = "<group>"; };
+		19FD65D81AACDB23000E6F67 /* chat-button-round.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat-button-round.png"; sourceTree = "<group>"; };
+		19FD65D91AACDB23000E6F67 /* fave-button-round.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fave-button-round.png"; sourceTree = "<group>"; };
+		19FD65DC1AACE7DE000E6F67 /* chat-button-round@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat-button-round@2x.png"; sourceTree = "<group>"; };
+		19FD65DD1AACE7DE000E6F67 /* fave-button-round@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fave-button-round@2x.png"; sourceTree = "<group>"; };
 		43339E721A9ACFD8009E42DE /* PEInstagramService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEInstagramService.h; sourceTree = "<group>"; };
 		43339E731A9ACFD8009E42DE /* PEInstagramService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEInstagramService.m; sourceTree = "<group>"; };
 		435DBE041A9AB6AD00BFF0D0 /* PEConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEConfiguration.h; sourceTree = "<group>"; };
@@ -282,6 +298,7 @@
 		19D318CC1867DD9200C34A5C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				19FD64FE1AABAF89000E6F67 /* Fonts */,
 				19D318FD1867F1BD00C34A5C /* Images */,
 				19D318CD1867DD9200C34A5C /* Pearing App-Info.plist */,
 				19D318CE1867DD9200C34A5C /* InfoPlist.strings */,
@@ -315,6 +332,14 @@
 				C03FA84F18728FC7001E7597 /* pearing_pics */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		19FD64FE1AABAF89000E6F67 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				19FD65D01AABAFE0000E6F67 /* flat-ui-icons-regular.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		43339E711A9ACBD5009E42DE /* API */ = {
@@ -426,6 +451,13 @@
 		C03FA84F18728FC7001E7597 /* pearing_pics */ = {
 			isa = PBXGroup;
 			children = (
+				19FD65DC1AACE7DE000E6F67 /* chat-button-round@2x.png */,
+				19FD65DD1AACE7DE000E6F67 /* fave-button-round@2x.png */,
+				19FD65D81AACDB23000E6F67 /* chat-button-round.png */,
+				19FD65D91AACDB23000E6F67 /* fave-button-round.png */,
+				19FD65D61AABF046000E6F67 /* settings-button.png */,
+				19FD65D21AABB38C000E6F67 /* chat-button.png */,
+				19FD65D31AABB38C000E6F67 /* fave-button.png */,
 				19339BC81A9E953C00B5BF5F /* profileCardColorNoDs.png */,
 				19339BC61A9DA8E800B5BF5F /* profileCardJoe.png */,
 				19339BC41A9DA76E00B5BF5F /* profileCardOrange.png */,
@@ -598,16 +630,21 @@
 				C03FA88C18728FC7001E7597 /* 8.png in Resources */,
 				C03FA88A18728FC7001E7597 /* 6.png in Resources */,
 				C03FA88218728FC7001E7597 /* 12.png in Resources */,
+				19FD65D41AABB38C000E6F67 /* chat-button.png in Resources */,
 				19DC5BDF1874A6390035EE30 /* profile_setup.png in Resources */,
 				C03FA88918728FC7001E7597 /* 5.png in Resources */,
 				C03FA8AD18728FC7001E7597 /* sign_up_button.png in Resources */,
 				C03FA89218728FC7001E7597 /* insta_login_bg.png in Resources */,
 				C03FA88618728FC7001E7597 /* 2.png in Resources */,
 				C03FA88718728FC7001E7597 /* 3.png in Resources */,
+				19FD65DE1AACE7DE000E6F67 /* chat-button-round@2x.png in Resources */,
 				C03FA8AC18728FC7001E7597 /* screen.png in Resources */,
 				19D318DE1867DD9200C34A5C /* Images.xcassets in Resources */,
+				19FD65DB1AACDB23000E6F67 /* fave-button-round.png in Resources */,
+				19FD65DF1AACE7DE000E6F67 /* fave-button-round@2x.png in Resources */,
 				19339BC51A9DA76E00B5BF5F /* profileCardOrange.png in Resources */,
 				19339BC91A9E953C00B5BF5F /* profileCardColorNoDs.png in Resources */,
+				19FD65D51AABB38C000E6F67 /* fave-button.png in Resources */,
 				C03FA88D18728FC7001E7597 /* 9.png in Resources */,
 				C03FA88018728FC7001E7597 /* 10.png in Resources */,
 				19339BC11A9C5E3A00B5BF5F /* pears_login_alt.png in Resources */,
@@ -617,9 +654,12 @@
 				C03FA89318728FC7001E7597 /* insta_login_heart.png in Resources */,
 				19AA47131A9905C900D6B5C3 /* testy.png in Resources */,
 				19DC5BE11874A7D30035EE30 /* profile_setup2.png in Resources */,
+				19FD65D11AABAFE0000E6F67 /* flat-ui-icons-regular.ttf in Resources */,
 				19339BBF1A99852500B5BF5F /* settings.png in Resources */,
 				19D318D01867DD9200C34A5C /* InfoPlist.strings in Resources */,
 				C03FA89018728FC7001E7597 /* insta_button.png in Resources */,
+				19FD65D71AABF046000E6F67 /* settings-button.png in Resources */,
+				19FD65DA1AACDB23000E6F67 /* chat-button-round.png in Resources */,
 				C03FA88B18728FC7001E7597 /* 7.png in Resources */,
 				19339BC31A9D6E9600B5BF5F /* profileCardColor.png in Resources */,
 				C03FA88E18728FC7001E7597 /* get_started.png in Resources */,

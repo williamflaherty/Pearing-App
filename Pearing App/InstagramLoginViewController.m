@@ -30,6 +30,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    for (NSString* family in [UIFont familyNames])
+//    {
+//        NSLog(@"%@", family);
+//        
+//        for (NSString* name in [UIFont fontNamesForFamilyName: family])
+//        {
+//            NSLog(@"  %@", name);
+//        }
+//    }
+    //font is flat-ui-pro-icons
     if (_instagramService == nil) {
         _instagramService = [PEContainer instagramService];
     }

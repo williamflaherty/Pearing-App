@@ -41,7 +41,7 @@
     self.navigationController.navigationBar.barTintColor = color;
     //eventually replace with custom images
     
-    UIImage *barButtonImage = [UIImage imageNamed:@"settings.png"];
+    UIImage *barButtonImage = [UIImage imageNamed:@"settings-button.png"];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:barButtonImage style:UIBarButtonItemStylePlain target:self action:@selector(backButtonPressed:)];
     self.navigationItem.leftBarButtonItem = backButton;
 

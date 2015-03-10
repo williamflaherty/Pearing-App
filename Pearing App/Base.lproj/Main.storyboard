@@ -582,19 +582,19 @@
                                             <rect key="frame" x="8" y="8" width="305" height="353"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9L1-ef-cE9">
-                                            <rect key="frame" x="8" y="369" width="152" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9L1-ef-cE9">
+                                            <rect key="frame" x="13" y="360" width="145" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Chat &amp; Challenge">
+                                            <state key="normal" image="chat-button-round.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="kcv-u0-cpO">
-                                            <rect key="frame" x="237" y="40" width="60" height="60"/>
+                                            <rect key="frame" x="237" y="35" width="60" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UlZ-sk-Ng6">
-                                            <rect key="frame" x="23" y="45" width="199" height="82"/>
+                                            <rect key="frame" x="23" y="42" width="199" height="82"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -607,16 +607,6 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5gh-fD-5P5">
-                                            <rect key="frame" x="160" y="369" width="153" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Favorite">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <state key="selected">
-                                                <color key="titleColor" red="1" green="0.02998116118" blue="0.05092289765" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                        </button>
                                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="9qc-Om-1Jw" customClass="MatchImagesScrollView">
                                             <rect key="frame" x="23" y="143" width="275" height="198"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -624,6 +614,16 @@
                                                 <outlet property="pearingDelegate" destination="gYd-aN-Oxg" id="MnC-sa-JUN"/>
                                             </connections>
                                         </scrollView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5gh-fD-5P5">
+                                            <rect key="frame" x="161" y="360" width="145" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" image="fave-button-round.png">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="selected">
+                                                <color key="titleColor" red="1" green="0.02998116118" blue="0.05092289765" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -670,6 +670,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chat-button-round.png" width="145" height="50"/>
+        <image name="fave-button-round.png" width="145" height="50"/>
         <image name="get_started.png" width="323" height="105"/>
         <image name="insta_cam.png" width="50" height="50"/>
         <image name="insta_login_bg.png" width="640" height="1136"/>

@@ -67,21 +67,29 @@
     self.userNameLabel.text = peInfo.handle;
     
     //make text view look similar to age/name text fields
-    self.descriptionLabel.text = peInfo.tagline;
+    self.descriptionLabel.font = [UIFont fontWithName:@"flat-ui-pro-icons" size:12];
+    self.descriptionLabel.text = [NSString stringWithFormat:@"%@ ", peInfo.tagline];
     
     //setup the chats and challenges button
-    [[self.chatAndChallengeButton layer] setBorderWidth:.5f];
-    [[self.chatAndChallengeButton layer] setBorderColor:[orangeColor CGColor]];
-    [[self.chatAndChallengeButton layer] setCornerRadius:5.0f];
-    [[self.chatAndChallengeButton layer] setMasksToBounds:YES];
-    [self.chatAndChallengeButton setTitleColor:orangeColor forState:UIControlStateNormal];
+    
+//    [[self.chatAndChallengeButton layer] setBorderWidth:.5f];
+//    [[self.chatAndChallengeButton layer] setBorderColor:[orangeColor CGColor]];
+//    [[self.chatAndChallengeButton layer] setCornerRadius:5.0f];
+//    [[self.chatAndChallengeButton layer] setMasksToBounds:YES];
+//    [self.chatAndChallengeButton setTitleColor:orangeColor forState:UIControlStateNormal];
+    UIImage *chatButtonImage = [UIImage imageNamed:@"chat-button-round.png"];
+                            //resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    [self.chatAndChallengeButton setBackgroundImage:chatButtonImage forState:UIControlStateNormal];
     
     //setup the favorites button
-    [[self.favoriteButton layer] setBorderWidth:.5f];
-    [[self.favoriteButton layer] setBorderColor:[orangeColor CGColor]];
-    [[self.favoriteButton layer] setCornerRadius:5.0f];
-    [[self.favoriteButton layer] setMasksToBounds:YES];
-    [self.favoriteButton setTitleColor:orangeColor forState:UIControlStateNormal];
+//    [[self.favoriteButton layer] setBorderWidth:.5f];
+//    [[self.favoriteButton layer] setBorderColor:[orangeColor CGColor]];
+//    [[self.favoriteButton layer] setCornerRadius:5.0f];
+//    [[self.favoriteButton layer] setMasksToBounds:YES];
+//    [self.favoriteButton setTitleColor:orangeColor forState:UIControlStateNormal];
+    UIImage *faveButtonImage = [UIImage imageNamed:@"fave-button-round.png"];
+    //resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
+    [self.favoriteButton setBackgroundImage:faveButtonImage forState:UIControlStateNormal];
     
     //setup the card for the background
     UIImage *image = [UIImage imageNamed:@"profileCardColorNoDs.png"];
