@@ -46,6 +46,7 @@
 		19FD65DF1AACE7DE000E6F67 /* fave-button-round@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19FD65DD1AACE7DE000E6F67 /* fave-button-round@2x.png */; };
 		19FD65E21AAFB9FE000E6F67 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FD65E11AAFB9FE000E6F67 /* ChatViewController.m */; };
 		19FD65E61AAFBFB7000E6F67 /* MessageComposerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FD65E51AAFBFB7000E6F67 /* MessageComposerView.m */; };
+		19FD65E91AB139F7000E6F67 /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FD65E81AB139F7000E6F67 /* ChatCell.m */; };
 		43339E741A9ACFD9009E42DE /* PEInstagramService.m in Sources */ = {isa = PBXBuildFile; fileRef = 43339E731A9ACFD8009E42DE /* PEInstagramService.m */; };
 		435DBE091A9AB83C00BFF0D0 /* PEContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 435DBE081A9AB83C00BFF0D0 /* PEContainer.m */; };
 		435DBE0D1A9AB95300BFF0D0 /* PEStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 435DBE0C1A9AB95300BFF0D0 /* PEStorage.m */; };
@@ -157,6 +158,8 @@
 		19FD65E11AAFB9FE000E6F67 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		19FD65E41AAFBFB7000E6F67 /* MessageComposerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageComposerView.h; sourceTree = "<group>"; };
 		19FD65E51AAFBFB7000E6F67 /* MessageComposerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageComposerView.m; sourceTree = "<group>"; };
+		19FD65E71AB139F7000E6F67 /* ChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
+		19FD65E81AB139F7000E6F67 /* ChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
 		43339E721A9ACFD8009E42DE /* PEInstagramService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEInstagramService.h; sourceTree = "<group>"; };
 		43339E731A9ACFD8009E42DE /* PEInstagramService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PEInstagramService.m; sourceTree = "<group>"; };
 		435DBE041A9AB6AD00BFF0D0 /* PEConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEConfiguration.h; sourceTree = "<group>"; };
@@ -540,6 +543,8 @@
 				C0E17192188BC9E700435DCE /* BrowseMatchesCell.m */,
 				C0E1719E188BD69800435DCE /* MatchImagesScrollView.h */,
 				C0E1719F188BD69800435DCE /* MatchImagesScrollView.m */,
+				19FD65E71AB139F7000E6F67 /* ChatCell.h */,
+				19FD65E81AB139F7000E6F67 /* ChatCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -714,6 +719,7 @@
 				C0E171A0188BD69800435DCE /* MatchImagesScrollView.m in Sources */,
 				19DC5BCA18682F130035EE30 /* GetStartedViewController.m in Sources */,
 				435DBE2D1A9ABE0E00BFF0D0 /* JSONModel.m in Sources */,
+				19FD65E91AB139F7000E6F67 /* ChatCell.m in Sources */,
 				19544170197D82D0007E2985 /* SettingsViewController.m in Sources */,
 				C03FA84B18728A82001E7597 /* LoadingImageView.m in Sources */,
 				43339E741A9ACFD9009E42DE /* PEInstagramService.m in Sources */,

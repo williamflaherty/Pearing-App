@@ -17,20 +17,31 @@
     //[self.view addSubview:self.messageComposerView];
     [self.navigationController.view addSubview:self.messageComposerView];
     
-    //I have no idea why I had to do this like this. touchesbegan was just not working, so fuck it. 
-    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapReceived:)];
-    [tapGestureRecognizer setDelegate:self];
-    [self.view addGestureRecognizer:tapGestureRecognizer];
+    self.swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeDownFrom:)];
+    self.swipe.direction = UISwipeGestureRecognizerDirectionDown;
+    self.swipe.delegate = self;
+    [self.conversationView addGestureRecognizer:self.swipe];
     
 }
 
 - (void)messageComposerSendMessageClickedWithMessage:(NSString*)message{
-    
+    //whe send is clicked, we should take the text from the
 }
 
--(void)tapReceived:(UITapGestureRecognizer *)tapGestureRecognizer
-{
+- (void)handleSwipeDownFrom:(UIGestureRecognizer*)recognizer {
     [self.messageComposerView finishEditing];
+}
+
+
+#pragma mark - UIGestureRecognizerDelegate
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    // Needed to prevent UITableView from absorbing swipe gesture recognizer
+    return YES;
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    // Needed to prevent UITableView from absorbing swipe gesture recognizer
+    return YES;
 }
 
 @end

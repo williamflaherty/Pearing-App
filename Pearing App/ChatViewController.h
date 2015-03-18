@@ -13,5 +13,6 @@
 
 @property (nonatomic, strong) MessageComposerView *messageComposerView;
 @property (strong, nonatomic) IBOutlet UITableView *conversationView;
+@property (strong, nonatomic) UISwipeGestureRecognizer *swipe;
 
 @end
