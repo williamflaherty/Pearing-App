@@ -1,9 +1,9 @@
 //
 //  MessagesViewController.h
-//  Pearing App
+//  Pearing
 //
-//  Created by Dwayne Flaherty on 7/21/14.
-//  Copyright (c) 2014 Pearing. All rights reserved.
+//  Created by Dwayne Flaherty on 3/28/15.
+//  Copyright (c) 2015 Pearing. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

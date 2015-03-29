@@ -16,6 +16,7 @@
 		19339BC91A9E953C00B5BF5F /* profileCardColorNoDs.png in Resources */ = {isa = PBXBuildFile; fileRef = 19339BC81A9E953C00B5BF5F /* profileCardColorNoDs.png */; };
 		19339BCB1AA68C5F00B5BF5F /* PEConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 19339BCA1AA68C5F00B5BF5F /* PEConfiguration.m */; };
 		19544170197D82D0007E2985 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1954416F197D82CF007E2985 /* SettingsViewController.m */; };
+		19A8925D1AC70ADA003FB938 /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A8925C1AC70ADA003FB938 /* MessagesViewController.m */; };
 		19AA47131A9905C900D6B5C3 /* testy.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AA47121A9905C900D6B5C3 /* testy.png */; };
 		19AA47151A990A6200D6B5C3 /* screen_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 19AA47141A990A6200D6B5C3 /* screen_2.png */; };
 		19D318C61867DD9200C34A5C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D318C51867DD9200C34A5C /* Foundation.framework */; };
@@ -111,6 +112,8 @@
 		1941BF20197B91DA00903654 /* PearingAuth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PearingAuth.h; sourceTree = "<group>"; };
 		1954416E197D82CF007E2985 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		1954416F197D82CF007E2985 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		19A8925B1AC70ADA003FB938 /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesViewController.h; sourceTree = "<group>"; };
+		19A8925C1AC70ADA003FB938 /* MessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesViewController.m; sourceTree = "<group>"; };
 		19AA47121A9905C900D6B5C3 /* testy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testy.png; sourceTree = "<group>"; };
 		19AA47141A990A6200D6B5C3 /* screen_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen_2.png; sourceTree = "<group>"; };
 		19D318C21867DD9200C34A5C /* Pearing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pearing.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -572,6 +575,8 @@
 				C0E171A5188BE3C300435DCE /* FullSizeImageViewController.m */,
 				19FD65E01AAFB9FE000E6F67 /* ChatViewController.h */,
 				19FD65E11AAFB9FE000E6F67 /* ChatViewController.m */,
+				19A8925B1AC70ADA003FB938 /* MessagesViewController.h */,
+				19A8925C1AC70ADA003FB938 /* MessagesViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -733,6 +738,7 @@
 				435DBE311A9ABE0E00BFF0D0 /* NSArray+JSONModel.m in Sources */,
 				19DC5BD41868D15B0035EE30 /* ChooseImagesCell.m in Sources */,
 				C0E1719C188BCFC800435DCE /* PEUser.m in Sources */,
+				19A8925D1AC70ADA003FB938 /* MessagesViewController.m in Sources */,
 				19D318DC1867DD9200C34A5C /* ViewController.m in Sources */,
 				435DBE0D1A9AB95300BFF0D0 /* PEStorage.m in Sources */,
 				C03FA8B01873ECEF001E7597 /* SetupProfileViewController.m in Sources */,

@@ -44,6 +44,9 @@
     UIImage *barButtonImage = [UIImage imageNamed:@"settings-button.png"];
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithImage:barButtonImage style:UIBarButtonItemStylePlain target:self action:@selector(backButtonPressed:)];
     self.navigationItem.leftBarButtonItem = backButton;
+    
+    UIBarButtonItem *chatListButton = [[UIBarButtonItem alloc] initWithTitle:@"Chat" style:UIBarButtonItemStylePlain target:self action:@selector(chatButtonPressed:)];
+    self.navigationItem.rightBarButtonItem = chatListButton;
 
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -51,6 +54,7 @@
                                     [UIColor whiteColor],NSBackgroundColorAttributeName,nil];
     self.navigationController.navigationBar.titleTextAttributes = textAttributes;
     
+
     
 	[self loadMatches];
 }
@@ -72,6 +76,17 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (IBAction)chatButtonPressed:(id)sender {
+    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"MessagesViewController"]
+                                         animated:YES];
+}
+
+-(IBAction)onChatButtonTap:(id)sender{
+    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"MessagesViewController"]
+                                         animated:NO];
+    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"ChatViewController"] animated:YES];
+}
+
 # pragma mark - tableView
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -81,6 +96,7 @@
     cell.backgroundColor = [UIColor colorWithRed:236/255.0f green:240/255.0f blue:241/255.0f alpha:1.0f];;
     cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell.chatAndChallengeButton addTarget:self action:@selector(onChatButtonTap:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 

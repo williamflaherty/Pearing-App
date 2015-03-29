@@ -80,7 +80,7 @@
     UIImage *chatButtonImage = [UIImage imageNamed:@"chat-button-round.png"];
                             //resizableImageWithCapInsets:UIEdgeInsetsMake(18, 18, 18, 18)];
     [self.chatAndChallengeButton setBackgroundImage:chatButtonImage forState:UIControlStateNormal];
-    
+
     //setup the favorites button
 //    [[self.favoriteButton layer] setBorderWidth:.5f];
 //    [[self.favoriteButton layer] setBorderColor:[orangeColor CGColor]];
@@ -103,6 +103,8 @@
     
     self.imagesScrollView.images = match.images;
 }
+
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

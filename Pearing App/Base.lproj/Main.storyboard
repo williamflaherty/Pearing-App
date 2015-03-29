@@ -588,9 +588,6 @@
                                             <state key="normal" image="chat-button-round.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
-                                            <connections>
-                                                <segue destination="scq-y9-a4k" kind="push" id="09X-WH-OsR"/>
-                                            </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="kcv-u0-cpO">
                                             <rect key="frame" x="237" y="35" width="60" height="60"/>
@@ -653,12 +650,38 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3X4-o5-5iy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1150" y="-970"/>
+            <point key="canvasLocation" x="1190" y="-980"/>
+        </scene>
+        <!--Messages View Controller-->
+        <scene sceneID="hf6-NZ-V4W">
+            <objects>
+                <tableViewController storyboardIdentifier="MessagesViewController" id="9zz-oN-khQ" customClass="MessagesViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5C9-RN-Wpo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="eul-Bw-kcN">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eul-Bw-kcN" id="TbI-e0-Fs4">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9zz-oN-khQ" id="75j-Us-gSR"/>
+                            <outlet property="delegate" destination="9zz-oN-khQ" id="gPR-bK-n07"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nCE-kN-oIT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1702" y="-980"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="rbK-Vz-6CG">
             <objects>
-                <viewController id="scq-y9-a4k" customClass="ChatViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatViewController" id="scq-y9-a4k" customClass="ChatViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="XcA-QK-lLO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -681,7 +704,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pol-On-kwH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1701" y="-992"/>
+            <point key="canvasLocation" x="1702" y="-296"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cHP-xc-eax">
